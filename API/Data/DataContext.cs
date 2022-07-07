@@ -22,5 +22,8 @@ namespace API.bin.Data
         {
             
         }
+
+        public DbSet<ShoppingList> ShoppingLists { get; set; }
+        public DbSet<Item> Items { get; set; }
     }
 }
