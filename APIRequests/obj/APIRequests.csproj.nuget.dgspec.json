@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj": {}
+    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj": {
+    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj",
+        "projectName": "APIRequests",
+        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj",
         "packagesPath": "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\obj\\",
+        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

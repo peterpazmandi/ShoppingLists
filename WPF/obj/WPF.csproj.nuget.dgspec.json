@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj": {}
+    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj": {
+    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
+        "projectName": "WPF",
+        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
         "packagesPath": "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\API\\obj\\",
+        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -25,15 +25,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
             "projectReferences": {}
           }
         },
@@ -44,8 +44,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "imports": [
             "net461",
             "net462",
