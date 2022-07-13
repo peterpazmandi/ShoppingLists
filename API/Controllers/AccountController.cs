@@ -54,6 +54,32 @@ namespace API.Controllers
             };
         }
 
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginUserDto>> Login(LoginDto loginDto)
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.UserName.ToLower().Equals(loginDto.Username.ToLower()));
+
+            if (user is null)
+            {
+                return BadRequest("Invalid username!");
+            }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if (!result.Succeeded)
+            {
+                return Unauthorized("The username or the password is incorrect!");
+            }
+
+            return new LoginUserDto
+            {
+                Username = user.UserName,
+                Email = user.Email,
+                Token = await _tokenService.CreateTokenAsync(user)
+            };
+        }
+
 
 
 
