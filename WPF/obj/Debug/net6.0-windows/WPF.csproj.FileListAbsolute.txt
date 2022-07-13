@@ -52,3 +52,5 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\LoginView.g.cs
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\App.baml
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\LoginView.baml
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Styles\Brushes.baml
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Styles\Colors.baml

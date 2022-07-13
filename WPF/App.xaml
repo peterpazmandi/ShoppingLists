@@ -8,6 +8,12 @@
     <Application.Resources>
 
         <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Colors.xaml" />
+                <ResourceDictionary Source="/Styles/Brushes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
             <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
                 <views:RegisterView />
             </DataTemplate>
