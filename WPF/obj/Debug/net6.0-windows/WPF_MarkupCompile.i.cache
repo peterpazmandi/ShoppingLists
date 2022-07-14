@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\App.xaml
-5351340421
+72056720284
 
 231351610498
-2191103447749
-MainWindow.xaml;Styles\Brushes.xaml;Styles\Colors.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;
+220271044791
+MainWindow.xaml;Styles\Brushes.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\TextBoxBase.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;
 
 True
 

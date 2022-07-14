@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+cCDMEhcExqEsyBJI+kIe7Q9Eet/wcYYARiXlbCGpuEbUpqLpCU/eczf9dAFFumC18FNXfbE6oRAIohJXnWZhA==",
+  "dgSpecHash": "bxqN58uKAFSFuDohT2/j+n0co8C/LZAapql3bo/YUSASOtuDv5TBxNZZKHsCL/SVPPMRttg3M2z0OgOTy3oD/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\6.0.0\\microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

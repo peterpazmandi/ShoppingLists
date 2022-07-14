@@ -3,15 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:components="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM"
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             MinHeight="560" MinWidth="800"
+             d:DesignHeight="600" d:DesignWidth="800">
 
     <UserControl.Background>
         <SolidColorBrush Color="{StaticResource ColorLightGray}" />
     </UserControl.Background>
 
-    <Border Margin="25" Padding="50"
+    <Border Margin="12" Padding="30"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="White"
@@ -33,6 +35,61 @@
                        HorizontalAlignment="Center"
                        FontSize="40"
                        Text="Shopping Lists" />
+
+            <TextBlock Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       FontSize="14"
+                       Text="We help remember your lists!" />
+
+            <Grid Grid.Row="2" Margin="0, 60, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <!--Username-->
+                <Grid Grid.Row="0" Margin="0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" SharedSizeGroup="Label" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Username" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Margin="20 0 0 0"
+                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <!--Password-->
+                <Grid Grid.Row="1" Margin="0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" SharedSizeGroup="Label" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Password" VerticalAlignment="Center" />
+                    <components:BindablePasswordBox Grid.Column="1" Margin="20 0 0 0"
+                                                    Password="{Binding Password}" />
+                </Grid>
+                
+                <!--Login Button-->
+                <Button Grid.Row="2" Margin="0 40 0 0"
+                        HorizontalAlignment="Center"
+                        Command="{Binding LoginCommand}"
+                        Style="{StaticResource PrimaryButton}"
+                        Content="Login"
+                        IsDefault="True" />
+
+                <!--Don't have an account? Button-->
+                <Button Grid.Row="3" Margin="0 10 0 0"
+                        HorizontalAlignment="Center"
+                        Command="{Binding ViewRegisterCommand}"
+                        Content="Don't have an account?"
+                        Style="{StaticResource TextButton}" />
+
+            </Grid>
 
         </Grid>
         

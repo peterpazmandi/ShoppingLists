@@ -12,6 +12,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Colors.xaml" />
                 <ResourceDictionary Source="/Styles/Brushes.xaml" />
+                <ResourceDictionary Source="/Styles/TextBoxBase.xaml" />
+                <ResourceDictionary Source="/Styles/Buttons.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
             <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
