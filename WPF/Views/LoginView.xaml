@@ -75,7 +75,7 @@
                 </Grid>
                 
                 <!--Login Button-->
-                <Button Grid.Row="2" Margin="0 40 0 0"
+                <Button Grid.Row="2" Margin="0 20 0 0"
                         HorizontalAlignment="Center"
                         Command="{Binding LoginCommand}"
                         Style="{StaticResource PrimaryButton}"

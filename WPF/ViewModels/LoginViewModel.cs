@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SimpleTrader.WPF.State.Navigators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WPF.Commands;
+using WPF.State.Authenticator;
 
 namespace WPF.ViewModels
 {
@@ -44,5 +47,21 @@ namespace WPF.ViewModels
 
         public ICommand LoginCommand { get; }
         public ICommand ViewRegisterCommand { get; }
+
+
+        public LoginViewModel(IAuthenticator authenticator)
+        {
+            ErrorMessageViewModel = new MessageViewModel();
+
+            this.LoginCommand = new LoginCommand(this, authenticator);
+        }
+
+
+        public override void Dispose()
+        {
+            ErrorMessageViewModel.Dispose();
+
+            base.Dispose();
+        }
     }
 }

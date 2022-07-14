@@ -11,6 +11,15 @@ namespace WPF.ViewModels
 
     public class ViewModelBase: INotifyPropertyChanged
     {
+        public MessageViewModel ErrorMessageViewModel { get; set; }
+
+        public string ErrorMessage
+        {
+            set => ErrorMessageViewModel.Message = value;
+        }
+
+
+
         public virtual void Dispose() { }
 
         public event PropertyChangedEventHandler PropertyChanged;

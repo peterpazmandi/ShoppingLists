@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF.State.Authenticator;
 using WPF.State.Navigators;
 using WPF.ViewModels;
 using WPF.ViewModels.Factories;
@@ -35,7 +36,7 @@ namespace WPF.HostBuilders
         }
         private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
         {
-            return new LoginViewModel();
+            return new LoginViewModel(services.GetRequiredService<IAuthenticator>());
         }
     }
 }

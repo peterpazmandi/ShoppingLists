@@ -26,6 +26,9 @@ namespace WPF
         private static IHostBuilder CreateHostBuilder(string[] args = null)
         {
             return Host.CreateDefaultBuilder(args)
+                .AddConfiguration()
+                .AddApi()
+                .AddServices()
                 .AddStores()
                 .AddViewModels()
                 .AddViews();

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BGxlrFTnl1PYJMVd8DEnii8//e2ua6sfCnJkP0VQThu5aUpm3x0n/DzaWZYcK5anPVV4Y1mqKiOGd2fLq9W7rA==",
+  "dgSpecHash": "5s2JpOJk4ri3K3wUTfs6GB9E9klms9HEY03P4ek8oPrQwDCBB5uBuCvKB6SUsUf3daAHhldbamWD+Z4DGELFjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
