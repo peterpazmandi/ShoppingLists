@@ -44,7 +44,6 @@ namespace WPF.ViewModels
 
         public bool CanLogin => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
 
-
         public ICommand LoginCommand { get; }
         public ICommand ViewRegisterCommand { get; }
 

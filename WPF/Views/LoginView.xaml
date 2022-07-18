@@ -9,6 +9,9 @@
              MinHeight="560" MinWidth="800"
              d:DesignHeight="600" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <UserControl.Background>
         <SolidColorBrush Color="{StaticResource ColorLightGray}" />
     </UserControl.Background>
@@ -88,6 +91,13 @@
                         Command="{Binding ViewRegisterCommand}"
                         Content="Don't have an account?"
                         Style="{StaticResource TextButton}" />
+
+                <TextBlock Grid.Row="4"
+                           HorizontalAlignment="Center"
+                           DataContext="{Binding ErrorMessageViewModel}"
+                           Foreground="Red"
+                           Text="{Binding Message}"
+                           Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
             </Grid>
 
