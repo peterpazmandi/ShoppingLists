@@ -1,4 +1,5 @@
-﻿using APIRequests.Models;
+﻿using APIRequests.DTOs;
+using APIRequests.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,22 @@ namespace APIRequests.Services.Account
 {
     public class AccountService : IAccountService
     {
-        public Task<User> Login(string username, string password)
+        private readonly ShoppingListsHttpClient _client;
+
+        public AccountService(ShoppingListsHttpClient client)
         {
-            throw new NotImplementedException();
+            _client = client;
+        }
+
+        public async Task<User> Login(string username, string password)
+        {
+            return await _client.PostAsync<User>(
+                "Account/login", 
+                new LoginDto 
+                { 
+                    Username = username, 
+                    Password = password 
+                });
         }
     }
 }

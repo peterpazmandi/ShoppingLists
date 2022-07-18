@@ -46,9 +46,9 @@ namespace WPF.Commands
             {
                 _loginViewModel.ErrorMessage = "Incorrect password.";
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                _loginViewModel.ErrorMessage = "Login failed.";
+                _loginViewModel.ErrorMessage = exception.Message;
             }
         }
 
