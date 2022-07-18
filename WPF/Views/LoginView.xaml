@@ -76,9 +76,17 @@
                     <components:BindablePasswordBox Grid.Column="1" Margin="20 0 0 0"
                                                     Password="{Binding Password}" />
                 </Grid>
+
+                <!--Error Message-->
+                <TextBlock Grid.Row="2"
+                           HorizontalAlignment="Center"
+                           DataContext="{Binding ErrorMessageViewModel}"
+                           Foreground="Red"
+                           Text="{Binding Message}"
+                           Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
                 
                 <!--Login Button-->
-                <Button Grid.Row="2" Margin="0 20 0 0"
+                <Button Grid.Row="3" Margin="0 20 0 0"
                         HorizontalAlignment="Center"
                         Command="{Binding LoginCommand}"
                         Style="{StaticResource PrimaryButton}"
@@ -86,18 +94,11 @@
                         IsDefault="True" />
 
                 <!--Don't have an account? Button-->
-                <Button Grid.Row="3" Margin="0 10 0 0"
+                <Button Grid.Row="4" Margin="0 10 0 0"
                         HorizontalAlignment="Center"
                         Command="{Binding ViewRegisterCommand}"
                         Content="Don't have an account?"
                         Style="{StaticResource TextButton}" />
-
-                <TextBlock Grid.Row="4"
-                           HorizontalAlignment="Center"
-                           DataContext="{Binding ErrorMessageViewModel}"
-                           Foreground="Red"
-                           Text="{Binding Message}"
-                           Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
             </Grid>
 
