@@ -17,10 +17,11 @@ namespace WPF.Commands
         private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
 
-        public LoginCommand(LoginViewModel loginViewModel, IAuthenticator authenticator)
+        public LoginCommand(LoginViewModel loginViewModel, IAuthenticator authenticator, IRenavigator renavigator)
         {
             _loginViewModel = loginViewModel;
             _authenticator = authenticator;
+            _renavigator = renavigator;
 
             _loginViewModel.PropertyChanged += LoginViewModel_PropertyChanged;
         }
@@ -37,6 +38,8 @@ namespace WPF.Commands
             try
             {
                 await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
+
+                _renavigator.Renavigate();
             }
             catch (UserNotFoundException)
             {

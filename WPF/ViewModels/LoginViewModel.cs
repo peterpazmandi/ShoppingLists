@@ -48,11 +48,11 @@ namespace WPF.ViewModels
         public ICommand ViewRegisterCommand { get; }
 
 
-        public LoginViewModel(IAuthenticator authenticator)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator)
         {
             ErrorMessageViewModel = new MessageViewModel();
 
-            this.LoginCommand = new LoginCommand(this, authenticator);
+            this.LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
         }
 
 

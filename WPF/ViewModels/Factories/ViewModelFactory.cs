@@ -11,10 +11,15 @@ namespace WPF.ViewModels.Factories
     {
         private readonly CreateViewModel<RegisterViewModel> _createRegisterViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
+        private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
 
 
-        public ViewModelFactory(CreateViewModel<RegisterViewModel> createRegisterViewModel, CreateViewModel<LoginViewModel> createLoginViewModel)
+        public ViewModelFactory(
+            CreateViewModel<HomeViewModel> createHomeViewModel,
+            CreateViewModel<RegisterViewModel> createRegisterViewModel,
+            CreateViewModel<LoginViewModel> createLoginViewModel)
         {
+            _createHomeViewModel = createHomeViewModel;
             _createRegisterViewModel = createRegisterViewModel;
             _createLoginViewModel = createLoginViewModel;
         }
@@ -28,8 +33,7 @@ namespace WPF.ViewModels.Factories
                 case ViewType.Login:
                     return _createLoginViewModel();
                 case ViewType.Home:
-                    return null;
-                    break;
+                    return _createHomeViewModel();
                 default:
                     throw new ArgumentException("The ViewType does not have a ViewModel.", "viewType");
             }
