@@ -44,7 +44,7 @@
                        FontSize="14"
                        Text="We help remember your lists!" />
 
-            <Grid Grid.Row="2" Margin="0, 60, 0, 0">
+            <Grid Grid.Row="2" Margin="0, 40, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />

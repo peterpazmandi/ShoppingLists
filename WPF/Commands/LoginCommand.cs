@@ -41,14 +41,6 @@ namespace WPF.Commands
 
                 _renavigator.Renavigate();
             }
-            catch (UserNotFoundException)
-            {
-                _loginViewModel.ErrorMessage = "Username does not exist.";
-            }
-            catch (InvalidPasswordException)
-            {
-                _loginViewModel.ErrorMessage = "Incorrect password.";
-            }
             catch (Exception exception)
             {
                 _loginViewModel.ErrorMessage = exception.Message;

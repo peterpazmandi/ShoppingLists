@@ -22,7 +22,7 @@ namespace WPF.State.Authenticator
         /// <param name="confirmPassword">The user's confirmed password.</param>
         /// <returns>The result of the registration.</returns>
         /// <exception cref="Exception">Thrown if the registration fails.</exception>
-        //Task<RegistrationResult> Register(string email, string username, string password, string confirmPassword);
+        Task Register(string email, string username, string password);
 
         /// <summary>
         /// Login to the application.

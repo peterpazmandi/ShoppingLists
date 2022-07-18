@@ -28,6 +28,7 @@ namespace WPF.HostBuilders
                 services.AddSingleton<IViewModelFactory, ViewModelFactory>();
 
                 services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
+                services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
                 services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
             });
 
@@ -36,13 +37,17 @@ namespace WPF.HostBuilders
 
         private static RegisterViewModel CreateRegisterViewModel(IServiceProvider services)
         {
-            return new RegisterViewModel();
+            return new RegisterViewModel(
+                services.GetRequiredService<IAuthenticator>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>());
         }
         private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
         {
             return new LoginViewModel(
                 services.GetRequiredService<IAuthenticator>(),
-                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
+                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>());
         }
     }
 }

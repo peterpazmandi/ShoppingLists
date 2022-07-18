@@ -47,9 +47,9 @@ namespace SimpleTrader.WPF.State.Authenticators
             CurrentUser = null;
         }
 
-        //public async Task<RegistrationResult> Register(string email, string username, string password, string confirmPassword)
-        //{
-        //    return await _authenticationService.Register(email, username, password, confirmPassword);
-        //}
+        public async Task Register(string email, string username, string password)
+        {
+            CurrentUser = await _accountService.Register(email, username, password);
+        }
     }
 }
