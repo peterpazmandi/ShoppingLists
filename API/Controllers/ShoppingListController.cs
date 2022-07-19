@@ -29,10 +29,18 @@ namespace API.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> Create(CreateShoppingListDto shoppingListDto)
         {
-            var users = _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.Members);
+            var users = await _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.Members);
 
+            var shoppingList = _mapper.Map<ShoppingList>(shoppingListDto);
 
-            return Ok(users);
+            await _unitOfWork.ShoppingListRepository.CreateAsync(shoppingList);
+
+            if (await _unitOfWork.CompleteAsync())
+            {
+                return Ok(shoppingList);
+            }
+
+            return BadRequest("Operation failed!");
         }
     }
 }

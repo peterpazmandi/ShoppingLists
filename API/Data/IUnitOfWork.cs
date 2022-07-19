@@ -9,6 +9,7 @@ namespace API.Data
     public interface IUnitOfWork
     {
         IUserRepository UserRepository { get; }
+        IShoppingListRepository ShoppingListRepository { get; }
         
 
         Task<bool> CompleteAsync();
