@@ -8,6 +8,6 @@ namespace API.Entities
 {
     public class AppUser : IdentityUser<int>
     {
-        
+        public virtual ICollection<ShoppingList> ShoppingLists { get; set; }
     }
 }

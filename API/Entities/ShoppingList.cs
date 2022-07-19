@@ -12,6 +12,8 @@ namespace API.Entities
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
+        public virtual ICollection<AppUser> Members { get; set; }
+
         public virtual ICollection<Item> Items { get; set; }
     }
 }
