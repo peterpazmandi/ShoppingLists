@@ -29,9 +29,10 @@ namespace API.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> Create(CreateShoppingListDto shoppingListDto)
         {
-            var users = await _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.Members);
+            var users = await _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.MembersUsername);
 
             var shoppingList = _mapper.Map<ShoppingList>(shoppingListDto);
+            shoppingList.Members = users.ToList();
 
             await _unitOfWork.ShoppingListRepository.CreateAsync(shoppingList);
 

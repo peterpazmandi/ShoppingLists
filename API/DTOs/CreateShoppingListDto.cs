@@ -11,7 +11,7 @@ namespace API.DTOs
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
-        public IEnumerable<string> Members { get; set; }
+        public IEnumerable<string> MembersUsername { get; set; }
         public IEnumerable<CreateItemDto> Items { get; set; }
     }
 }

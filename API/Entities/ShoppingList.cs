@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace API.Entities
@@ -12,8 +13,10 @@ namespace API.Entities
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<AppUser> Members { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Item> Items { get; set; }
     }
 }
