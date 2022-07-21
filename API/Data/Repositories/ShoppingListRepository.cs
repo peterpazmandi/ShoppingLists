@@ -6,6 +6,7 @@ using API.bin.Data;
 using API.Data.Repositories.Interfaces;
 using API.DTOs;
 using API.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories
 {
@@ -23,6 +24,15 @@ namespace API.Data.Repositories
         public async Task CreateAsync(ShoppingList shoppingList)
         {
             await _context.ShoppingLists.AddAsync(shoppingList);
+        }
+
+        public async Task<List<ShoppingList>> GetByUsernameAsync(string username)
+        {
+            return await _context.ShoppingLists
+                .Include(s => s.Items)
+                .Include(s => s.Members)
+                .Where(s => s.Members.Where(m => m.UserName.Equals(username)).Count() > 0)
+                .ToListAsync();
         }
     }
 }

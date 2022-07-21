@@ -14,9 +14,9 @@ namespace API.Entities
         public DateTime Modified { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<AppUser> Members { get; set; }
+        public virtual List<AppUser> Members { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<Item> Items { get; set; }
+        public virtual List<Item> Items { get; set; }
     }
 }

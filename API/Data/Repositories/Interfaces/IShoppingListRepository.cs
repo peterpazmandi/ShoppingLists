@@ -10,5 +10,6 @@ namespace API.Data.Repositories.Interfaces
     public interface IShoppingListRepository
     {
         Task CreateAsync(ShoppingList shoppingList);
+        Task<List<ShoppingList>> GetByUsernameAsync(string username);
     }
 }

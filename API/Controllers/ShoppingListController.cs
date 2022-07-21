@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,6 +25,16 @@ namespace API.Controllers
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
+
+        [Authorize]
+        [HttpGet("GetByUsername")]
+        public async Task<IActionResult> GetByUsername()
+        {
+            var username = User.GetUsername();
+            var lists = await _unitOfWork.ShoppingListRepository.GetByUsernameAsync(username);
+            return Ok(_mapper.Map<List<ShoppingListDto>>(lists));
+        }
+
 
         [Authorize]
         [HttpPost("Create")]
