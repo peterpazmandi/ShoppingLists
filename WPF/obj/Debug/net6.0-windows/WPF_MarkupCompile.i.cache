@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\App.xaml
-81190860124
+9-2045198827
 
-33-928775985
+34720906184
 223348387058
-MainWindow.xaml;Styles\Brushes.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\TextBoxBase.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;
+Controls\NavigationBar.xaml;MainWindow.xaml;Styles\Brushes.xaml;Styles\Buttons.xaml;Styles\Colors.xaml;Styles\TextBoxBase.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;
 
 True
 
