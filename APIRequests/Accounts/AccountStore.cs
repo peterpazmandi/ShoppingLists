@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WPF.State.Accounts;
 
-namespace SimpleTrader.WPF.State.Accounts
+namespace APIRequests.Accounts
 {
     public class AccountStore : IAccountStore
     {

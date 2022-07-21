@@ -1,11 +1,11 @@
-C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.deps.json
-C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.dll
-C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.pdb
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.csproj.AssemblyReference.cache
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.AssemblyInfoInputs.cache
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.AssemblyInfo.cs
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.csproj.CoreCompileInputs.cache
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.deps.json
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.dll
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\bin\Debug\net6.0\APIRequests.pdb
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.dll
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\refint\APIRequests.dll
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\APIRequests\obj\Debug\net6.0\APIRequests.pdb

@@ -1,10 +1,10 @@
-﻿using APIRequests.Models;
+﻿using APIRequests.Accounts;
+using APIRequests.Models;
 using APIRequests.Services.Account;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using WPF.State.Accounts;
 using WPF.State.Authenticator;
 
 namespace SimpleTrader.WPF.State.Authenticators

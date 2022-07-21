@@ -27,8 +27,8 @@ namespace API.Controllers
         }
 
         [Authorize]
-        [HttpGet("GetByUsername")]
-        public async Task<IActionResult> GetByUsername()
+        [HttpGet("GetMyShoppingLists")]
+        public async Task<IActionResult> GetMyShoppingLists()
         {
             var username = User.GetUsername();
             var lists = await _unitOfWork.ShoppingListRepository.GetByUsernameAsync(username);

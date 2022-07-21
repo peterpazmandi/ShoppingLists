@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace WPF.State.Accounts
+namespace APIRequests.Accounts
 {
     public interface IAccountStore
     {

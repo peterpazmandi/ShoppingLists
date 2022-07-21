@@ -17,8 +17,9 @@ namespace APIRequests
             _client = client;
         }
 
-        public async Task<T> GetAsync<T>(string uri)
+        public async Task<T> GetAsync<T>(string uri, string token)
         {
+            _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
             HttpResponseMessage responseMessage = await _client.GetAsync(uri);
             string jsonResponse = await responseMessage.Content.ReadAsStringAsync();
 

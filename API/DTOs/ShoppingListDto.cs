@@ -12,7 +12,7 @@ namespace API.DTOs
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
 
-        public ICollection<UserDto> Members { get; set; }
+        public ICollection<UsernameDto> Members { get; set; }
 
         public  ICollection<ItemDto> Items { get; set; }
     }

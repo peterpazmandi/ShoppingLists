@@ -1,4 +1,5 @@
 ﻿using APIRequests.Services.Account;
+using APIRequests.Services.ShoppingList;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -16,6 +17,7 @@ namespace WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddSingleton<IAccountService, AccountService>();
+                services.AddSingleton<IShoppingListService, ShoppingListService>();
             });
 
             return host;
