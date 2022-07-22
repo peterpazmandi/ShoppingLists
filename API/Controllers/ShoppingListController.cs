@@ -45,6 +45,9 @@ namespace API.Controllers
             var shoppingList = _mapper.Map<ShoppingList>(shoppingListDto);
             shoppingList.Members = users.ToList();
 
+            shoppingList.Created = DateTime.Now;
+            shoppingList.Modified = DateTime.Now;
+
             await _unitOfWork.ShoppingListRepository.CreateAsync(shoppingList);
 
             if (await _unitOfWork.CompleteAsync())

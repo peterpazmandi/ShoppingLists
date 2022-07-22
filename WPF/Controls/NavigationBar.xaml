@@ -26,12 +26,10 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" 
                     HorizontalAlignment="Left" 
-                    Style="{StaticResource EditButton}" />
-            <svgc:SvgViewbox Grid.Column="1"
-                         Margin="12"
-                         HorizontalAlignment="Right"
-                         Width="24" Height="24"
-                         Source="Assets/Icons/ic_person.svg"/>
+                    Style="{StaticResource CreateButton}" />
+            <Button Grid.Column="1" 
+                    HorizontalAlignment="Right" 
+                    Style="{StaticResource ProfileButton}" />
         </Grid>
         
     </Grid>

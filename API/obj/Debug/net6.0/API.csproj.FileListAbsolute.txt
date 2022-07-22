@@ -63,3 +63,8 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\API\obj\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\API\obj\Debug\net6.0\API.dll
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\API\obj\Debug\net6.0\refint\API.dll
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\API\obj\Debug\net6.0\API.pdb
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\api\bin\Debug\net6.0\API.deps.json
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\api\bin\Debug\net6.0\API.runtimeconfig.json
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\api\bin\Debug\net6.0\API.pdb
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\api\obj\Debug\net6.0\API.genruntimeconfig.cache
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\api\obj\Debug\net6.0\ref\API.dll

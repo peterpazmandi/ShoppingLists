@@ -32,6 +32,7 @@ namespace API.Data.Repositories
                 .Include(s => s.Items)
                 .Include(s => s.Members)
                 .Where(s => s.Members.Where(m => m.UserName.Equals(username)).Count() > 0)
+                .OrderByDescending(s => s.Modified)
                 .ToListAsync();
         }
     }

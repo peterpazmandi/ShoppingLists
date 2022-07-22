@@ -1,6 +1,7 @@
 ﻿using APIRequests.Services.ShoppingList;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,18 @@ namespace WPF.ViewModels
     public class HomeViewModel: ViewModelBase
     {
         private readonly IShoppingListService _shoppingListService;
+
+        private ObservableCollection<ShoppingListViewModel> _shoppingLists = new ObservableCollection<ShoppingListViewModel>();
+        public ObservableCollection<ShoppingListViewModel> ShoppingLists
+        {
+            get { return _shoppingLists; }
+            set 
+            {
+                _shoppingLists = value;
+                OnPropertyChanged(nameof(ShoppingLists));
+            }
+        }
+
 
         public HomeViewModel(IShoppingListService shoppingListService)
         {
