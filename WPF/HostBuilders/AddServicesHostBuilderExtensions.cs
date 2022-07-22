@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF.Helpers;
 
 namespace WPF.HostBuilders
 {
@@ -18,6 +19,7 @@ namespace WPF.HostBuilders
             {
                 services.AddSingleton<IAccountService, AccountService>();
                 services.AddSingleton<IShoppingListService, ShoppingListService>();
+                services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             });
 
             return host;

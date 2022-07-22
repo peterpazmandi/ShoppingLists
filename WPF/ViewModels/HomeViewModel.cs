@@ -1,4 +1,5 @@
 ﻿using APIRequests.Services.ShoppingList;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,9 @@ namespace WPF.ViewModels
     public class HomeViewModel: ViewModelBase
     {
         private readonly IShoppingListService _shoppingListService;
+        private readonly IMapper _mapper;
+
+
 
         private ObservableCollection<ShoppingListViewModel> _shoppingLists = new ObservableCollection<ShoppingListViewModel>();
         public ObservableCollection<ShoppingListViewModel> ShoppingLists
@@ -24,7 +28,7 @@ namespace WPF.ViewModels
         }
 
 
-        public HomeViewModel(IShoppingListService shoppingListService)
+        public HomeViewModel(IShoppingListService shoppingListService, IMapper mapper)
         {
             _shoppingListService = shoppingListService;
 
@@ -32,11 +36,19 @@ namespace WPF.ViewModels
             {
                 await GetMyShoppingLists();
             });
+            _mapper = mapper;
         }
 
         private async Task GetMyShoppingLists()
         {
             var lists = await _shoppingListService.GetMyShoppingLists();
+            Console.WriteLine(lists);
+            foreach (var item in lists)
+            {
+                var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
+                this.ShoppingLists.Add(shoppingList);
+            }
+            Console.WriteLine(this.ShoppingLists);
         }
     }
 }
