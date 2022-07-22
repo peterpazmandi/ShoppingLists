@@ -11,7 +11,8 @@
           "APIRequests": "1.0.0",
           "Microsoft.Extensions.Hosting": "6.0.1",
           "Microsoft.Extensions.Http": "7.0.0-preview.6.22324.4",
-          "PasswordBoxMVVM": "1.0.5"
+          "PasswordBoxMVVM": "1.0.5",
+          "SharpVectors": "1.8.0"
         },
         "runtime": {
           "WPF.dll": {}
@@ -383,6 +384,42 @@
           }
         }
       },
+      "SharpVectors/1.8.0": {
+        "runtime": {
+          "lib/net6.0-windows7.0/SharpVectors.Converters.Wpf.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Core.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Css.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Dom.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Model.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Rendering.Gdi.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Rendering.Wpf.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          },
+          "lib/net6.0-windows7.0/SharpVectors.Runtime.Wpf.dll": {
+            "assemblyVersion": "1.8.0.0",
+            "fileVersion": "1.8.0.0"
+          }
+        }
+      },
       "System.Diagnostics.EventLog/6.0.0": {
         "runtimeTargets": {
           "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll": {
@@ -616,6 +653,13 @@
       "sha512": "sha512-NeUoGEBKjrYotXuLdSmEsglUhofPNgf6Hd6g7R64R+Iail4+ANzkNRsrcq/euYMlurFkC7MUtUJvesdU20Cycg==",
       "path": "passwordboxmvvm/1.0.5",
       "hashPath": "passwordboxmvvm.1.0.5.nupkg.sha512"
+    },
+    "SharpVectors/1.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sVNzeJserxfXv7G7/EhPd5IUg4hsL66pvqg31T4UWt671K0V4QqUfWlP6/sGlMX2s7IeT5NBqiP3MD9NXYKFjA==",
+      "path": "sharpvectors/1.8.0",
+      "hashPath": "sharpvectors.1.8.0.nupkg.sha512"
     },
     "System.Diagnostics.EventLog/6.0.0": {
       "type": "package",

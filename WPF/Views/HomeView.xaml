@@ -6,8 +6,19 @@
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d" 
              Background="White"
+             xmlns:controls="clr-namespace:WPF.Controls"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Home View" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="{StaticResource ColorMediumGray}" />
+            </Border.Effect>
+            <controls:NavigationBar Grid.Row="0" />
+        </Border>
     </Grid>
 </UserControl>
