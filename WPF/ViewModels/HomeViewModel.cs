@@ -42,13 +42,12 @@ namespace WPF.ViewModels
         private async Task GetMyShoppingLists()
         {
             var lists = await _shoppingListService.GetMyShoppingLists();
-            Console.WriteLine(lists);
+
             foreach (var item in lists)
             {
                 var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
                 this.ShoppingLists.Add(shoppingList);
             }
-            Console.WriteLine(this.ShoppingLists);
         }
     }
 }
