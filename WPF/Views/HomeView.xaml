@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d" 
-             Background="White"
+             Background="{StaticResource BrushLightGray}"
              xmlns:controls="clr-namespace:WPF.Controls"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -14,11 +14,23 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border >
+        <Border Grid.Row="0">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="10" Color="{StaticResource ColorMediumGray}" />
             </Border.Effect>
-            <controls:NavigationBar Grid.Row="0" />
+            <controls:NavigationBar />
         </Border>
+
+        <ListView DataContext="{Binding ShoppingLists}"
+                  Grid.Row="1" 
+                  Width="600"
+                  Padding="0 16 0 16"
+                  IsSynchronizedWithCurrentItem="True" >
+            <ListView.Style>
+                <Style TargetType="ListView">
+                    <Setter Property="Template" Value="{StaticResource ShoppingListListViewTemplate}" />
+                </Style>
+            </ListView.Style>
+        </ListView>
     </Grid>
 </UserControl>

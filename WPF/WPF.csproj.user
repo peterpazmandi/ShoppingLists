@@ -19,6 +19,9 @@
     <Page Update="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Converters\ConverterDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\Brushes.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -29,6 +32,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Icons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ListViews.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\TextBoxBase.xaml">

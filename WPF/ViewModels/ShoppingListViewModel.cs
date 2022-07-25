@@ -74,6 +74,5 @@ namespace WPF.ViewModels
                 OnPropertyChanged(nameof(Items));
             }
         }
-
     }
 }
