@@ -74,5 +74,9 @@ namespace WPF.ViewModels
                 OnPropertyChanged(nameof(Items));
             }
         }
+
+        public int ItemsCount => this.Items.Count;
+        public int BoughtItems => this.Items.Count(x => x.Bought);
+
     }
 }

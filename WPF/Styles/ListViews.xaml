@@ -17,7 +17,8 @@
                     <Grid Margin="6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -28,10 +29,19 @@
                         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                            HorizontalAlignment="Left"
                            Content="{Binding Modified, Converter={StaticResource DateToTimeAgoConverter}}" />
+                        
                         <Label Grid.Row="1" Grid.Column="1"
                            Content="{Binding Title}"
                            FontWeight="Bold"
                            FontSize="16" />
+                        <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right">
+                            <Label Content="{Binding BoughtItems}"/>
+                            <Label Content="/" />
+                            <Label Content="{Binding ItemsCount}" />
+                        </StackPanel>
 
                 </Grid>
                 </DataTemplate>

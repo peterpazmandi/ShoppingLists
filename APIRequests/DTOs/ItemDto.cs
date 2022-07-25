@@ -12,5 +12,7 @@ namespace APIRequests.DTOs
         public string Name { get; set; }
         public double Qty { get; set; }
         public string Unit { get; set; }
+
+        public bool Bought { get; set; }
     }
 }

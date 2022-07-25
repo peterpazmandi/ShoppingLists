@@ -51,5 +51,17 @@ namespace WPF.ViewModels
                 OnPropertyChanged(nameof(Unit));
             }
         }
+
+        private bool _bought;
+        public bool Bought
+        {
+            get { return _bought; }
+            set 
+            { 
+                _bought = value;
+                OnPropertyChanged(nameof(Bought));
+            }
+        }
+
     }
 }

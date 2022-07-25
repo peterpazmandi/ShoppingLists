@@ -32,7 +32,8 @@ namespace API.Controllers
         {
             var username = User.GetUsername();
             var lists = await _unitOfWork.ShoppingListRepository.GetByUsernameAsync(username);
-            return Ok(_mapper.Map<List<ShoppingListDto>>(lists));
+            var _lists = _mapper.Map<List<ShoppingListDto>>(lists);
+            return Ok(_lists);
         }
 
 
