@@ -19,17 +19,19 @@
         </Grid.ColumnDefinitions>
 
 
+        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" >
+            <Button Grid.Column="0" 
+                    HorizontalAlignment="Left" 
+                    Style="{StaticResource HomeMenuButton}" />
+            <Button Grid.Column="1" 
+                    HorizontalAlignment="Right" 
+                    Style="{StaticResource ProfileMenuButton}" />
+        </StackPanel>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" 
-                    HorizontalAlignment="Left" 
-                    Style="{StaticResource CreateButton}" />
-            <Button Grid.Column="1" 
-                    HorizontalAlignment="Right" 
-                    Style="{StaticResource ProfileButton}" />
         </Grid>
         
     </Grid>
