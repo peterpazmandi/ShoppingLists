@@ -23,9 +23,7 @@
 
         <ListView DataContext="{Binding ShoppingLists}"
                   Grid.Row="1" 
-                  Width="600"
-                  Padding="0 16 0 16"
-                  IsSynchronizedWithCurrentItem="True" >
+                  Width="600" >
             <ListView.Style>
                 <Style TargetType="ListView">
                     <Setter Property="Template" Value="{StaticResource ShoppingListListViewTemplate}" />

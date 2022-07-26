@@ -8,42 +8,56 @@
         </ControlTemplate.Resources>
         <ListView 
             ItemsSource="{Binding .}"
-            IsSynchronizedWithCurrentItem="True"
             SelectionMode="Single" 
-            Padding="16"
+            Padding="20"
             BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="6">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
+                    <Border BorderThickness="1"
+                            BorderBrush="{StaticResource BrushLightGray}" >
 
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="520" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
                            HorizontalAlignment="Left"
                            Content="{Binding Modified, Converter={StaticResource DateToTimeAgoConverter}}" />
-                        
-                        <Label Grid.Row="1" Grid.Column="1"
-                           Content="{Binding Title}"
-                           FontWeight="Bold"
-                           FontSize="16" />
-                        <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Margin="40 0 0 0"
+                                   Text="{Binding Title}"
+                                    VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   FontWeight="Bold"
+                                       TextWrapping="WrapWithOverflow"
+                                   FontSize="16" />
+                                <StackPanel Grid.Row="1" Grid.Column="1"
                                     Orientation="Horizontal"
                                     VerticalAlignment="Center"
-                                    HorizontalAlignment="Right">
-                            <Label Content="{Binding BoughtItems}"/>
-                            <Label Content="/" />
-                            <Label Content="{Binding ItemsCount}" />
-                        </StackPanel>
+                                   HorizontalAlignment="Right">
+                                    <Label Content="{Binding ItemsCount}"/>
+                                    <Label Content="/" />
+                                    <Label Content="{Binding BoughtItems}" />
+                                </StackPanel>
+                                <Button Grid.Column="2" 
+                                    HorizontalAlignment="Right" 
+                                    Style="{StaticResource ViewButton}" />
+                            </Grid>
 
-                </Grid>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
