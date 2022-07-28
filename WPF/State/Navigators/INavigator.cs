@@ -11,7 +11,8 @@ namespace WPF.State.Navigators
     {
         Register,
         Login,
-        Home
+        Home,
+        ShoppingList
     }
 
     public interface INavigator

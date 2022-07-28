@@ -1,9 +1,13 @@
-﻿using System;
+﻿using APIRequests.ShoppingLists;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands;
+using WPF.State.Navigators;
 
 namespace WPF.ViewModels
 {
@@ -78,5 +82,8 @@ namespace WPF.ViewModels
         public int ItemsCount => this.Items.Count;
         public int BoughtItems => this.Items.Count(x => x.Bought);
 
+
+        public IShoppingListStore _shoppingListStore { get; set; }
+        public ICommand OpenShoppingListCommand { get; set; }
     }
 }

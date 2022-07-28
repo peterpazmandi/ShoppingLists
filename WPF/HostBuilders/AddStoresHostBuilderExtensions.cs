@@ -1,4 +1,5 @@
 ﻿using APIRequests.Accounts;
+using APIRequests.ShoppingLists;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SimpleTrader.WPF.State.Authenticators;
@@ -21,6 +22,7 @@ namespace WPF.HostBuilders
                 services.AddSingleton<INavigator, Navigator>();
                 services.AddSingleton<IAuthenticator, Authenticator>();
                 services.AddSingleton<IAccountStore, AccountStore>();
+                services.AddSingleton<IShoppingListStore, ShoppingListStore>();
             });
 
             return host;

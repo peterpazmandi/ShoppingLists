@@ -53,7 +53,8 @@
                                 </StackPanel>
                                 <Button Grid.Column="2" 
                                         HorizontalAlignment="Right" 
-                                        Style="{StaticResource ViewButton}" />
+                                        Style="{StaticResource ViewButton}"
+                                        Command="{Binding OpenShoppingListCommand}" />
                             </Grid>
 
                         </Grid>

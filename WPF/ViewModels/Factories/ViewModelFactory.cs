@@ -12,16 +12,19 @@ namespace WPF.ViewModels.Factories
         private readonly CreateViewModel<RegisterViewModel> _createRegisterViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
+        private readonly CreateViewModel<ShoppingListViewModel> _createShoppingListViewModel;
 
 
         public ViewModelFactory(
             CreateViewModel<HomeViewModel> createHomeViewModel,
             CreateViewModel<RegisterViewModel> createRegisterViewModel,
-            CreateViewModel<LoginViewModel> createLoginViewModel)
+            CreateViewModel<LoginViewModel> createLoginViewModel,
+            CreateViewModel<ShoppingListViewModel> createShoppingListViewModel)
         {
             _createHomeViewModel = createHomeViewModel;
             _createRegisterViewModel = createRegisterViewModel;
             _createLoginViewModel = createLoginViewModel;
+            _createShoppingListViewModel = createShoppingListViewModel;
         }
 
         public ViewModelBase CreateViewModel(ViewType viewType)
@@ -34,6 +37,8 @@ namespace WPF.ViewModels.Factories
                     return _createLoginViewModel();
                 case ViewType.Home:
                     return _createHomeViewModel();
+                case ViewType.ShoppingList:
+                    return _createShoppingListViewModel();
                 default:
                     throw new ArgumentException("The ViewType does not have a ViewModel.", "viewType");
             }

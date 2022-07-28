@@ -24,12 +24,14 @@ namespace WPF.HostBuilders
                 services.AddSingleton<CreateViewModel<HomeViewModel>>(services => () => services.GetRequiredService<HomeViewModel>());
                 services.AddSingleton<CreateViewModel<RegisterViewModel>>(services => () => CreateRegisterViewModel(services));
                 services.AddSingleton<CreateViewModel<LoginViewModel>>(services => () => CreateLoginViewModel(services));
+                services.AddSingleton<CreateViewModel<ShoppingListViewModel>>(services => () => services.GetRequiredService<ShoppingListViewModel>());
 
                 services.AddSingleton<IViewModelFactory, ViewModelFactory>();
 
                 services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
                 services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
                 services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
+                services.AddSingleton<ViewModelDelegateRenavigator<ShoppingListViewModel>>();
             });
 
             return host;

@@ -16,5 +16,8 @@ namespace APIRequests.DTOs
         public ICollection<UsernameDto> Members { get; set; }
 
         public ICollection<ItemDto> Items { get; set; }
+
+        public int ItemsCount => this.Items.Count;
+        public int BoughtItems => this.Items.Count(x => x.Bought);
     }
 }
