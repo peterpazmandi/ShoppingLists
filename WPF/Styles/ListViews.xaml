@@ -64,4 +64,54 @@
         </ListView>
     </ControlTemplate>
     
+    <ControlTemplate x:Key="ItemListViewTemplate" TargetType="ListView" >
+        <ListView 
+            ItemsSource="{Binding .}"
+            SelectionMode="Single" 
+            Padding="20"
+            BorderThickness="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1"
+                            BorderBrush="{StaticResource BrushLightGray}" >
+
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="520" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0"
+                                   HorizontalAlignment="Left"
+                                   FontSize="14"
+                                   FontWeight="Bold"
+                                   Content="{Binding Name}" />
+
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Row="1"
+                                            Orientation="Horizontal" >
+                                    <Label Grid.Row="0"
+                                           HorizontalAlignment="Left"
+                                           Content="{Binding Qty}" />
+                                    <Label Grid.Row="0"
+                                           HorizontalAlignment="Left"
+                                           Content="{Binding Unit}" />
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ControlTemplate>
+    
 </ResourceDictionary>

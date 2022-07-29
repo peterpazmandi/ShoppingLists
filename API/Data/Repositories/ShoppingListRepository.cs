@@ -29,7 +29,7 @@ namespace API.Data.Repositories
         public async Task<List<ShoppingList>> GetByUsernameAsync(string username)
         {
             return await _context.ShoppingLists
-                .Include(s => s.Items)
+                .Include(s => s.Items.OrderBy(i => i.Bought))
                 .Include(s => s.Members)
                 .Where(s => s.Members.Where(m => m.UserName.Equals(username)).Count() > 0)
                 .OrderByDescending(s => s.Modified)
