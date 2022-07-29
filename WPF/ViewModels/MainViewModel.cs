@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleTrader.WPF.State.Navigators;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,10 @@ namespace WPF.ViewModels
 
         public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
         public ICommand UpdateCurrentViewModelCommand { get; }
+        public ICommand HomeCommand { get; }
 
 
-        public MainViewModel(IViewModelFactory viewModelFactory, INavigator navigator, IAuthenticator authenticator)
+        public MainViewModel(IViewModelFactory viewModelFactory, INavigator navigator, IAuthenticator authenticator, IRenavigator homeRenavigator)
         {
             _viewModelFactory = viewModelFactory;
             _navigator = navigator;
@@ -32,6 +34,9 @@ namespace WPF.ViewModels
 
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
             UpdateCurrentViewModelCommand.Execute(ViewType.Login);
+
+            HomeCommand = new HomeCommand(homeRenavigator);
+
             _authenticator = authenticator;
             _authenticator.StateChanged += Authenticator_StateChanged;
         }
