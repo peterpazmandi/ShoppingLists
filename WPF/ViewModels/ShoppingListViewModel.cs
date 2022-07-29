@@ -2,23 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WPF.Commands;
+using WPF.Extensions;
 using WPF.State.Navigators;
 
 namespace WPF.ViewModels
 {
-    public class ShoppingListViewModel: ViewModelBase
+    public class ShoppingListViewModel : ViewModelBase
     {
         private int _id;
         public int Id
         {
             get { return _id; }
-            set 
-            { 
+            set
+            {
                 _id = value;
                 OnPropertyChanged(nameof(Id));
             }
@@ -28,8 +32,8 @@ namespace WPF.ViewModels
         public string Title
         {
             get { return _title; }
-            set 
-            { 
+            set
+            {
                 _title = value;
                 OnPropertyChanged(nameof(Title));
             }
@@ -39,8 +43,8 @@ namespace WPF.ViewModels
         public DateTime Created
         {
             get { return dateTime; }
-            set 
-            { 
+            set
+            {
                 dateTime = value;
                 OnPropertyChanged(nameof(Created));
             }
@@ -50,8 +54,8 @@ namespace WPF.ViewModels
         public DateTime Modified
         {
             get { return _modified; }
-            set 
-            { 
+            set
+            {
                 _modified = value;
                 OnPropertyChanged(nameof(Modified));
             }
@@ -62,7 +66,7 @@ namespace WPF.ViewModels
         {
             get { return _members; }
             set
-            { 
+            {
                 _members = value;
                 OnPropertyChanged(nameof(Members));
             }
@@ -74,16 +78,23 @@ namespace WPF.ViewModels
             get { return _items; }
             set
             {
-                _items = value;
+                _items = value.OrderItemsByBought();
                 OnPropertyChanged(nameof(Items));
             }
         }
 
         public int ItemsCount => this.Items.Count;
-        public int BoughtItems => this.Items.Count(x => x.Bought);
+        public int BoughtItems => Items.Count(i => i.Bought);
 
 
         public IShoppingListStore _shoppingListStore { get; set; }
         public ICommand OpenShoppingListCommand { get; set; }
+
+
+        public void OnItemsPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
+        {
+            OnPropertyChanged(nameof(BoughtItems));
+            _items = _items.OrderItemsByBought();
+        }
     }
 }

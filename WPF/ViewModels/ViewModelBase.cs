@@ -13,6 +13,8 @@ namespace WPF.ViewModels
     {
         public MessageViewModel ErrorMessageViewModel { get; set; }
 
+        public ViewModelBase Owner { get; set; }
+
         public string ErrorMessage
         {
             set => ErrorMessageViewModel.Message = value;

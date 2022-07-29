@@ -100,12 +100,18 @@
                                             Orientation="Horizontal" >
                                     <Label Grid.Row="0"
                                            HorizontalAlignment="Left"
-                                           Content="{Binding Qty}" />
+                                           Content="{Binding Qty, NotifyOnTargetUpdated=True}" />
                                     <Label Grid.Row="0"
                                            HorizontalAlignment="Left"
                                            Content="{Binding Unit}" />
                                 </StackPanel>
                             </Grid>
+
+                            <CheckBox Grid.Column="1" Grid.RowSpan="2"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      Style="{StaticResource IsBoughtItemCheckBoxStyle}"
+                                      IsChecked="{Binding Bought}" />
 
                         </Grid>
                     </Border>

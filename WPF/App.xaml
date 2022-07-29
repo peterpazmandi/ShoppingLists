@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="/Styles/TextBoxBase.xaml" />
                 <ResourceDictionary Source="/Styles/Icons.xaml" />
                 <ResourceDictionary Source="/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="/Styles/CheckBoxes.xaml" />
                 <ResourceDictionary Source="/Styles/ListViews.xaml" />
             </ResourceDictionary.MergedDictionaries>
 

@@ -85,3 +85,4 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_home.svg
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\ShoppingListView.g.cs
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\ShoppingListView.baml
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Styles\CheckBoxes.baml

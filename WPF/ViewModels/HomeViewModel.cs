@@ -70,6 +70,10 @@ namespace WPF.ViewModels
                 foreach (var item in lists)
                 {
                     var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
+                    foreach (var listItem in shoppingList.Items)
+                    {
+                        listItem.PropertyChanged += shoppingList.OnItemsPropertyChanged;
+                    }
                     shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator);
                     this.ShoppingLists.Add(shoppingList);
                 }
