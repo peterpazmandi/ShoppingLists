@@ -24,6 +24,7 @@ namespace API.Data
 
         public IUserRepository UserRepository => new UserRepository(_context, _mapper);
         public IShoppingListRepository ShoppingListRepository => new ShoppingListRepository(_context);
+        public IItemRepository ItemRepository => new ItemRepository(_context);
 
         
 

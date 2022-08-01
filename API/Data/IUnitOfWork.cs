@@ -10,6 +10,7 @@ namespace API.Data
     {
         IUserRepository UserRepository { get; }
         IShoppingListRepository ShoppingListRepository { get; }
+        IItemRepository ItemRepository { get; }
         
 
         Task<bool> CompleteAsync();
