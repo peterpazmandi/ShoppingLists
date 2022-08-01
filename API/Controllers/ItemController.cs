@@ -25,16 +25,16 @@ namespace API.Controllers
 
         [Authorize]
         [HttpPost("UpdateItemBoughtStateById")]
-        public async Task<IActionResult> UpdateItemBoughtStateById(int itemId, bool bought)
+        public async Task<IActionResult> UpdateItemBoughtStateById(UpdateItemBoughtDto itemDto)
         {
-            await _unitOfWork.ItemRepository.UpdateItemBoughtStateById(itemId, bought);
+            await _unitOfWork.ItemRepository.UpdateItemBoughtStateById(itemDto.ItemId, itemDto.Bought);
 
             if (await _unitOfWork.CompleteAsync())
             {
-                return Ok("Item updated successfully!");
+                return Ok(new { Message = "Item updated successfully!" });
             }
 
-            return BadRequest("Operation failed!");
+            return BadRequest(new { Message = "Operation failed!"});
         }
     }
 }

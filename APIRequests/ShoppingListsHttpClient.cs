@@ -26,25 +26,36 @@ namespace APIRequests
             return JsonConvert.DeserializeObject<T>(jsonResponse);
         }
 
-        public async Task<T> PostAsync<T>(string uri, object requestObject)
+        public async Task<T> PostAsync<T>(string uri, object requestObject, string token = null)
         {
+            if (!string.IsNullOrEmpty(token))
+            {
+                _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
             string dataStr = JsonConvert.SerializeObject(requestObject);
             StringContent data = new StringContent(dataStr, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _client.PostAsync(
-                    uri,
-                    data);
-
-            if (response.StatusCode != HttpStatusCode.NoContent && response.StatusCode != HttpStatusCode.OK)
+            try
             {
-                throw new HttpRequestException(response.Content.ReadAsStringAsync().Result);
+                HttpResponseMessage response = await _client.PostAsync(
+                        uri,
+                        data);
+
+                if (response.StatusCode != HttpStatusCode.NoContent && response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new HttpRequestException(response.Content.ReadAsStringAsync().Result);
+                }
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    string responseBody = response.Content.ReadAsStringAsync().Result;
+                    T responseObject = JsonConvert.DeserializeObject<T>(responseBody);
+                    return responseObject;
+                }
             }
-
-            if (response.StatusCode == HttpStatusCode.OK)
+            catch (Exception exception)
             {
-                string responseBody = response.Content.ReadAsStringAsync().Result;
-                T responseObject = JsonConvert.DeserializeObject<T>(responseBody);
-                return responseObject;
+                throw new HttpRequestException(exception.Message);
             }
 
             return default;

@@ -1,4 +1,5 @@
-﻿using APIRequests.ShoppingLists;
+﻿using APIRequests.Services.Item;
+using APIRequests.ShoppingLists;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -90,11 +91,32 @@ namespace WPF.ViewModels
         public IShoppingListStore _shoppingListStore { get; set; }
         public ICommand OpenShoppingListCommand { get; set; }
 
+        public IItemService ItemService { get; set; }
+
+
 
         public void OnItemsPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
         {
-            OnPropertyChanged(nameof(BoughtItems));
-            _items = _items.OrderItemsByBought();
+            this.IsEnabled = false;
+            ItemViewModel item = (ItemViewModel)sender;
+            item.Bought = !item.Bought;
+
+            Task.Run(async () =>
+            {
+                if ((await ItemService.UpdateItemBoughtStateById<MessageViewModel>(item.Id, item.Bought)) != null)
+                {
+                    App.Current.Dispatcher.Invoke((System.Action)delegate
+                    {
+                        OnPropertyChanged(nameof(BoughtItems));
+                        _items = _items.OrderItemsByBought();
+                    });
+                }
+                else
+                {
+                    item.Bought = !item.Bought;
+                }
+                this.IsEnabled = true;
+            });
         }
     }
 }

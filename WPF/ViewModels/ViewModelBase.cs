@@ -11,9 +11,9 @@ namespace WPF.ViewModels
 
     public class ViewModelBase: INotifyPropertyChanged
     {
-        public MessageViewModel ErrorMessageViewModel { get; set; }
+        public bool IsEnabled { get; set; } = true;
 
-        public ViewModelBase Owner { get; set; }
+        public MessageViewModel ErrorMessageViewModel { get; set; }
 
         public string ErrorMessage
         {
