@@ -63,16 +63,20 @@
             </ListView.ItemTemplate>
         </ListView>
     </ControlTemplate>
-    
+
     <ControlTemplate x:Key="ItemListViewTemplate" TargetType="ListView" >
+        <ControlTemplate.Resources>
+            <converters:BooleanToGreenWhiteColorConverter x:Key="BooleanToGreenWhiteColorConverter"/>
+        </ControlTemplate.Resources>
         <ListView 
             ItemsSource="{Binding .}"
             SelectionMode="Single" 
-            Padding="20"
+            Margin="20"
             BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1"
+                            Background="{Binding Bought, Converter={StaticResource BooleanToGreenWhiteColorConverter}}"
                             BorderBrush="{StaticResource BrushLightGray}" >
 
                         <Grid Margin="10">

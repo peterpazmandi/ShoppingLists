@@ -7,5 +7,8 @@
     <Color x:Key="ColorLightGray">#E5E5E5</Color>
     <Color x:Key="ColorMediumGray">#E7E7E7</Color>
     <Color x:Key="ColorDarkGray">#747474</Color>
+
+    <Color x:Key="ColorWhite">#ffffff</Color>
+    <Color x:Key="ColorGreen">#02CCBA</Color>
     
 </ResourceDictionary>

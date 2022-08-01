@@ -8,4 +8,6 @@
     <SolidColorBrush x:Key="BrushMediumGray" Color="{StaticResource ColorMediumGray}" />
     <SolidColorBrush x:Key="BrushDarkGray" Color="{StaticResource ColorDarkGray}" />
 
+    <SolidColorBrush x:Key="BrushWhite" Color="{StaticResource ColorWhite}" />
+    <SolidColorBrush x:Key="BrushGreen" Color="{StaticResource ColorGreen}" />
 </ResourceDictionary>
