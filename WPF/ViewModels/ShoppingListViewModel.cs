@@ -93,13 +93,9 @@ namespace WPF.ViewModels
 
         public IItemService ItemService { get; set; }
 
-
-
-        public void OnItemsPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
+        public void UpdateItemBoughtStateById(ItemViewModel item)
         {
             this.IsEnabled = false;
-            ItemViewModel item = (ItemViewModel)sender;
-            item.Bought = !item.Bought;
 
             Task.Run(async () =>
             {

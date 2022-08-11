@@ -9,6 +9,11 @@ namespace WPF.ViewModels
 {
     public class ItemViewModel: ViewModelBase
     {
+        public delegate void UpdateItemBoughtStateDelegate(ItemViewModel item);
+
+
+        public UpdateItemBoughtStateDelegate UpdateItemBoughtState { get; set; }
+
         private int _id;
         public int Id
         {
@@ -60,6 +65,10 @@ namespace WPF.ViewModels
             set 
             { 
                 _bought = value;
+                if (UpdateItemBoughtState != null)
+                {
+                    UpdateItemBoughtState(this);
+                }
                 OnPropertyChanged(nameof(Bought));
             }
         }
