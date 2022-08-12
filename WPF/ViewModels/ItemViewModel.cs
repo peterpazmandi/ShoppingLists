@@ -7,12 +7,11 @@ using WPF.Extensions;
 
 namespace WPF.ViewModels
 {
+    public delegate void UpdateItemBoughtStateDelegate(ItemViewModel item);
+
     public class ItemViewModel: ViewModelBase
     {
-        public delegate void UpdateItemBoughtStateDelegate(ItemViewModel item);
-
-
-        public UpdateItemBoughtStateDelegate UpdateItemBoughtState { get; set; }
+        public event UpdateItemBoughtStateDelegate UpdateItemBoughtState;
 
         private int _id;
         public int Id
@@ -67,7 +66,7 @@ namespace WPF.ViewModels
                 _bought = value;
                 if (UpdateItemBoughtState != null)
                 {
-                    UpdateItemBoughtState(this);
+                    UpdateItemBoughtState.Invoke(this); ;
                 }
                 OnPropertyChanged(nameof(Bought));
             }
