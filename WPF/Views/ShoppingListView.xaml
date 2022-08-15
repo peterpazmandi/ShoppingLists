@@ -18,25 +18,20 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0"
-                    Grid.Column="0"
-                    Orientation="Vertical"
-                    Margin="12">
-            <Label Content="Shopping List" />
-            <TextBlock Text="{Binding Title}"
-                       FontSize="18"
-                       Margin="10 0 0 0"
-                       FontWeight="Bold"
-                       TextWrapping="WrapWithOverflow" />
-        </StackPanel>
+        
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                   Text="{Binding Title}"
+                   FontSize="18"
+                   Margin="16 16 0 0"
+                   FontWeight="Bold"
+                   TextWrapping="WrapWithOverflow" />
 
         <Button Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Right" 
                 Style="{StaticResource EditButton}" />
 
         <ListView DataContext="{Binding Items}"
-                  Grid.Row="1"
+                  Grid.Row="2"
                   Grid.Column="0"
                   Grid.ColumnSpan="2">
             <ListView.Style>
