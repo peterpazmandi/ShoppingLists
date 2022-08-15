@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\App.xaml
-14-1887049892
+15-676551922
 
-43-271336032
+46-1686480750
 233-1345476217
-Controls\NavigationBar.xaml;Converters\ConverterDictionary.xaml;MainWindow.xaml;Styles\Brushes.xaml;Styles\Buttons.xaml;Styles\CheckBoxes.xaml;Styles\Colors.xaml;Styles\Icons.xaml;Styles\ListViews.xaml;Styles\TextBoxBase.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;Views\ShoppingListView.xaml;
+Controls\NavigationBar.xaml;Converters\ConverterDictionary.xaml;MainWindow.xaml;Styles\Brushes.xaml;Styles\Buttons.xaml;Styles\CheckBoxes.xaml;Styles\Colors.xaml;Styles\Icons.xaml;Styles\ListViews.xaml;Styles\TextBoxBase.xaml;Views\CreateEditShoppingListView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\RegisterView.xaml;Views\ShoppingListView.xaml;
 
 False
 

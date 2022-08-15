@@ -90,6 +90,7 @@ namespace WPF.ViewModels
 
         public IShoppingListStore _shoppingListStore { get; set; }
         public ICommand OpenShoppingListCommand { get; set; }
+        public ICommand CreateEditShoppingListCommand { get; set; }
 
         public IItemService ItemService { get; set; }
 

@@ -81,6 +81,7 @@ namespace WPF.ViewModels
                     }
                     shoppingList.ItemService = _itemService;
                     shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator);
+                    shoppingList.CreateEditShoppingListCommand = new CreateEditShoppingListCommand(shoppingList, _navigator);
                     this.ShoppingLists.Add(shoppingList);
                 }
             });

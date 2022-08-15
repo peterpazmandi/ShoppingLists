@@ -86,3 +86,7 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\WPF.pdb
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\WPF.genruntimeconfig.cache
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\ref\WPF.dll
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\CreateEditShoppingListView.g.cs
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Views\CreateEditShoppingListView.baml
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_leftarrow.svg
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_trash.svg

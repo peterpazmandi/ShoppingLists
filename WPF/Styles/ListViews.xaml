@@ -123,5 +123,31 @@
             </ListView.ItemTemplate>
         </ListView>
     </ControlTemplate>
+
+    <ControlTemplate x:Key="MembersListViewTemplate" TargetType="ListView">
+        <ListView ItemsSource="{Binding .}"
+                  SelectionMode="Single"
+                  Margin="20"
+                  BorderThickness="0" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               HorizontalContentAlignment="Left"
+                               Content="{Binding Username}" />
+                        <Button Grid.Column="1"
+                                Style="{StaticResource DeleteButton}" />
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ControlTemplate>
     
 </ResourceDictionary>

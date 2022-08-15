@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace WPF.ViewModels
 {
-    public class UserViewModel
+    public class UserViewModel: ViewModelBase
     {
         private string _username;
 
         public string Username
         {
             get { return _username; }
-            set { _username = value; }
+            set 
+            { 
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
         }
 
     }

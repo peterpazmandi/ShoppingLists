@@ -5,6 +5,9 @@
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CreateEditShoppingListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\TextBoxBase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CreateEditShoppingListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\HomeView.xaml">
