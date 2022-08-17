@@ -49,14 +49,19 @@
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <ComboBox IsEditable="True"
-                          DataContext="{Binding }"/>
-                <TextBox Grid.Column="0"
-                     Margin="20 0 20 0"
-                     Text="{Binding ShoppingListViewModel.Title, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Grid.Column="1"
-                    Margin="0 0 10 0"
-                    Style="{StaticResource AddButton}" />
-
+                          Margin="20 0 20 0"
+                          IsHitTestVisible="True"
+                          Text="{Binding FindMembers.FindMemberText}"
+                          ItemsSource="{Binding FindMembers.Members}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Username}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Grid.Column="1"
+                        Margin="0 0 10 0"
+                        Style="{StaticResource AddButton}" />
             </Grid>
         </StackPanel>
 

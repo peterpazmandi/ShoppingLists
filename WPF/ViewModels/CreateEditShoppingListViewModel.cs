@@ -9,9 +9,11 @@ namespace WPF.ViewModels
     public class CreateEditShoppingListViewModel : ViewModelBase
     {
         public ShoppingListViewModel ShoppingListViewModel { get; set; }
+        public FindMembersViewModel FindMembers { get; set; }
 
         public CreateEditShoppingListViewModel(ShoppingListViewModel? shoppingListViewModel = null)
         {
+            this.FindMembers = new FindMembersViewModel();
             ShoppingListViewModel = shoppingListViewModel ?? new ShoppingListViewModel();
         }
     }
