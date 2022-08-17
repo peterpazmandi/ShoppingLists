@@ -43,13 +43,25 @@
         <StackPanel Grid.Row="2" Grid.Column="0"
                     Orientation="Vertical" >
             <Label Content="Members" />
-            <TextBox
-                 Margin="20 0 20 0"
-                 Text="{Binding ShoppingListViewModel.Title, UpdateSourceTrigger=PropertyChanged}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <ComboBox IsEditable="True"
+                          DataContext="{Binding }"/>
+                <TextBox Grid.Column="0"
+                     Margin="20 0 20 0"
+                     Text="{Binding ShoppingListViewModel.Title, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Column="1"
+                    Margin="0 0 10 0"
+                    Style="{StaticResource AddButton}" />
+
+            </Grid>
         </StackPanel>
 
         <ListView Grid.Row="3" Grid.Column="0"
-                 ItemsSource="{Binding ShoppingListViewModel.Members}">
+                  DataContext="{Binding ShoppingListViewModel.Members}">
             <ListView.Style>
                 <Style TargetType="ListView" >
                     <Setter Property="Template" Value="{StaticResource MembersListViewTemplate}" />

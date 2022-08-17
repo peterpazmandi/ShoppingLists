@@ -157,7 +157,6 @@
     </Style>
 
     <Style x:Key="DeleteButton" x:Shared="False" TargetType="Button" >
-        <Setter Property="Background" Value="{StaticResource BrushPrimary}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="ToolTip" Value="Cancel" />
@@ -175,6 +174,39 @@
             <Setter.Value>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <svgc:SvgViewbox Style="{StaticResource icTrash}" Height="16" Width="16" />
+                </StackPanel>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource BrushSecondary}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False" >
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="AddButton" x:Shared="False" TargetType="Button" >
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="ToolTip" Value="Add" />
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="3" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" Margin="{TemplateBinding Margin}">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Content">
+            <Setter.Value>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <svgc:SvgViewbox Style="{StaticResource icAdd}" Height="16" Width="16" />
                 </StackPanel>
             </Setter.Value>
         </Setter>
