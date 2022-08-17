@@ -91,3 +91,4 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_leftarrow.svg
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_trash.svg
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_add.svg
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_isLoading.svg

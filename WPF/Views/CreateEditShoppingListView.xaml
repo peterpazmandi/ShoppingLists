@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d"
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:converters="clr-namespace:WPF.Converters"
              Background="{StaticResource BrushLightGray}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid Width="600"
           Background="{StaticResource BrushWhite}" >
 
@@ -48,9 +53,11 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <ComboBox IsEditable="True"
+                <ComboBox Grid.Column="0"
+                          IsEditable="True"
                           Margin="20 0 20 0"
                           IsHitTestVisible="True"
+                          IsDropDownOpen="{Binding FindMembers.HasMembersListArrived}"
                           Text="{Binding FindMembers.FindMemberText}"
                           ItemsSource="{Binding FindMembers.Members}">
                     <ComboBox.ItemTemplate>
@@ -59,6 +66,11 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+                <svgc:SvgViewbox Grid.Column="0"
+                                 HorizontalAlignment="Right"
+                                 Margin="0 0 40 0"
+                                 Visibility="{Binding FindMembers.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                 Style="{StaticResource icIsLoading}" />
                 <Button Grid.Column="1"
                         Margin="0 0 10 0"
                         Style="{StaticResource AddButton}" />

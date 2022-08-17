@@ -14,6 +14,18 @@ namespace WPF.ViewModels
     {
         public bool IsEnabled { get; set; } = true;
 
+
+        private bool _isLoading = false;
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                _isLoading = value;
+                OnPropertyChanged(nameof(IsLoading));
+            }
+        }
+
         public MessageViewModel ErrorMessageViewModel { get; set; }
 
         public string ErrorMessage

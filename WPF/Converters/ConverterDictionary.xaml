@@ -5,5 +5,6 @@
     <converters:DateToStringConverter x:Key="DateToStringConverter" />
     <converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter" />
     <converters:BooleanToGreenWhiteColorConverter x:Key="BooleanToGreenWhiteColorConverter" />
+    <converters:BooleanToGreenWhiteColorConverter x:Key="NegatingConverter" />
 
 </ResourceDictionary>
