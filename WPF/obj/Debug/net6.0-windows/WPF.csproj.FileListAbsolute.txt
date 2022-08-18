@@ -92,3 +92,4 @@ C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_trash.svg
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_add.svg
 C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\bin\Debug\net6.0-windows\Assets\Icons\ic_isLoading.svg
+C:\Users\Pazmandi Peter\Desktop\Trash\PlayGround\Projects\ShoppingLists\WPF\obj\Debug\net6.0-windows\Styles\Storyboards.baml

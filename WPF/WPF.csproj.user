@@ -46,6 +46,9 @@
     <Page Update="Styles\ListViews.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\Storyboards.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\TextBoxBase.xaml">
       <SubType>Designer</SubType>
     </Page>

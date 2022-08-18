@@ -32,7 +32,7 @@ namespace WPF.ViewModels
                 _findMemberText = value;
                 Task.Run(async () =>
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(10000);
                     OnPropertyChanged(nameof(FindMemberText));
                     this.HasMembersListArrived = true;
                     this.IsLoading = false;

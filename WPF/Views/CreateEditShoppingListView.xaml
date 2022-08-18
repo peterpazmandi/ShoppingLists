@@ -70,7 +70,13 @@
                                  HorizontalAlignment="Right"
                                  Margin="0 0 40 0"
                                  Visibility="{Binding FindMembers.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                 Style="{StaticResource icIsLoading}" />
+                                 Style="{StaticResource icIsLoading}" >
+                    <svgc:SvgViewbox.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource AnimateFlicker}" />
+                        </EventTrigger>
+                    </svgc:SvgViewbox.Triggers>
+                </svgc:SvgViewbox>
                 <Button Grid.Column="1"
                         Margin="0 0 10 0"
                         Style="{StaticResource AddButton}" />
