@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace APIRequests.DTOs
 {
-    public class UsernameDto
+    public record UsernameDto(string Username)
     {
-        public string Username { get; set; }
+        public override string ToString()
+    {
+        return Username;
     }
+}
 }

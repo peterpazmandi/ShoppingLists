@@ -1,5 +1,6 @@
 ﻿using APIRequests.Services.Account;
 using APIRequests.Services.Item;
+using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,6 +22,7 @@ namespace WPF.HostBuilders
                 services.AddSingleton<IAccountService, AccountService>();
                 services.AddSingleton<IShoppingListService, ShoppingListService>();
                 services.AddSingleton<IItemService, ItemService>();
+                services.AddSingleton<IMemberService, MemberService>();
                 services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             });
 

@@ -1,4 +1,5 @@
 ﻿using APIRequests.Services.Item;
+using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
 using AutoMapper;
@@ -21,6 +22,7 @@ namespace WPF.ViewModels
     {
         private readonly IShoppingListService _shoppingListService;
         private readonly IItemService _itemService;
+        public IMemberService _memberService;
         private readonly INavigator _navigator;
         private readonly IMapper _mapper;
 
@@ -46,7 +48,8 @@ namespace WPF.ViewModels
             INavigator navigator,
             IViewModelFactory viewModelFactory,
             IMapper mapper,
-            IItemService itemService)
+            IItemService itemService,
+            IMemberService memberService)
         {
             _shoppingListService = shoppingListService;
             _navigator = navigator;
@@ -59,6 +62,7 @@ namespace WPF.ViewModels
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
             _mapper = mapper;
             _itemService = itemService;
+            _memberService = memberService;
         }
 
         private void Navigator_StateChanged()
@@ -81,7 +85,7 @@ namespace WPF.ViewModels
                     }
                     shoppingList.ItemService = _itemService;
                     shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator);
-                    shoppingList.CreateEditShoppingListCommand = new CreateEditShoppingListCommand(shoppingList, _navigator);
+                    shoppingList.CreateEditShoppingListCommand = new CreateEditShoppingListCommand(shoppingList, _navigator, _memberService);
                     this.ShoppingLists.Add(shoppingList);
                 }
             });

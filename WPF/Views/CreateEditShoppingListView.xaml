@@ -54,9 +54,11 @@
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <ComboBox Grid.Column="0"
+                          Name="control"
+                          IsSynchronizedWithCurrentItem="True"
+                          VirtualizingPanel.IsVirtualizing="False"
                           IsEditable="True"
                           Margin="20 0 20 0"
-                          IsHitTestVisible="True"
                           IsDropDownOpen="{Binding FindMembers.HasMembersListArrived}"
                           Text="{Binding FindMembers.FindMemberText}"
                           ItemsSource="{Binding FindMembers.Members}">

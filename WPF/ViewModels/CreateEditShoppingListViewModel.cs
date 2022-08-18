@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIRequests.Services.Member;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace WPF.ViewModels
         public ShoppingListViewModel ShoppingListViewModel { get; set; }
         public FindMembersViewModel FindMembers { get; set; }
 
-        public CreateEditShoppingListViewModel(ShoppingListViewModel? shoppingListViewModel = null)
+        public CreateEditShoppingListViewModel(IMemberService memberService, ShoppingListViewModel? shoppingListViewModel = null)
         {
-            this.FindMembers = new FindMembersViewModel();
+            this.FindMembers = new FindMembersViewModel(memberService);
             ShoppingListViewModel = shoppingListViewModel ?? new ShoppingListViewModel();
         }
     }

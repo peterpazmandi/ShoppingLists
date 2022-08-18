@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPF" 
              xmlns:viewmodels="clr-namespace:WPF.ViewModels"
-             xmlns:views="clr-namespace:WPF.Views"
-             >
+             xmlns:views="clr-namespace:WPF.Views" >
+    
     <Application.Resources>
 
         <ResourceDictionary>

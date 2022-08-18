@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIRequests.Services.Member;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,9 @@ namespace WPF.Commands
         private readonly CreateEditShoppingListViewModel _createEditShoppingListViewModel;
         private readonly INavigator _navigator;
 
-        public CreateEditShoppingListCommand(ShoppingListViewModel shoppingListViewModel, INavigator navigator)
+        public CreateEditShoppingListCommand(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
         {
-            _createEditShoppingListViewModel = new CreateEditShoppingListViewModel(shoppingListViewModel);
+            _createEditShoppingListViewModel = new CreateEditShoppingListViewModel(memberService, shoppingListViewModel);
             _navigator = navigator;
         }
 
