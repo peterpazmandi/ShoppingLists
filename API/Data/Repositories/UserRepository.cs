@@ -27,5 +27,12 @@ namespace API.Data.Repositories
                 .Where(x => usernames.Contains(x.UserName))
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<AppUser>> GetUsersByUsernameAsync(string username)
+        {
+            return await _context.Users
+                .Where(x => x.UserName.ToLower().Contains(username.ToLower()))
+                .ToListAsync();
+        }
     }
 }
