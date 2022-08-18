@@ -6,11 +6,15 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands;
 
 namespace WPF.ViewModels
 {
     public class FindMembersViewModel : ViewModelBase
     {
+        #region Variables
+
         private ObservableCollection<UsernameDto> _members = new ObservableCollection<UsernameDto>(Enumerable.Empty<UsernameDto>());
         public ObservableCollection<UsernameDto> Members
         {
@@ -44,13 +48,39 @@ namespace WPF.ViewModels
         }
 
 
+        private string _selectedMember;
+        public string SelectedMember
+        {
+            get { return _selectedMember; }
+            set
+            {
+                if (value != null)
+                {
+                    _selectedMember = value;
+                    OnPropertyChanged(nameof(SelectedMember));
+                }
+            }
+        }
+
         public IMemberService _memberService { get; set; }
+
+        #endregion Variables
+
+
+
+        #region Commands
+
+        public ICommand AddMemberCommand { get; set; }
+
+        #endregion Commands
 
 
         public FindMembersViewModel(IMemberService memberService)
         {
             _memberService = memberService;
         }
+
+        #region Methods
 
         private void HandleFindMemberTextChange(string value)
         {
@@ -102,15 +132,17 @@ namespace WPF.ViewModels
 
         private async Task UpdateMembersList(IEnumerable<UsernameDto> foundMembers)
         {
-            this.Members.Clear();
-
             App.Current.Dispatcher.Invoke((System.Action)delegate
             {
+                this.Members.Clear();
+
                 foreach (var member in foundMembers)
                 {
                     this.Members.Add(member);
                 }
             });
         }
+
+        #endregion Methods
     }
 }

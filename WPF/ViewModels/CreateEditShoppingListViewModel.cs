@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using WPF.Commands;
 
 namespace WPF.ViewModels
 {
@@ -15,6 +17,7 @@ namespace WPF.ViewModels
         public CreateEditShoppingListViewModel(IMemberService memberService, ShoppingListViewModel? shoppingListViewModel = null)
         {
             this.FindMembers = new FindMembersViewModel(memberService);
+            this.FindMembers.AddMemberCommand = new AddMemberCommand(this);
             ShoppingListViewModel = shoppingListViewModel ?? new ShoppingListViewModel();
         }
     }
