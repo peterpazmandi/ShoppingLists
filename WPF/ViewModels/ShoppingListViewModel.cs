@@ -1,4 +1,5 @@
 ﻿using APIRequests.Services.Item;
+using APIRequests.Services.Member;
 using APIRequests.ShoppingLists;
 using System;
 using System.Collections.Generic;
@@ -93,6 +94,31 @@ namespace WPF.ViewModels
         public ICommand CreateEditShoppingListCommand { get; set; }
 
         public IItemService ItemService { get; set; }
+
+        public ShoppingListViewModel()
+        {
+
+        }
+
+        public ShoppingListViewModel(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
+        {
+            Id = shoppingListViewModel.Id;
+            Title = shoppingListViewModel.Title;
+            Created = shoppingListViewModel.Created;
+            Modified = shoppingListViewModel.Modified;
+            Members = new ObservableCollection<UserViewModel>();
+            foreach (var member in shoppingListViewModel.Members)
+            {
+                Members.Add(new UserViewModel(member));
+            }
+            Items = new ObservableCollection<ItemViewModel>();
+            foreach (var item in shoppingListViewModel.Items)
+            {
+                Items.Add(new ItemViewModel(item));
+            }
+
+            CreateEditShoppingListCommand = new CreateEditShoppingListCommand(this, navigator, memberService);
+        }
 
         public void UpdateItemBoughtStateById(ItemViewModel item)
         {

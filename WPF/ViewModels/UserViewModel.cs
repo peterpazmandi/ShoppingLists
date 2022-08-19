@@ -9,7 +9,6 @@ namespace WPF.ViewModels
     public class UserViewModel: ViewModelBase
     {
         private string _username;
-
         public string Username
         {
             get { return _username; }
@@ -20,5 +19,14 @@ namespace WPF.ViewModels
             }
         }
 
+        public UserViewModel()
+        {
+
+        }
+
+        public UserViewModel(UserViewModel userViewModel)
+        {
+            Username = userViewModel.Username;
+        }
     }
 }

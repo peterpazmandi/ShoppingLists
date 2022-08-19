@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIRequests.Services.Member;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,18 @@ namespace WPF.Commands
     {
         private readonly ShoppingListViewModel _shoppingListViewModel;
         private readonly INavigator _navigator;
+        public IMemberService _memberService;
 
-        public OpenShoppingListCommand(ShoppingListViewModel shoppingListViewModel, INavigator navigator)
+        public OpenShoppingListCommand(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
         {
             _shoppingListViewModel = shoppingListViewModel;
             _navigator = navigator;
+            _memberService = memberService;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            _navigator.CurrentViewModel = _shoppingListViewModel;
+            _navigator.CurrentViewModel = new ShoppingListViewModel(_shoppingListViewModel, _navigator, _memberService);
         }
     }
 }

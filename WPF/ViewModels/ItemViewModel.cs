@@ -72,5 +72,18 @@ namespace WPF.ViewModels
             }
         }
 
+        public ItemViewModel()
+        {
+
+        }
+
+        public ItemViewModel(ItemViewModel itemViewModel)
+        {
+            Id = itemViewModel.Id;
+            Name = itemViewModel.Name;
+            Qty = itemViewModel.Qty;
+            Unit = itemViewModel.Unit;
+            Bought = itemViewModel.Bought;
+        }
     }
 }
