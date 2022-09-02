@@ -20,6 +20,7 @@
                 Style="{StaticResource CreateButton}" />
 
         <ListView DataContext="{Binding ShoppingLists}"
+                  SelectedItem="{Binding SelectedShoppingList}"
                   Grid.Row="1">
             <ListView.Style>
                 <Style TargetType="ListView">

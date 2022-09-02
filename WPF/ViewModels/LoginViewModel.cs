@@ -27,7 +27,7 @@ namespace WPF.ViewModels
             }
         }
 
-        private string _password;
+        private string _password = "Pa$$w0rd";
         public string Password
         {
             get

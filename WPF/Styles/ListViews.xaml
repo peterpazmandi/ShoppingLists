@@ -8,8 +8,10 @@
         </ControlTemplate.Resources>
         <ListView 
             ItemsSource="{Binding .}"
+            SelectedItem="{Binding DataContext.SelectedShoppingList, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
             SelectionMode="Single" 
             Padding="20"
+            IsSynchronizedWithCurrentItem="True"
             BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -54,7 +56,9 @@
                                 <Button Grid.Column="2" 
                                         HorizontalAlignment="Right" 
                                         Style="{StaticResource ViewButton}"
-                                        Command="{Binding OpenShoppingListCommand}" />
+                                        Command="{Binding OpenShoppingListCommand}"
+                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=ListViewItem}}">
+                                </Button>
                             </Grid>
 
                         </Grid>

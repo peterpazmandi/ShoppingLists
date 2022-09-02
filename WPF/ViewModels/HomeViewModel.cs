@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using WPF.Commands;
 using WPF.State.Authenticator;
@@ -40,6 +41,19 @@ namespace WPF.ViewModels
             }
         }
 
+        private ShoppingListViewModel _selectedShoppingList;
+
+        public ShoppingListViewModel SelectedShoppingList
+        {
+            get { return _selectedShoppingList; }
+            set 
+            {
+                _selectedShoppingList = value;
+                OnPropertyChanged(nameof(SelectedShoppingList));
+            }
+        }
+
+
 
         public ICommand UpdateCurrentViewModelCommand { get; }
 
@@ -65,6 +79,7 @@ namespace WPF.ViewModels
             _memberService = memberService;
         }
 
+
         private void Navigator_StateChanged()
         {
             OnPropertyChanged(nameof(CurrentViewModel));
@@ -85,7 +100,6 @@ namespace WPF.ViewModels
                     }
                     shoppingList.ItemService = _itemService;
                     shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService);
-                    //shoppingList.CreateEditShoppingListCommand = new CreateEditShoppingListCommand(shoppingList, _navigator, _memberService, _mapper);
                     this.ShoppingLists.Add(shoppingList);
                 }
             });
