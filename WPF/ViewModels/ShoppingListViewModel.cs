@@ -19,6 +19,8 @@ namespace WPF.ViewModels
 {
     public class ShoppingListViewModel : ViewModelBase
     {
+        #region properties
+
         private int _id;
         public int Id
         {
@@ -90,10 +92,19 @@ namespace WPF.ViewModels
 
 
         public IShoppingListStore _shoppingListStore { get; set; }
+        public IItemService ItemService { get; set; }
+
+
+        #endregion properties
+
+
+        #region commands
+
         public ICommand OpenShoppingListCommand { get; set; }
         public ICommand CreateEditShoppingListCommand { get; set; }
 
-        public IItemService ItemService { get; set; }
+        #endregion commands
+
 
         public ShoppingListViewModel()
         {
@@ -101,6 +112,11 @@ namespace WPF.ViewModels
         }
 
         public ShoppingListViewModel(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
+        {
+            this.PopulateVariables(shoppingListViewModel, navigator, memberService);
+        }
+
+        private void PopulateVariables(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
         {
             Id = shoppingListViewModel.Id;
             Title = shoppingListViewModel.Title;
@@ -114,10 +130,14 @@ namespace WPF.ViewModels
             Items = new ObservableCollection<ItemViewModel>();
             foreach (var item in shoppingListViewModel.Items)
             {
-                Items.Add(new ItemViewModel(item));
+                var _item = new ItemViewModel(item);
+                _item.UpdateItemBoughtState += this.UpdateItemBoughtStateById;
+                Items.Add(_item);
             }
 
             CreateEditShoppingListCommand = new CreateEditShoppingListCommand(this, navigator, memberService);
+
+            ItemService = shoppingListViewModel.ItemService;
         }
 
         public void UpdateItemBoughtStateById(ItemViewModel item)

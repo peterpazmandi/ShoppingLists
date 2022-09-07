@@ -11,7 +11,6 @@
             SelectedItem="{Binding DataContext.SelectedShoppingList, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
             SelectionMode="Single" 
             Padding="20"
-            IsSynchronizedWithCurrentItem="True"
             BorderThickness="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -20,7 +19,7 @@
 
                         <Grid Margin="10">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="520" />
+                                <ColumnDefinition Width="500" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />

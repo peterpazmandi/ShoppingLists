@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using WPF.Commands;
@@ -27,7 +28,10 @@ namespace WPF.ViewModels
         private readonly INavigator _navigator;
         private readonly IMapper _mapper;
 
+
         public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
+
+        public double BottomMenuHorizontalPosition => _navigator.CurrentWindowHeight - 100;
 
 
         private ObservableCollection<ShoppingListViewModel> _shoppingLists = new ObservableCollection<ShoppingListViewModel>();
@@ -57,6 +61,7 @@ namespace WPF.ViewModels
 
         public ICommand UpdateCurrentViewModelCommand { get; }
 
+
         public HomeViewModel(
             IShoppingListService shoppingListService,
             INavigator navigator,
@@ -77,13 +82,20 @@ namespace WPF.ViewModels
             _mapper = mapper;
             _itemService = itemService;
             _memberService = memberService;
+
+            _navigator.StateChanged += Navigator_StateChanged;
         }
 
 
         private void Navigator_StateChanged()
         {
             OnPropertyChanged(nameof(CurrentViewModel));
+            OnPropertyChanged(nameof(BottomMenuHorizontalPosition));
         }
+
+
+
+
 
         private async Task GetMyShoppingLists()
         {

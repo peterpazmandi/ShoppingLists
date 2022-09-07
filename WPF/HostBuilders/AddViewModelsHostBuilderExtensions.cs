@@ -19,7 +19,7 @@ namespace WPF.HostBuilders
             host.ConfigureServices(services =>
             {
                 services.AddSingleton<MainViewModel>(services => CreateMainViewModel(services));
-                services.AddSingleton<HomeViewModel>();
+                services.AddTransient<HomeViewModel>();
 
                 services.AddSingleton<CreateViewModel<MainViewModel>>(services => () => CreateMainViewModel(services));
                 services.AddSingleton<CreateViewModel<HomeViewModel>>(services => () => services.GetRequiredService<HomeViewModel>());

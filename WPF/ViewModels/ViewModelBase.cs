@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace WPF.ViewModels
@@ -12,6 +13,9 @@ namespace WPF.ViewModels
 
     public class ViewModelBase: INotifyPropertyChanged
     {
+        public event SizeChangedEventHandler SizeChanged;
+
+
         public bool IsEnabled { get; set; } = true;
 
 
@@ -32,7 +36,6 @@ namespace WPF.ViewModels
         {
             set => ErrorMessageViewModel.Message = value;
         }
-
 
 
         public virtual void Dispose() { }

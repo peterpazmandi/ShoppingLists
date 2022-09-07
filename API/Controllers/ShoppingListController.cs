@@ -58,5 +58,33 @@ namespace API.Controllers
 
             return BadRequest("Operation failed!");
         }
+
+        [Authorize]
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update(UpdateShoppingListDto shoppingListDto)
+        {
+            var currentShoppingList = await _unitOfWork.ShoppingListRepository.GetByIdAsync(shoppingListDto.Id);
+            if(currentShoppingList is null)
+            {
+                return BadRequest("The specified shopping list not found!");
+            }
+
+            var users = await _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.MembersUsername);            
+
+            var shoppingList = _mapper.Map<ShoppingList>(shoppingListDto);
+            shoppingList.Members = users.ToList();
+
+            currentShoppingList.Modified = DateTime.Now;
+            currentShoppingList.Title = shoppingList.Title;
+            currentShoppingList.Members = shoppingList.Members;
+            currentShoppingList.Items = shoppingList.Items;
+
+            if(await _unitOfWork.CompleteAsync())
+            {
+                return Ok(new { Message = "Shopping list has been modified successfully!" });
+            }
+
+            return Ok(new { Message = "No changes have been made" });
+        }
     }
 }

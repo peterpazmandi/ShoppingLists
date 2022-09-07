@@ -1,9 +1,11 @@
-﻿using SimpleTrader.WPF.State.Navigators;
+﻿using APIRequests.Services.ShoppingList;
+using SimpleTrader.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WPF.Commands;
 using WPF.State.Authenticator;
@@ -16,21 +18,24 @@ namespace WPF.ViewModels
     {
         public bool IsLoggedIn => _authenticator.IsLoggedIn;
 
-        private readonly IViewModelFactory _viewModelFactory;
-        private readonly INavigator _navigator;
+        public readonly INavigator Navigator;
+
         private readonly IAuthenticator _authenticator;
 
-        public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
+        public ViewModelBase CurrentViewModel => Navigator.CurrentViewModel;
         public ICommand UpdateCurrentViewModelCommand { get; }
         public ICommand HomeCommand { get; }
 
 
-        public MainViewModel(IViewModelFactory viewModelFactory, INavigator navigator, IAuthenticator authenticator, IRenavigator homeRenavigator)
+        public MainViewModel(
+            IViewModelFactory viewModelFactory, 
+            INavigator navigator, 
+            IAuthenticator authenticator, 
+            IRenavigator homeRenavigator)
         {
-            _viewModelFactory = viewModelFactory;
-            _navigator = navigator;
+            Navigator = navigator;
 
-            _navigator.StateChanged += Navigator_StateChanged;
+            Navigator.StateChanged += Navigator_StateChanged;
 
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
             UpdateCurrentViewModelCommand.Execute(ViewType.Login);
@@ -56,7 +61,7 @@ namespace WPF.ViewModels
 
         public override void Dispose()
         {
-            _navigator.StateChanged -= Navigator_StateChanged;
+            Navigator.StateChanged -= Navigator_StateChanged;
 
             base.Dispose();
         }

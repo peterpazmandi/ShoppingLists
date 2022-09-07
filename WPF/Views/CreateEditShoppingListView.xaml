@@ -36,6 +36,11 @@
                 Margin="6 6 0 24"
                 Style="{StaticResource CancelWithLeftArrowButton}" />
 
+        <Button Grid.Column="0" Grid.Row="0"
+                HorizontalAlignment="Right"
+                Margin="6 6 6 24"
+                Style="{StaticResource SaveButton}" />
+
         <StackPanel Grid.Row="1" Grid.Column="0"
                     Margin="0 0 0 12"
                     Orientation="Vertical" >

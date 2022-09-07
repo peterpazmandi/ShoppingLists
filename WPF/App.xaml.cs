@@ -42,6 +42,8 @@ namespace WPF
             window.Show();
 
             base.OnStartup(e);
+
+            
         }
 
         protected override async void OnExit(ExitEventArgs e)

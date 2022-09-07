@@ -17,9 +17,11 @@ namespace API.Helpers
             CreateMap<AppUser, UsernameDto>().ReverseMap();
 
             CreateMap<ShoppingList, CreateShoppingListDto>().ReverseMap();
+            CreateMap<ShoppingList, UpdateShoppingListDto>().ReverseMap();
             CreateMap<ShoppingList, ShoppingListDto>().ReverseMap();
             
             CreateMap<Item, CreateItemDto>().ReverseMap();
+            CreateMap<Item, UpdateItemDto>().ReverseMap();
             CreateMap<Item, ItemDto>().ReverseMap();
         }
     }

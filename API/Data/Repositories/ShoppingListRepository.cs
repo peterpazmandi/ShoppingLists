@@ -26,6 +26,16 @@ namespace API.Data.Repositories
             await _context.ShoppingLists.AddAsync(shoppingList);
         }
 
+        public async Task<ShoppingList?> GetByIdAsync(int id)
+        {
+            return await _context.ShoppingLists
+                .Include(s => s.Items.OrderBy(i => i.Bought))
+                .Include(s => s.Members)
+                .Where(s => s.Id == id)
+                .OrderByDescending(s => s.Modified)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<List<ShoppingList>> GetByUsernameAsync(string username)
         {
             return await _context.ShoppingLists
