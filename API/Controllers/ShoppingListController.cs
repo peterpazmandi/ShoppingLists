@@ -68,7 +68,7 @@ namespace API.Controllers
             {
                 return BadRequest("The specified shopping list not found!");
             }
-
+            
             var users = await _unitOfWork.UserRepository.GetUsersByUsernamesAsync(shoppingListDto.MembersUsername);            
 
             var shoppingList = _mapper.Map<ShoppingList>(shoppingListDto);

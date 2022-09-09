@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2e7b7dca-9343-4236-86ef-ce4ff8f26968/microsoft.web/sites/subscriptions/2e7b7dca-9343-4236-86ef-ce4ff8f26968/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/ShoppingListsAPI",
+    "appService.deploySubpath": "API\\bin\\Publish"
+}
