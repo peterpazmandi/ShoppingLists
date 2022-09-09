@@ -13,14 +13,17 @@ Configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddApplicationServices(Configuration);
 
-builder.Services.AddControllers();
-builder.Services.AddCors();
-
-builder.Services.AddIdentityServices(Configuration);
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "API", Version = "v1" });
 });
+
+builder.Services.AddControllers();
+builder.Services.AddCors();
+
+
+
+builder.Services.AddIdentityServices(Configuration);
 
 var app = builder.Build();
 
