@@ -3,6 +3,7 @@ using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
 using AutoMapper;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

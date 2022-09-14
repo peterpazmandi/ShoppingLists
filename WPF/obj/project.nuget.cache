@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "x4dEOgbgUiGL4nTqLfhfl28IzhuCDdmG0LZXnvpUrfdmO0neI4o+uXs70a82gU6tl8oCkdKqhn2VEYWXLOU5gw==",
+  "dgSpecHash": "0NJD0e0Hpty1t7NRQozOQR8DAaEH9bIW1MwKtUHWSuTd4WHAoOf3bq/nnuHL9tAojlQcg8mqTRx6VyzIoOmb6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
   "expectedPackageFiles": [
@@ -33,13 +33,23 @@
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.options\\7.0.0-preview.6.22324.4\\microsoft.extensions.options.7.0.0-preview.6.22324.4.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\6.0.0\\microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0-preview.6.22324.4\\microsoft.extensions.primitives.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.toolkit.uwp.notifications\\7.1.2\\microsoft.toolkit.uwp.notifications.7.1.2.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\passwordboxmvvm\\1.0.5\\passwordboxmvvm.1.0.5.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\sharpvectors\\1.8.0\\sharpvectors.1.8.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.26\\microsoft.windows.sdk.net.ref.10.0.17763.26.nupkg.sha512"
   ],
   "logs": []
 }

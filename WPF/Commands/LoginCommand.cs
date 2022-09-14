@@ -1,4 +1,5 @@
 ﻿using APIRequests.Exceptions;
+using Microsoft.Toolkit.Uwp.Notifications;
 using SimpleTrader.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,14 @@ namespace WPF.Commands
             try
             {
                 await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
+
+
+                new ToastContentBuilder()
+                                .AddArgument("action", "viewConversation")
+                                .AddArgument("conversationId", 9813)
+                                .AddText("Successful login")
+                                .AddText($"Successfully logged in as: {_loginViewModel.Username}")
+                                .Show();
 
                 _renavigator.Renavigate();
             }

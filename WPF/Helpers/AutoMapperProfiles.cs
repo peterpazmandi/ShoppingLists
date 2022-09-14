@@ -15,7 +15,7 @@ namespace WPF.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<ShoppingListDto, ShoppingListViewModel>();
-            CreateMap<ShoppingListViewModel, ShoppingListViewModel>();
+            CreateMap<UpdateShoppingListDto, ShoppingListViewModel>();
             CreateMap<UsernameDto, UserViewModel>();
             CreateMap<ItemDto, ItemViewModel>();
         }
