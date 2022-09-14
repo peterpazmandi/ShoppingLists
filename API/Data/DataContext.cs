@@ -14,7 +14,7 @@ namespace API.bin.Data
                                 int,
                                 IdentityUserClaim<int>,
                                 IdentityUserRole<int>,
-                                IdentityUserLogin<int>,
+                                AppUserLogin,
                                 IdentityRoleClaim<int>,
                                 IdentityUserToken<int>>
     {
