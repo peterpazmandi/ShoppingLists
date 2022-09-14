@@ -14,7 +14,12 @@ namespace WPF.HostBuilders
         {
             host.ConfigureAppConfiguration(c =>
             {
+#if DEBUG
+                c.AddJsonFile("appsettings.Development.json");
+#else
                 c.AddJsonFile("appsettings.json");
+#endif
+
                 c.AddEnvironmentVariables();
             });
 
