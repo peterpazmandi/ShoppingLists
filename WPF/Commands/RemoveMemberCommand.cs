@@ -29,7 +29,7 @@ namespace WPF.Commands
         private void RemoveMember(string username)
         {
             _createEditShoppingListViewModel.ShoppingListViewModel.Members.Remove(
-                    _createEditShoppingListViewModel.ShoppingListViewModel.Members.Where(x => x.Username.Equals(username)).Single());
+                    _createEditShoppingListViewModel.ShoppingListViewModel.Members.SingleOrDefault(x => x.Username.Equals(username)) ?? new UserViewModel());
         }
     }
 }
