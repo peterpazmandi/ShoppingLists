@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:WPF.Converters">
+                    xmlns:converters="clr-namespace:WPF.Converters" 
+                    xmlns:viewmodels="clr-namespace:WPF.ViewModels">
 
     <ControlTemplate x:Key="ShoppingListListViewTemplate" TargetType="ListView" >
         <ControlTemplate.Resources>
@@ -128,7 +129,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="MembersListViewTemplate" TargetType="ListView">
-        <ListView ItemsSource="{Binding .}"
+        <ListView ItemsSource="{Binding ShoppingListViewModel.Members}"
                   SelectionMode="Single"
                   Margin="20 6 20 0"
                   BorderThickness="0" >
@@ -146,7 +147,9 @@
                                VerticalAlignment="Center"
                                Content="{Binding Username}" />
                         <Button Grid.Column="1"
-                                Style="{StaticResource DeleteButton}" />
+                                Style="{StaticResource DeleteButton}"
+                                Command="{Binding DataContext.FindMembers.RemoveMemberCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+                                CommandParameter="{Binding Username}"/>
 
                     </Grid>
                 </DataTemplate>

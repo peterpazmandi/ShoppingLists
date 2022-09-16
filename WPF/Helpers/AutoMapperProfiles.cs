@@ -15,9 +15,10 @@ namespace WPF.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<ShoppingListDto, ShoppingListViewModel>();
-            CreateMap<UpdateShoppingListDto, ShoppingListViewModel>();
-            CreateMap<UsernameDto, UserViewModel>();
-            CreateMap<ItemDto, ItemViewModel>();
+            CreateMap<ShoppingListViewModel, UpdateShoppingListDto>().ReverseMap();
+            CreateMap<UsernameDto, UserViewModel>().ReverseMap();
+            CreateMap<UserViewModel, string>();
+            CreateMap<ItemDto, ItemViewModel>().ReverseMap();
         }
     }
 }

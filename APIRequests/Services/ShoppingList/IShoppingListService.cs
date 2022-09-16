@@ -10,5 +10,6 @@ namespace APIRequests.Services.ShoppingList
     public interface IShoppingListService
     {
         Task<List<ShoppingListDto>> GetMyShoppingLists();
+        Task<MessageDto> UpdateShoppingList(UpdateShoppingListDto updateShoppingListDto);
     }
 }

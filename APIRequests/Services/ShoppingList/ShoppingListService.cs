@@ -21,8 +21,15 @@ namespace APIRequests.Services.ShoppingList
 
         public async Task<List<ShoppingListDto>> GetMyShoppingLists()
         {
-            var lists = await _client.GetAsync<List<ShoppingListDto>>("ShoppingList/GetMyShoppingLists", _accountStore.CurrentAccount.Token);
+            var lists = await _client
+                .GetAsync<List<ShoppingListDto>>("ShoppingList/GetMyShoppingLists", _accountStore.CurrentAccount.Token);
             return lists;
+        }
+
+        public async Task<MessageDto> UpdateShoppingList(UpdateShoppingListDto updateShoppingListDto)
+        {
+            return await _client
+                .PostAsync<MessageDto>("ShoppingList/Update", updateShoppingListDto);
         }
     }
 }

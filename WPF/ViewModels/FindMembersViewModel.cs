@@ -71,6 +71,7 @@ namespace WPF.ViewModels
         #region Commands
 
         public ICommand AddMemberCommand { get; set; }
+        public ICommand RemoveMemberCommand { get; set; }
 
         #endregion Commands
 

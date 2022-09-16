@@ -9,8 +9,8 @@ namespace APIRequests.DTOs
     public record UsernameDto(string Username)
     {
         public override string ToString()
-    {
-        return Username;
-    }
+        {
+            return Username;
+        }
 }
 }

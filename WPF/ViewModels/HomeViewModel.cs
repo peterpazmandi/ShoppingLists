@@ -112,7 +112,7 @@ namespace WPF.ViewModels
                         listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
                     }
                     shoppingList.ItemService = _itemService;
-                    shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService);
+                    shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
                     this.ShoppingLists.Add(shoppingList);
                 }
             });

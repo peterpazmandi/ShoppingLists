@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0NJD0e0Hpty1t7NRQozOQR8DAaEH9bIW1MwKtUHWSuTd4WHAoOf3bq/nnuHL9tAojlQcg8mqTRx6VyzIoOmb6w==",
+  "dgSpecHash": "IPUqIPk3O+FL3ug92fYUIcaV4JWIzLHUKvO2PQbpjuaZ8jmtY2aC/RmsvSdvDxXUMMKVHADH4gpMAqrht9xwHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
   "expectedPackageFiles": [
@@ -49,7 +49,7 @@
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.26\\microsoft.windows.sdk.net.ref.10.0.17763.26.nupkg.sha512"
+    "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.17763.27\\microsoft.windows.sdk.net.ref.10.0.17763.27.nupkg.sha512"
   ],
   "logs": []
 }

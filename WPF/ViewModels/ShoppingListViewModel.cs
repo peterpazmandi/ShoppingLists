@@ -1,6 +1,8 @@
 ﻿using APIRequests.Services.Item;
 using APIRequests.Services.Member;
+using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -97,7 +99,6 @@ namespace WPF.ViewModels
 
         #endregion properties
 
-
         #region commands
 
         public ICommand OpenShoppingListCommand { get; set; }
@@ -105,18 +106,20 @@ namespace WPF.ViewModels
 
         #endregion commands
 
-
+        #region ctor
         public ShoppingListViewModel()
         {
 
         }
 
-        public ShoppingListViewModel(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
+        public ShoppingListViewModel(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService, IShoppingListService shoppingListService, IMapper mapper)
         {
-            this.PopulateVariables(shoppingListViewModel, navigator, memberService);
+            this.PopulateVariables(shoppingListViewModel, navigator, memberService, shoppingListService, mapper);
         }
 
-        private void PopulateVariables(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService)
+        #endregion ctor
+
+        private void PopulateVariables(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService, IShoppingListService shoppingListService, IMapper mapper)
         {
             Id = shoppingListViewModel.Id;
             Title = shoppingListViewModel.Title;
@@ -135,7 +138,7 @@ namespace WPF.ViewModels
                 Items.Add(_item);
             }
 
-            CreateEditShoppingListCommand = new CreateEditShoppingListCommand(this, navigator, memberService);
+            CreateEditShoppingListCommand = new CreateEditShoppingListCommand(this, navigator, memberService, shoppingListService, mapper);
 
             ItemService = shoppingListViewModel.ItemService;
         }

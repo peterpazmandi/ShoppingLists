@@ -10,7 +10,7 @@ namespace API.DTOs
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public IEnumerable<string> MembersUsername { get; set; }
+        public IEnumerable<UsernameDto> Members { get; set; }
         public IEnumerable<UpdateItemDto> Items { get; set; }
     }
 }

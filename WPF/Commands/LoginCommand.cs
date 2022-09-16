@@ -40,13 +40,12 @@ namespace WPF.Commands
             {
                 await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
 
-
-                new ToastContentBuilder()
-                                .AddArgument("action", "viewConversation")
-                                .AddArgument("conversationId", 9813)
-                                .AddText("Successful login")
-                                .AddText($"Successfully logged in as: {_loginViewModel.Username}")
-                                .Show();
+                //new ToastContentBuilder()
+                //                .AddArgument("action", "viewConversation")
+                //                .AddArgument("conversationId", 9813)
+                //                .AddText("Successful login")
+                //                .AddText($"Successfully logged in as: {_loginViewModel.Username}")
+                //                .Show();
 
                 _renavigator.Renavigate();
             }

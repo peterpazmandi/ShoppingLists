@@ -39,6 +39,7 @@
         <Button Grid.Column="0" Grid.Row="0"
                 HorizontalAlignment="Right"
                 Margin="6 6 6 24"
+                Command="{Binding SaveShoppingListCommand}"
                 Style="{StaticResource SaveButton}" />
 
         <StackPanel Grid.Row="1" Grid.Column="0"
@@ -92,8 +93,7 @@
             </Grid>
         </StackPanel>
 
-        <ListView Grid.Row="3" Grid.Column="0"
-                  DataContext="{Binding ShoppingListViewModel.Members}">
+        <ListView Grid.Row="3" Grid.Column="0">
             <ListView.Style>
                 <Style TargetType="ListView" >
                     <Setter Property="Template" Value="{StaticResource MembersListViewTemplate}" />
