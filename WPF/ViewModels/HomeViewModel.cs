@@ -1,4 +1,5 @@
-﻿using APIRequests.Services.Item;
+﻿using APIRequests.DTOs;
+using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
@@ -77,7 +78,8 @@ namespace WPF.ViewModels
 
             Task.Run(async () =>
             {
-                await GetMyShoppingLists();
+                //var lists = await _shoppingListService.GetMyShoppingLists();
+                PopulateShoppingLists(await _shoppingListService.GetMyShoppingLists());
             });
 
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
@@ -98,11 +100,8 @@ namespace WPF.ViewModels
 
 
 
-
-        private async Task GetMyShoppingLists()
+        private void PopulateShoppingLists(List<ShoppingListDto> lists)
         {
-            var lists = await _shoppingListService.GetMyShoppingLists();
-
             foreach (var item in lists)
             {
                 var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
@@ -114,6 +113,10 @@ namespace WPF.ViewModels
                 shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
                 this.ShoppingLists.Add(shoppingList);
             }
+        }
+        private async Task<List<ShoppingListDto>> GetMyShoppingLists()
+        {
+            return await _shoppingListService.GetMyShoppingLists();
         }
     }
 }
