@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using WPF.Commands;
+using WPF.Helpers;
 using WPF.State.Authenticator;
 using WPF.State.Navigators;
 using WPF.ViewModels.Factories;
@@ -35,8 +36,8 @@ namespace WPF.ViewModels
         public double BottomMenuHorizontalPosition => _navigator.CurrentWindowHeight - 100;
 
 
-        private ObservableCollection<ShoppingListViewModel> _shoppingLists = new ObservableCollection<ShoppingListViewModel>();
-        public ObservableCollection<ShoppingListViewModel> ShoppingLists
+        private AsyncObservableCollection<ShoppingListViewModel> _shoppingLists = new AsyncObservableCollection<ShoppingListViewModel>();
+        public AsyncObservableCollection<ShoppingListViewModel> ShoppingLists
         {
             get { return _shoppingLists; }
             set 
@@ -102,20 +103,17 @@ namespace WPF.ViewModels
         {
             var lists = await _shoppingListService.GetMyShoppingLists();
 
-            App.Current.Dispatcher.Invoke((System.Action)delegate
+            foreach (var item in lists)
             {
-                foreach (var item in lists)
+                var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
+                foreach (var listItem in shoppingList.Items)
                 {
-                    var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
-                    foreach (var listItem in shoppingList.Items)
-                    {
-                        listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
-                    }
-                    shoppingList.ItemService = _itemService;
-                    shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
-                    this.ShoppingLists.Add(shoppingList);
+                    listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
                 }
-            });
+                shoppingList.ItemService = _itemService;
+                shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
+                this.ShoppingLists.Add(shoppingList);
+            }
         }
     }
 }

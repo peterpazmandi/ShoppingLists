@@ -21,15 +21,13 @@
                 HorizontalAlignment="Right" 
                 Style="{StaticResource CreateButton}" />
         <DockPanel Grid.Row="1">
-            <ListView DataContext="{Binding ShoppingLists}"
-                      SelectedItem="{Binding SelectedShoppingList}"
-                      DockPanel.Dock="Bottom">
-                <ListView.Style>
-                    <Style TargetType="ListView">
+            <ListBox DockPanel.Dock="Bottom">
+                <ListBox.Style>
+                    <Style TargetType="ListBox">
                         <Setter Property="Template" Value="{StaticResource ShoppingListListViewTemplate}" />
                     </Style>
-                </ListView.Style>
-            </ListView>
+                </ListBox.Style>
+            </ListBox>
         </DockPanel>
     </Grid>
 </UserControl>

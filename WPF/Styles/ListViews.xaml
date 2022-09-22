@@ -3,17 +3,17 @@
                     xmlns:converters="clr-namespace:WPF.Converters" 
                     xmlns:viewmodels="clr-namespace:WPF.ViewModels">
 
-    <ControlTemplate x:Key="ShoppingListListViewTemplate" TargetType="ListView" >
+    <ControlTemplate x:Key="ShoppingListListViewTemplate" TargetType="ListBox" >
         <ControlTemplate.Resources>
             <converters:DateToTimeAgoConverter x:Key="DateToTimeAgoConverter"/>
         </ControlTemplate.Resources>
-        <ListView 
-            ItemsSource="{Binding .}"
-            SelectedItem="{Binding DataContext.SelectedShoppingList, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"
+        <ListBox 
+            ItemsSource="{Binding ShoppingLists}"
+            SelectedItem="{Binding SelectedShoppingList}"
             SelectionMode="Single" 
             Padding="20"
             BorderThickness="0">
-            <ListView.ItemTemplate>
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1"
                             BorderBrush="{StaticResource BrushLightGray}" >
@@ -57,15 +57,15 @@
                                         HorizontalAlignment="Right" 
                                         Style="{StaticResource ViewButton}"
                                         Command="{Binding OpenShoppingListCommand}"
-                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=ListViewItem}}">
+                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}">
                                 </Button>
                             </Grid>
 
                         </Grid>
                     </Border>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </ControlTemplate>
 
     <ControlTemplate x:Key="ItemListViewTemplate" TargetType="ListView" >

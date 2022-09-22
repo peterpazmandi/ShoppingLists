@@ -23,6 +23,7 @@ namespace APIRequests.Services.ShoppingList
         {
             var lists = await _client
                 .GetAsync<List<ShoppingListDto>>("ShoppingList/GetMyShoppingLists", _accountStore.CurrentAccount.Token);
+            
             return lists;
         }
 
