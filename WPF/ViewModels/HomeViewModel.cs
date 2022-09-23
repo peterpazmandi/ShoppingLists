@@ -78,8 +78,8 @@ namespace WPF.ViewModels
 
             Task.Run(async () =>
             {
-                //var lists = await _shoppingListService.GetMyShoppingLists();
-                PopulateShoppingLists(await _shoppingListService.GetMyShoppingLists());
+                var lists = await _shoppingListService.GetMyShoppingLists();
+                PopulateShoppingLists(lists);
             });
 
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
@@ -113,10 +113,6 @@ namespace WPF.ViewModels
                 shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
                 this.ShoppingLists.Add(shoppingList);
             }
-        }
-        private async Task<List<ShoppingListDto>> GetMyShoppingLists()
-        {
-            return await _shoppingListService.GetMyShoppingLists();
         }
     }
 }

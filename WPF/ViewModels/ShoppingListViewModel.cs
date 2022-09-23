@@ -89,6 +89,8 @@ namespace WPF.ViewModels
             }
         }
 
+        public ItemViewModel this[int index] => this.Items[index];
+
         public int ItemsCount => this.Items.Count;
         public int BoughtItems => Items.Count(i => i.Bought);
 
