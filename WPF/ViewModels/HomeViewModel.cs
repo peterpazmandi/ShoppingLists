@@ -102,17 +102,20 @@ namespace WPF.ViewModels
 
         private void PopulateShoppingLists(List<ShoppingListDto> lists)
         {
-            foreach (var item in lists)
+            App.Current.Dispatcher.Invoke((System.Action)delegate
             {
-                var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
-                foreach (var listItem in shoppingList.Items)
+                foreach (var item in lists)
                 {
-                    listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
+                    var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
+                    foreach (var listItem in shoppingList.Items)
+                    {
+                        listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
+                    }
+                    shoppingList.ItemService = _itemService;
+                    shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(_navigator, _memberService, _shoppingListService, _mapper);
+                    this.ShoppingLists.Add(shoppingList);
                 }
-                shoppingList.ItemService = _itemService;
-                shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(shoppingList, _navigator, _memberService, _shoppingListService, _mapper);
-                this.ShoppingLists.Add(shoppingList);
-            }
+            });
         }
     }
 }

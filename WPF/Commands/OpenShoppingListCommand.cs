@@ -13,15 +13,13 @@ namespace WPF.Commands
 {
     public class OpenShoppingListCommand : AsyncCommandBase
     {
-        private readonly ShoppingListViewModel _shoppingListViewModel;
         private readonly INavigator _navigator;
         private readonly IMemberService _memberService;
         private readonly IShoppingListService _shoppingListService;
         private readonly IMapper _mapper;
 
-        public OpenShoppingListCommand(ShoppingListViewModel shoppingListViewModel, INavigator navigator, IMemberService memberService, IShoppingListService shoppingListService, IMapper mapper)
+        public OpenShoppingListCommand(INavigator navigator, IMemberService memberService, IShoppingListService shoppingListService, IMapper mapper)
         {
-            _shoppingListViewModel = shoppingListViewModel;
             _navigator = navigator;
             _memberService = memberService;
             _shoppingListService = shoppingListService;
@@ -30,7 +28,7 @@ namespace WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
-            _navigator.CurrentViewModel = new ShoppingListViewModel(_shoppingListViewModel, _navigator, _memberService, _shoppingListService, _mapper);
+            _navigator.CurrentViewModel = new ShoppingListViewModel((ShoppingListViewModel)parameter, _navigator, _memberService, _shoppingListService, _mapper);
         }
     }
 }

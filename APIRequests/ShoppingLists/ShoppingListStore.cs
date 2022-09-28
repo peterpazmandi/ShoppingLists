@@ -1,4 +1,5 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,8 +11,8 @@ namespace APIRequests.ShoppingLists
 {
     public class ShoppingListStore : IShoppingListStore
     {
-        private ObservableCollection<ShoppingListDto> _shoppingLists = new ObservableCollection<ShoppingListDto>();
-        public ObservableCollection<ShoppingListDto> ShoppingLists
+        private AsyncObservableCollection<ShoppingListDto> _shoppingLists = new AsyncObservableCollection<ShoppingListDto>();
+        public AsyncObservableCollection<ShoppingListDto> ShoppingLists
         {
             get
             {

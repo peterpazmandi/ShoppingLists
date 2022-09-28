@@ -57,7 +57,7 @@
                                         HorizontalAlignment="Right" 
                                         Style="{StaticResource ViewButton}"
                                         Command="{Binding OpenShoppingListCommand}"
-                                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}">
+                                        CommandParameter="{Binding}">
                                 </Button>
                             </Grid>
 
