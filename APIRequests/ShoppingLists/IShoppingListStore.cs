@@ -1,5 +1,6 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Helpers;
+using APIRequests.Services.ShoppingList;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,8 +12,8 @@ namespace APIRequests.ShoppingLists
 {
     public interface IShoppingListStore
     {
-        AsyncObservableCollection<ShoppingListDto> ShoppingLists { get; set; }
+        IShoppingListService ShoppingListService { get; set; }
+        IEnumerable<ShoppingListDto> ShoppingLists { get; set; }
         ShoppingListDto SelectedShoppingList { get; set; }
-        public event Action StateChanged;
     }
 }

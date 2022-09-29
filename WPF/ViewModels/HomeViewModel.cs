@@ -25,12 +25,12 @@ namespace WPF.ViewModels
 {
     public class HomeViewModel: ViewModelBase
     {
-        private readonly IShoppingListService _shoppingListService;
         private readonly IItemService _itemService;
         public IMemberService _memberService;
         private readonly INavigator _navigator;
         private readonly IMapper _mapper;
 
+        public ShoppingListListingViewModel ShoppingListListingViewModel { get; }
 
         public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
 
@@ -61,31 +61,31 @@ namespace WPF.ViewModels
         }
 
 
-
+        public ICommand GetShoppingListsCommand { get; init; }
         public ICommand UpdateCurrentViewModelCommand { get; }
 
 
         public HomeViewModel(
-            IShoppingListService shoppingListService,
             INavigator navigator,
             IViewModelFactory viewModelFactory,
             IMapper mapper,
             IItemService itemService,
-            IMemberService memberService)
+            IMemberService memberService,
+            ShoppingListStore shoppingListStore)
         {
-            _shoppingListService = shoppingListService;
+            ErrorMessageViewModel = new();
+
             _navigator = navigator;
-
-            Task.Run(async () =>
-            {
-                var lists = await _shoppingListService.GetMyShoppingLists();
-                PopulateShoppingLists(lists);
-            });
-
-            UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
             _mapper = mapper;
             _itemService = itemService;
             _memberService = memberService;
+
+            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore);
+
+            GetShoppingListsCommand = new GetShoppingListsCommand(this, shoppingListStore);
+            GetShoppingListsCommand.Execute(null);
+
+            UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, viewModelFactory);
 
             _navigator.StateChanged += Navigator_StateChanged;
         }
@@ -100,22 +100,22 @@ namespace WPF.ViewModels
 
 
 
-        private void PopulateShoppingLists(List<ShoppingListDto> lists)
-        {
-            App.Current.Dispatcher.Invoke((System.Action)delegate
-            {
-                foreach (var item in lists)
-                {
-                    var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
-                    foreach (var listItem in shoppingList.Items)
-                    {
-                        listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
-                    }
-                    shoppingList.ItemService = _itemService;
-                    shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(_navigator, _memberService, _shoppingListService, _mapper);
-                    this.ShoppingLists.Add(shoppingList);
-                }
-            });
-        }
+        //private void PopulateShoppingLists(List<ShoppingListDto> lists)
+        //{
+        //    App.Current.Dispatcher.Invoke((System.Action)delegate
+        //    {
+        //        foreach (var item in lists)
+        //        {
+        //            var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
+        //            foreach (var listItem in shoppingList.Items)
+        //            {
+        //                listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
+        //            }
+        //            shoppingList.ItemService = _itemService;
+        //            shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(_navigator, _memberService, _shoppingListService, _mapper);
+        //            this.ShoppingLists.Add(shoppingList);
+        //        }
+        //    });
+        //}
     }
 }

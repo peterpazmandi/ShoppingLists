@@ -1,5 +1,7 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Helpers;
+using APIRequests.Services.Account;
+using APIRequests.Services.ShoppingList;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,34 +11,38 @@ using System.Threading.Tasks;
 
 namespace APIRequests.ShoppingLists
 {
-    public class ShoppingListStore : IShoppingListStore
+    public class ShoppingListStore
     {
-        private AsyncObservableCollection<ShoppingListDto> _shoppingLists = new AsyncObservableCollection<ShoppingListDto>();
-        public AsyncObservableCollection<ShoppingListDto> ShoppingLists
-        {
-            get
-            {
-                return _shoppingLists;
-            }
-            set 
-            { 
-                _shoppingLists = value;
-                StateChanged?.Invoke();
-            }
-        }
+        private readonly IShoppingListService _shoppingListService;
+
+
+        private List<ShoppingListDto> _shoppingLists;
+        public IEnumerable<ShoppingListDto> ShoppingLists => _shoppingLists;
+
+
 
         private ShoppingListDto _selectedShoppingList;
-        public ShoppingListDto SelectedShoppingList
+        public ShoppingListDto SelectedShoppingList => _selectedShoppingList;
+
+
+
+        public event Action ShoppingListsLoaded;
+
+        public ShoppingListStore(IShoppingListService shoppingListService)
         {
-            get { return _selectedShoppingList; }
-            set 
-            { 
-                _selectedShoppingList = value;
-                StateChanged?.Invoke();
-            }
+            _shoppingListService = shoppingListService;
+
+            _shoppingLists = new();
         }
 
+        public async Task GetShoppingLists()
+        {
+            var shoppingLists = _shoppingListService.GetMyShoppingLists();
 
-        public event Action StateChanged;
+            this._shoppingLists.Clear();
+            this._shoppingLists.AddRange(await shoppingLists);
+
+            this.ShoppingListsLoaded?.Invoke();
+        }
     }
 }

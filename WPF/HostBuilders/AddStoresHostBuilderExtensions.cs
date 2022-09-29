@@ -22,7 +22,7 @@ namespace WPF.HostBuilders
                 services.AddSingleton<INavigator, Navigator>();
                 services.AddSingleton<IAuthenticator, Authenticator>();
                 services.AddSingleton<IAccountStore, AccountStore>();
-                services.AddSingleton<IShoppingListStore, ShoppingListStore>();
+                services.AddSingleton<ShoppingListStore>();
             });
 
             return host;

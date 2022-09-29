@@ -5,6 +5,12 @@
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\ShoppingListListingItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ShoppingListListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\CreateEditShoppingListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +29,12 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ShoppingListListingItemView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ShoppingListListingView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Converters\ConverterDictionary.xaml">
