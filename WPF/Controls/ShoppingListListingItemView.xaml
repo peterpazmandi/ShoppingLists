@@ -7,6 +7,53 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBox Text="{Binding ShoppingList.Title}" />
+        <Border BorderThickness="1"
+                            BorderBrush="{StaticResource BrushLightGray}" >
+
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       HorizontalAlignment="Left"
+                       Content="{Binding ShoppingList.Modified, Converter={StaticResource DateToTimeAgoConverter}}" />
+
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                                           Margin="40 0 0 0"
+                                           Text="{Binding ShoppingList.Title}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontWeight="Bold"
+                                           TextWrapping="WrapWithOverflow"
+                                           FontSize="16" />
+                    <StackPanel Grid.Row="1" Grid.Column="1"
+                                            Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Right">
+                        <Label Content="{Binding ShoppingList.ItemsCount}"/>
+                        <Label Content="/" />
+                        <Label Content="{Binding ShoppingList.BoughtItems}" />
+                    </StackPanel>
+                    <Button Grid.Column="2" 
+                                        HorizontalAlignment="Right" 
+                                        Style="{StaticResource ViewButton}"
+                                        Command="{Binding OpenShoppingListCommand}"
+                                        CommandParameter="{Binding}">
+                    </Button>
+                </Grid>
+
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
