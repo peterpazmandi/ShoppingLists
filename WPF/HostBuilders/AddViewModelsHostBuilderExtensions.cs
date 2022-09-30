@@ -38,6 +38,15 @@ namespace WPF.HostBuilders
             return host;
         }
 
+
+
+        private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
+        {
+            return new LoginViewModel(
+                services.GetRequiredService<IAuthenticator>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
+                services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>());
+        }
         private static MainViewModel CreateMainViewModel(IServiceProvider services)
         {
             return new MainViewModel(
@@ -53,13 +62,6 @@ namespace WPF.HostBuilders
                 services.GetRequiredService<IAuthenticator>(),
                 services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
                 services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>());
-        }
-        private static LoginViewModel CreateLoginViewModel(IServiceProvider services)
-        {
-            return new LoginViewModel(
-                services.GetRequiredService<IAuthenticator>(),
-                services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
-                services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>());
         }
     }
 }

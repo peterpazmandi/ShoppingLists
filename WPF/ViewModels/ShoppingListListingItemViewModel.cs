@@ -27,7 +27,6 @@ namespace WPF.ViewModels
         #region commands
 
         public ICommand OpenShoppingListCommand { get; set; }
-        public ICommand CreateEditShoppingListCommand { get; set; }
 
         #endregion commands
 

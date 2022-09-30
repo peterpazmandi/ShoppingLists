@@ -22,7 +22,12 @@ namespace APIRequests.ShoppingLists
 
 
         private ShoppingListDto _selectedShoppingList;
-        public ShoppingListDto SelectedShoppingList => _selectedShoppingList;
+        public ShoppingListDto SelectedShoppingList
+        {
+            get { return _selectedShoppingList; }
+            set { _selectedShoppingList = value; }
+        }
+
 
 
 

@@ -26,6 +26,9 @@
     <Compile Update="Views\ShoppingListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ViewShoppingListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\NavigationBar.xaml">
@@ -77,6 +80,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ShoppingListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewShoppingListView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

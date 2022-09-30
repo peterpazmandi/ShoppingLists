@@ -1,5 +1,7 @@
-﻿using APIRequests.Services.Member;
+﻿using APIRequests.DTOs;
+using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
+using APIRequests.ShoppingLists;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -15,20 +17,24 @@ namespace WPF.Commands
     {
         private readonly INavigator _navigator;
         private readonly IMemberService _memberService;
-        private readonly IShoppingListService _shoppingListService;
-        private readonly IMapper _mapper;
+        private readonly ShoppingListStore _shoppingListStore;
 
-        public OpenShoppingListCommand(INavigator navigator, IMemberService memberService, IShoppingListService shoppingListService, IMapper mapper)
+
+        public OpenShoppingListCommand(INavigator navigator, IMemberService memberService, ShoppingListStore shoppingListStore)
         {
             _navigator = navigator;
             _memberService = memberService;
-            _shoppingListService = shoppingListService;
-            _mapper = mapper;
+            _shoppingListStore = shoppingListStore;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            _navigator.CurrentViewModel = new ShoppingListViewModel((ShoppingListViewModel)parameter, _navigator, _memberService, _shoppingListService, _mapper);
+            if (parameter is ShoppingListDto)
+            {
+                _shoppingListStore.SelectedShoppingList = (ShoppingListDto)parameter;
+            }
+
+            _navigator.CurrentViewModel = new ViewShoppingListViewModel(_navigator, _memberService, _shoppingListStore);
         }
     }
 }

@@ -96,26 +96,5 @@ namespace WPF.ViewModels
             OnPropertyChanged(nameof(CurrentViewModel));
             OnPropertyChanged(nameof(BottomMenuHorizontalPosition));
         }
-
-
-
-
-        //private void PopulateShoppingLists(List<ShoppingListDto> lists)
-        //{
-        //    App.Current.Dispatcher.Invoke((System.Action)delegate
-        //    {
-        //        foreach (var item in lists)
-        //        {
-        //            var shoppingList = _mapper.Map<ShoppingListViewModel>(item);
-        //            foreach (var listItem in shoppingList.Items)
-        //            {
-        //                listItem.UpdateItemBoughtState += shoppingList.UpdateItemBoughtStateById;
-        //            }
-        //            shoppingList.ItemService = _itemService;
-        //            shoppingList.OpenShoppingListCommand = new OpenShoppingListCommand(_navigator, _memberService, _shoppingListService, _mapper);
-        //            this.ShoppingLists.Add(shoppingList);
-        //        }
-        //    });
-        //}
     }
 }
