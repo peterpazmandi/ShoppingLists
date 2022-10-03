@@ -80,7 +80,7 @@ namespace WPF.ViewModels
             _itemService = itemService;
             _memberService = memberService;
 
-            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore);
+            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore, navigator, memberService, itemService);
 
             GetShoppingListsCommand = new GetShoppingListsCommand(this, shoppingListStore);
             GetShoppingListsCommand.Execute(null);

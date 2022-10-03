@@ -31,9 +31,12 @@ namespace WPF.ViewModels
         #endregion commands
 
         #region ctor
-        public ShoppingListListingItemViewModel(ShoppingListDto shoppingList, ShoppingListStore shoppingListStore)
+
+        public ShoppingListListingItemViewModel(ShoppingListDto shoppingList, ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService)
         {
             ShoppingList = shoppingList;
+
+            OpenShoppingListCommand = new OpenShoppingListCommand(navigator, memberService, itemService, shoppingListStore);
         }
 
         #endregion ctor
