@@ -20,7 +20,7 @@
                HorizontalAlignment="Left"
                FontSize="14"
                FontWeight="Bold"
-               Content="{Binding Item.Name}" />
+               Content="{Binding Name}" />
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.ColumnDefinitions>
@@ -32,10 +32,10 @@
                         Orientation="Horizontal" >
                 <Label Grid.Row="0"
                        HorizontalAlignment="Left"
-                       Content="{Binding Item.Qty, NotifyOnTargetUpdated=True}" />
+                       Content="{Binding Qty, NotifyOnTargetUpdated=True}" />
                 <Label Grid.Row="0"
                        HorizontalAlignment="Left"
-                       Content="{Binding Item.Unit}" />
+                       Content="{Binding Unit}" />
             </StackPanel>
         </Grid>
 
@@ -43,7 +43,7 @@
                   HorizontalAlignment="Right"
                   VerticalAlignment="Center"
                   Style="{StaticResource IsBoughtItemCheckBoxStyle}"
-                  IsChecked="{Binding Item.Bought}" />
+                  IsChecked="{Binding Bought}" />
 
     </Grid>
 </UserControl>

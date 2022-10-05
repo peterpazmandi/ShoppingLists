@@ -15,33 +15,86 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" /> <!--0-->
+            <RowDefinition Height="auto" /> <!--1-->
+            <RowDefinition Height="auto" /> <!--2-->
+            <RowDefinition Height="auto" /> <!--3-->
+            <RowDefinition Height="auto" /> <!--4-->
+            <RowDefinition Height="auto" /> <!--5-->
+            <RowDefinition Height="auto" /> <!--5-->
         </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0" Grid.Column="0"
-                   Text="{Binding ShoppingList.Title}"
-                   FontSize="18"
-                   Margin="16 16 0 0"
-                   FontWeight="Bold"
-                   TextWrapping="WrapWithOverflow" />
-
+        
         <Button Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Right" 
                 Style="{StaticResource EditButton}"/>
 
-        <items:ItemListingView Grid.Row="1" Grid.ColumnSpan="2"
-                               DataContext="{Binding ItemListingViewModel}" />
 
-        <!--<ListView DataContext="{Binding ShoppingList.Items}"
-                  Grid.Row="2"
-                  Grid.Column="0"
-                  Grid.ColumnSpan="2">
-            <ListView.Style>
-                <Style TargetType="ListView">
-                    <Setter Property="Template" Value="{StaticResource ItemListViewTemplate}" />
-                </Style>
-            </ListView.Style>
-        </ListView>-->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Title"
+                       Margin="10 0 0 0" />
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                   Text="{Binding ShoppingList.Title}"
+                   FontSize="22"
+                   Margin="16 0 0 0"
+                   FontWeight="Bold"
+                   TextWrapping="WrapWithOverflow" />
+        </Grid>
+        <Rectangle Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource BrushLightGray}" 
+                   Height="2"
+                   Margin="0 16 0 16"/>
+
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Members"
+                       Margin="10 0 0 0" />
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{Binding Members}"
+                       Margin="10 0 0 0" />
+        </Grid>
+        <Rectangle Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource BrushLightGray}" 
+                   Height="2"
+                   Margin="0 16 0 16"/>
+
+
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Items"
+                       Margin="10 0 0 0" />
+
+            <items:ItemListingView Grid.Row="1"
+                                   DataContext="{Binding ItemListingViewModel}" />
+        </Grid>
+        <Rectangle Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource BrushLightGray}" 
+                   Height="2"
+                   Margin="0 16 0 16"/>
+        
     </Grid>
 </UserControl>

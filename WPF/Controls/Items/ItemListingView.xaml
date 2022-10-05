@@ -7,14 +7,16 @@
              xmlns:items="clr-namespace:WPF.Controls.Items"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <ListView ItemsSource="{Binding ItemListingItemViewModels}"
-                  SelectionMode="Single">
-            <ListView.ItemTemplate>
+        <ListBox ItemsSource="{Binding ItemListingItemViewModels}"
+                 SelectionMode="Single"
+                 BorderThickness="0">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
                     <items:ItemListingItemView />
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>
