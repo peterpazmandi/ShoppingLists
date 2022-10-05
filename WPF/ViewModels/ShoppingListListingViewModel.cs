@@ -3,6 +3,7 @@ using APIRequests.Helpers;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.ShoppingLists;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace WPF.ViewModels
 {
     public sealed class ShoppingListListingViewModel: ViewModelBase
     {
+        private readonly ILogger<ShoppingListListingViewModel> _logger;
         private readonly ShoppingListStore _shoppingListStore;
         private readonly INavigator _navigator;
         private readonly IMemberService _memberService;
@@ -24,7 +26,7 @@ namespace WPF.ViewModels
         private readonly AsyncObservableCollection<ShoppingListListingItemViewModel> _shoppingListListingItemViewModels;
         public IEnumerable<ShoppingListListingItemViewModel> ShoppingListListingItemViewModels => _shoppingListListingItemViewModels;
 
-        public ShoppingListListingViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService)
+        public ShoppingListListingViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService, ILogger<ShoppingListListingViewModel> logger)
         {
             _shoppingListStore = shoppingListStore;
 
@@ -34,6 +36,7 @@ namespace WPF.ViewModels
             _navigator = navigator;
             _memberService = memberService;
             _itemService = itemService;
+            _logger = logger;
         }
 
         private void ShoppingListStore_ShoppingListsLoaded()
@@ -42,6 +45,7 @@ namespace WPF.ViewModels
 
             foreach (ShoppingListDto shoppingList in _shoppingListStore.ShoppingLists)
             {
+                _logger.LogInformation($"{shoppingList}");
                 AddShoppingList(shoppingList);
             }
         }

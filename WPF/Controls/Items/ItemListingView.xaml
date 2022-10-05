@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ListView ItemsSource="{Binding ItemListingItemViewModels}"
-                  SelectionMode="Single" >
+                  SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <items:ItemListingItemView />

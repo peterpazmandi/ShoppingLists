@@ -6,7 +6,44 @@
              xmlns:local="clr-namespace:WPF.Controls.Items"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="{Binding Name}" />
+    <Grid Margin="10" Width="560">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"
+               HorizontalAlignment="Left"
+               FontSize="14"
+               FontWeight="Bold"
+               Content="{Binding Item.Name}" />
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="1"
+                        Orientation="Horizontal" >
+                <Label Grid.Row="0"
+                       HorizontalAlignment="Left"
+                       Content="{Binding Item.Qty, NotifyOnTargetUpdated=True}" />
+                <Label Grid.Row="0"
+                       HorizontalAlignment="Left"
+                       Content="{Binding Item.Unit}" />
+            </StackPanel>
+        </Grid>
+
+        <CheckBox Grid.Column="1" Grid.RowSpan="2"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Center"
+                  Style="{StaticResource IsBoughtItemCheckBoxStyle}"
+                  IsChecked="{Binding Item.Bought}" />
+
     </Grid>
 </UserControl>

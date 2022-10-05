@@ -30,7 +30,8 @@
                 HorizontalAlignment="Right" 
                 Style="{StaticResource EditButton}"/>
 
-        <items:ItemListingView DataContext="{Binding ItemListingViewModel}" />
+        <items:ItemListingView Grid.Row="1" Grid.ColumnSpan="2"
+                               DataContext="{Binding ItemListingViewModel}" />
 
         <!--<ListView DataContext="{Binding ShoppingList.Items}"
                   Grid.Row="2"

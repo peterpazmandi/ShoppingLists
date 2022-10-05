@@ -4,6 +4,7 @@ using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,8 @@ namespace WPF.ViewModels
             IMapper mapper,
             IItemService itemService,
             IMemberService memberService,
-            ShoppingListStore shoppingListStore)
+            ShoppingListStore shoppingListStore,
+            ILogger<ShoppingListListingViewModel> logger)
         {
             ErrorMessageViewModel = new();
 
@@ -80,7 +82,7 @@ namespace WPF.ViewModels
             _itemService = itemService;
             _memberService = memberService;
 
-            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore, navigator, memberService, itemService);
+            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore, navigator, memberService, itemService, logger);
 
             GetShoppingListsCommand = new GetShoppingListsCommand(this, shoppingListStore);
             GetShoppingListsCommand.Execute(null);

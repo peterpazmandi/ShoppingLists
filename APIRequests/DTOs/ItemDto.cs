@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APIRequests.DTOs
 {
-    public class ItemDto
+    public record struct ItemDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

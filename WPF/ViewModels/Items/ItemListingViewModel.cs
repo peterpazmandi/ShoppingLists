@@ -32,7 +32,11 @@ namespace WPF.ViewModels.Items
             {
                 var _item = new ItemListingItemViewModel()
                 {
-                    Name = item.Name
+                    Id = item.Id,
+                    Name = item.Name,
+                    Qty = item.Qty,
+                    Unit = item.Unit,
+                    Bought = item.Bought
                 };
                 _itemListingItemViewModels.Add(_item);
             }
