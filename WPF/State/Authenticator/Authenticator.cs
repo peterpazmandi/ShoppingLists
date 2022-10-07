@@ -1,5 +1,6 @@
 ﻿using APIRequests.Accounts;
 using APIRequests.Models;
+using APIRequests.Services;
 using APIRequests.Services.Account;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace SimpleTrader.WPF.State.Authenticators
 {
     public class Authenticator : IAuthenticator
     {
-        private readonly IAccountService _accountService;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IAccountStore _accountStore;
 
-        public Authenticator(IAccountService accountService, IAccountStore accountStore)
+        public Authenticator(IUnitOfWork unitOfWork, IAccountStore accountStore)
         {
-            _accountService = accountService;
+            _unitOfWork = unitOfWork;
             _accountStore = accountStore;
         }
 
@@ -39,7 +40,7 @@ namespace SimpleTrader.WPF.State.Authenticators
 
         public async Task Login(string username, string password)
         {
-            CurrentUser = await _accountService.Login(username, password);
+            CurrentUser = await _unitOfWork.AccountService.Login(username, password);
         }
 
         public void Logout()
@@ -49,7 +50,7 @@ namespace SimpleTrader.WPF.State.Authenticators
 
         public async Task Register(string email, string username, string password)
         {
-            CurrentUser = await _accountService.Register(email, username, password);
+            CurrentUser = await _unitOfWork.AccountService.Register(email, username, password);
         }
     }
 }

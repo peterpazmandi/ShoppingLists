@@ -1,5 +1,6 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Helpers;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.ShoppingLists;
 using System;
@@ -16,12 +17,12 @@ namespace WPF.ViewModels.Items
         public IEnumerable<ItemListingItemViewModel> ItemListingItemViewModels => _itemListingItemViewModels;
 
         private readonly ShoppingListDto shoppingList;
-        private readonly IItemService _itemService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ItemListingViewModel(ShoppingListStore shoppingListStore, IItemService itemService)
+        public ItemListingViewModel(ShoppingListStore shoppingListStore, IUnitOfWork unitOfWork)
         {
             _itemListingItemViewModels = new AsyncObservableCollection<ItemListingItemViewModel>();
-            _itemService = itemService;
+            _unitOfWork = unitOfWork;
 
             AddItems(shoppingListStore);
         }

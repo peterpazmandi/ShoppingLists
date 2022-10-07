@@ -1,4 +1,5 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
@@ -32,11 +33,11 @@ namespace WPF.ViewModels
 
         #region ctor
 
-        public ShoppingListListingItemViewModel(ShoppingListDto shoppingList, ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService)
+        public ShoppingListListingItemViewModel(ShoppingListDto shoppingList, ShoppingListStore shoppingListStore, INavigator navigator, IUnitOfWork unitOfWork)
         {
             ShoppingList = shoppingList;
 
-            OpenShoppingListCommand = new OpenShoppingListCommand(navigator, memberService, itemService, shoppingListStore);
+            OpenShoppingListCommand = new OpenShoppingListCommand(navigator, unitOfWork, shoppingListStore);
         }
 
         #endregion ctor

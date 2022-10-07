@@ -1,4 +1,5 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.ShoppingLists;
@@ -15,7 +16,7 @@ namespace WPF.ViewModels
     public sealed class ViewShoppingListViewModel: ViewModelBase
     {
         private readonly INavigator _navigator;
-        private readonly IMemberService _memberService;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ShoppingListDto ShoppingList { get; set; }
         public ItemListingViewModel ItemListingViewModel { get; }
@@ -42,14 +43,13 @@ namespace WPF.ViewModels
             }
         }
 
-        public ViewShoppingListViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService)
+        public ViewShoppingListViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IUnitOfWork unitOfWork)
         {
             _navigator = navigator;
-            _memberService = memberService;
-
+            _unitOfWork = unitOfWork;
             ShoppingList = shoppingListStore.SelectedShoppingList;
 
-            ItemListingViewModel = new ItemListingViewModel(shoppingListStore, itemService);
+            ItemListingViewModel = new ItemListingViewModel(shoppingListStore, unitOfWork);
         }
     }
 }

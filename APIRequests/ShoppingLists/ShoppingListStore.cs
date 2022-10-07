@@ -1,5 +1,6 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Helpers;
+using APIRequests.Services;
 using APIRequests.Services.Account;
 using APIRequests.Services.ShoppingList;
 using System;
@@ -13,7 +14,7 @@ namespace APIRequests.ShoppingLists
 {
     public class ShoppingListStore
     {
-        private readonly IShoppingListService _shoppingListService;
+        private readonly IUnitOfWork _unitOfWork;
 
 
         private List<ShoppingListDto> _shoppingLists;
@@ -33,16 +34,16 @@ namespace APIRequests.ShoppingLists
 
         public event Action ShoppingListsLoaded;
 
-        public ShoppingListStore(IShoppingListService shoppingListService)
+        public ShoppingListStore(IUnitOfWork unitOfWork)
         {
-            _shoppingListService = shoppingListService;
+            _unitOfWork = unitOfWork;
 
             _shoppingLists = new();
         }
 
         public async Task GetShoppingLists()
         {
-            var shoppingLists = _shoppingListService.GetMyShoppingLists();
+            var shoppingLists = _unitOfWork.ShoppingListService.GetMyShoppingLists();
 
             this._shoppingLists.Clear();
             this._shoppingLists.AddRange(await shoppingLists);

@@ -1,4 +1,5 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
@@ -26,10 +27,12 @@ namespace WPF.ViewModels
 {
     public class HomeViewModel: ViewModelBase
     {
-        private readonly IItemService _itemService;
-        public IMemberService _memberService;
         private readonly INavigator _navigator;
+        private readonly IViewModelFactory _viewModelFactory;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ShoppingListStore _shoppingListStore;
+        private readonly ILogger<ShoppingListListingViewModel> _logger;
 
         public ShoppingListListingViewModel ShoppingListListingViewModel { get; }
 
@@ -70,19 +73,20 @@ namespace WPF.ViewModels
             INavigator navigator,
             IViewModelFactory viewModelFactory,
             IMapper mapper,
-            IItemService itemService,
-            IMemberService memberService,
+            IUnitOfWork unitOfWork,
             ShoppingListStore shoppingListStore,
             ILogger<ShoppingListListingViewModel> logger)
         {
             ErrorMessageViewModel = new();
 
             _navigator = navigator;
+            _viewModelFactory = viewModelFactory;
             _mapper = mapper;
-            _itemService = itemService;
-            _memberService = memberService;
+            _unitOfWork = unitOfWork;
+            _shoppingListStore = shoppingListStore;
+            _logger = logger;
 
-            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore, navigator, memberService, itemService, logger);
+            ShoppingListListingViewModel = new ShoppingListListingViewModel(shoppingListStore, navigator, unitOfWork, logger);
 
             GetShoppingListsCommand = new GetShoppingListsCommand(this, shoppingListStore);
             GetShoppingListsCommand.Execute(null);

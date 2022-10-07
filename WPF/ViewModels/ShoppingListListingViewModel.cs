@@ -1,5 +1,6 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Helpers;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.ShoppingLists;
@@ -18,15 +19,14 @@ namespace WPF.ViewModels
         private readonly ILogger<ShoppingListListingViewModel> _logger;
         private readonly ShoppingListStore _shoppingListStore;
         private readonly INavigator _navigator;
-        private readonly IMemberService _memberService;
-        private readonly IItemService _itemService;
+        private readonly IUnitOfWork _unitOfWork;
 
 
 
         private readonly AsyncObservableCollection<ShoppingListListingItemViewModel> _shoppingListListingItemViewModels;
         public IEnumerable<ShoppingListListingItemViewModel> ShoppingListListingItemViewModels => _shoppingListListingItemViewModels;
 
-        public ShoppingListListingViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IMemberService memberService, IItemService itemService, ILogger<ShoppingListListingViewModel> logger)
+        public ShoppingListListingViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IUnitOfWork unitOfWork, ILogger<ShoppingListListingViewModel> logger)
         {
             _shoppingListStore = shoppingListStore;
 
@@ -34,8 +34,8 @@ namespace WPF.ViewModels
 
             _shoppingListStore.ShoppingListsLoaded += ShoppingListStore_ShoppingListsLoaded;
             _navigator = navigator;
-            _memberService = memberService;
-            _itemService = itemService;
+            _unitOfWork = unitOfWork;
+
             _logger = logger;
         }
 
@@ -52,7 +52,7 @@ namespace WPF.ViewModels
 
         private void AddShoppingList(ShoppingListDto shoppingList)
         {
-            ShoppingListListingItemViewModel itemViewModel = new(shoppingList, _shoppingListStore, _navigator, _memberService, _itemService);
+            ShoppingListListingItemViewModel itemViewModel = new(shoppingList, _shoppingListStore, _navigator, _unitOfWork);
             _shoppingListListingItemViewModels.Add(itemViewModel);
         }
     }

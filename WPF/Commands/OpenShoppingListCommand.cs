@@ -1,4 +1,5 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
@@ -17,16 +18,14 @@ namespace WPF.Commands
     public class OpenShoppingListCommand : AsyncCommandBase
     {
         private readonly INavigator _navigator;
-        private readonly IMemberService _memberService;
-        private readonly IItemService _itemService;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly ShoppingListStore _shoppingListStore;
 
 
-        public OpenShoppingListCommand(INavigator navigator, IMemberService memberService, IItemService itemService, ShoppingListStore shoppingListStore)
+        public OpenShoppingListCommand(INavigator navigator, IUnitOfWork unitOfWork, ShoppingListStore shoppingListStore)
         {
             _navigator = navigator;
-            _memberService = memberService;
-            _itemService = itemService;
+            _unitOfWork = unitOfWork;
             _shoppingListStore = shoppingListStore;
         }
 
@@ -37,7 +36,7 @@ namespace WPF.Commands
                 _shoppingListStore.SelectedShoppingList = ((ShoppingListListingItemViewModel)parameter).ShoppingList;
             }
 
-            _navigator.CurrentViewModel = new ViewShoppingListViewModel(_shoppingListStore, _navigator, _memberService, _itemService);
+            _navigator.CurrentViewModel = new ViewShoppingListViewModel(_shoppingListStore, _navigator, _unitOfWork);
         }
     }
 }
