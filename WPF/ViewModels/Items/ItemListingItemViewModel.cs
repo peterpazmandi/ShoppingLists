@@ -1,4 +1,6 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
+using APIRequests.ShoppingLists;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace WPF.ViewModels.Items
 {
+    public delegate void ReorderItemsOrderByBoughtDelegate();
+
     public sealed class ItemListingItemViewModel: ViewModelBase
     {
+        public event ReorderItemsOrderByBoughtDelegate ReorderItemsOrderByBoughtDelegate;
+
+
         private int _id;
         public int Id
         {
@@ -41,7 +48,33 @@ namespace WPF.ViewModels.Items
         public bool Bought
         {
             get { return _bought; }
-            set { _bought = value; }
+            set
+            {
+                _bought = value;
+
+                Task.Run(async () =>
+                {
+                    bool result = await shoppingListStore.UpdateItemBoughtState(Id, value);
+                    if (!result)
+                    {
+                        // Notify the user about the successfull save
+                        _bought = !value;
+                    }
+
+                    ReorderItemsOrderByBoughtDelegate?.Invoke();
+                });
+                OnPropertyChanged(nameof(Bought));
+            }
+        }
+
+
+        private readonly ShoppingListStore shoppingListStore;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ItemListingItemViewModel(ShoppingListStore shoppingListStore, IUnitOfWork unitOfWork)
+        {
+            this.shoppingListStore = shoppingListStore;
+            _unitOfWork = unitOfWork;
         }
     }
 }

@@ -34,6 +34,8 @@ namespace APIRequests.ShoppingLists
 
         public event Action ShoppingListsLoaded;
 
+
+
         public ShoppingListStore(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -49,6 +51,20 @@ namespace APIRequests.ShoppingLists
             this._shoppingLists.AddRange(await shoppingLists);
 
             this.ShoppingListsLoaded?.Invoke();
+        }
+
+        public async Task<bool> UpdateItemBoughtState(int itemId, bool bought)
+        {
+            var result = await _unitOfWork.ItemService.UpdateItemBoughtStateById<MemberDto>(itemId, bought);
+
+            var items = _shoppingLists
+                            .FirstOrDefault(s => s.Items
+                                                    .FirstOrDefault(i => i.Id == itemId) != null)
+                            .Items;
+
+            var item = items.FirstOrDefault(i => i.Id == itemId);
+
+            return result != null;
         }
     }
 }

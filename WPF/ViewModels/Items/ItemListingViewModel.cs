@@ -17,11 +17,13 @@ namespace WPF.ViewModels.Items
         public IEnumerable<ItemListingItemViewModel> ItemListingItemViewModels => _itemListingItemViewModels;
 
         private readonly ShoppingListDto shoppingList;
+        private readonly ShoppingListStore _shoppingListStore;
         private readonly IUnitOfWork _unitOfWork;
 
         public ItemListingViewModel(ShoppingListStore shoppingListStore, IUnitOfWork unitOfWork)
         {
             _itemListingItemViewModels = new AsyncObservableCollection<ItemListingItemViewModel>();
+            _shoppingListStore = shoppingListStore;
             _unitOfWork = unitOfWork;
 
             AddItems(shoppingListStore);
@@ -31,7 +33,7 @@ namespace WPF.ViewModels.Items
         {
             foreach (var item in shoppingListStore.SelectedShoppingList.Items)
             {
-                var _item = new ItemListingItemViewModel()
+                var _item = new ItemListingItemViewModel(_shoppingListStore, _unitOfWork)
                 {
                     Id = item.Id,
                     Name = item.Name,
@@ -39,7 +41,18 @@ namespace WPF.ViewModels.Items
                     Unit = item.Unit,
                     Bought = item.Bought
                 };
+                _item.ReorderItemsOrderByBoughtDelegate += ReorderItemsOrderByBought;
                 _itemListingItemViewModels.Add(_item);
+            }
+        }
+
+        private void ReorderItemsOrderByBought()
+        {
+            var orderedItems = _itemListingItemViewModels.OrderBy(i => i.Bought).ToList();
+            _itemListingItemViewModels.Clear();
+            foreach (var item in orderedItems)
+            {
+                _itemListingItemViewModels.Add(item);
             }
         }
     }
