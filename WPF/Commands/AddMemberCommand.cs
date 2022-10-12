@@ -10,16 +10,16 @@ namespace WPF.Commands
 {
     public sealed class AddMemberCommand : AsyncCommandBase
     {
-        public readonly EditShoppingListViewModel _createEditShoppingListViewModel;
+        private readonly AddMemberDelegate _addMember;
 
-        public AddMemberCommand(EditShoppingListViewModel createEditShoppingListViewModel)
+        public AddMemberCommand(AddMemberDelegate AddMember)
         {
-            _createEditShoppingListViewModel = createEditShoppingListViewModel;
+            _addMember = AddMember;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-
+            _addMember?.Invoke(new UsernameDto() { Username = (string)parameter});
         }
     }
 }

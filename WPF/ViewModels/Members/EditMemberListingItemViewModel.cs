@@ -8,5 +8,12 @@ namespace WPF.ViewModels.Members
 {
     public class EditMemberListingItemViewModel: ViewModelBase
     {
+        private string _username;
+        public string Username
+        {
+            get { return _username; }
+            set { _username = value; }
+        }
+
     }
 }

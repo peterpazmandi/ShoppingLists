@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APIRequests.DTOs
 {
-    public record UsernameDto(string Username)
+    public record struct UsernameDto(string Username)
     {
         public override string ToString()
         {

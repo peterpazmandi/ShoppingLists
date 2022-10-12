@@ -76,9 +76,11 @@ namespace WPF.ViewModels.Members
         #endregion Commands
 
 
-        public FindMembersViewModel(IUnitOfWork unitOfWork)
+        public FindMembersViewModel(IUnitOfWork unitOfWork, AddMemberDelegate AddMember)
         {
             _unitOfWork = unitOfWork;
+
+            AddMemberCommand = new AddMemberCommand(AddMember);
         }
 
         #region Methods

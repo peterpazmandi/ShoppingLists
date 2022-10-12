@@ -1,4 +1,5 @@
-﻿using APIRequests.Services;
+﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
 using APIRequests.ShoppingLists;
@@ -16,8 +17,13 @@ using WPF.ViewModels.Members;
 
 namespace WPF.ViewModels
 {
+    public delegate void AddMemberDelegate(UsernameDto member);
+
     public class EditShoppingListViewModel : ViewModelBase
     {
+        public event AddMemberDelegate AddMember;
+
+
         private int Id;
 
         private string _title;
@@ -32,12 +38,13 @@ namespace WPF.ViewModels
         }
 
 
+        public FindMembersViewModel FindMembersViewModel { get; set; }
+        public EditMemberListingViewModel EditMemberListingViewModel { get; set; }
+
 
         private readonly ShoppingListStore _shoppingListStore;
         private readonly INavigator _navigator;
         private readonly IUnitOfWork _unitOfWork;
-
-        public FindMembersViewModel FindMembersViewModel { get; set; }
 
 
 
@@ -55,8 +62,6 @@ namespace WPF.ViewModels
             _navigator = navigator;
             _unitOfWork = unitOfWork;
 
-            FindMembersViewModel = new(unitOfWork);
-
             PopulateFormFields();
         }
 
@@ -65,6 +70,10 @@ namespace WPF.ViewModels
             Id = _shoppingListStore.SelectedShoppingList.Id;
             Title = _shoppingListStore.SelectedShoppingList.Title;
 
+            EditMemberListingViewModel = new EditMemberListingViewModel(_shoppingListStore.SelectedShoppingList.Members);
+            AddMember += EditMemberListingViewModel.AddMember;
+
+            FindMembersViewModel = new(_unitOfWork, AddMember);
         }
     }
 }
