@@ -15,13 +15,13 @@ namespace WPF.Commands
 {
     public class SaveShoppingListCommand : AsyncCommandBase
     {
-        private readonly CreateEditShoppingListViewModel _createEditShoppingListViewModel;
+        private readonly EditShoppingListViewModel _createEditShoppingListViewModel;
         private readonly INavigator _navigator;
         private readonly IShoppingListService _shoppingListService;
         private readonly IMapper _mapper;
 
 
-        public SaveShoppingListCommand(CreateEditShoppingListViewModel createEditShoppingListViewModel, INavigator navigator, IShoppingListService shoppingListService, IMapper mapper)
+        public SaveShoppingListCommand(EditShoppingListViewModel createEditShoppingListViewModel, INavigator navigator, IShoppingListService shoppingListService, IMapper mapper)
         {
             _navigator = navigator;
             _shoppingListService = shoppingListService;
@@ -33,8 +33,8 @@ namespace WPF.Commands
         {
             _navigator.CurrentViewModel = _createEditShoppingListViewModel;
 
-            var dto = _mapper.Map<UpdateShoppingListDto>(_createEditShoppingListViewModel.ShoppingListViewModel);
-            await _shoppingListService.UpdateShoppingList(dto);
+            //var dto = _mapper.Map<UpdateShoppingListDto>(_createEditShoppingListViewModel.ShoppingListViewModel);
+            //await _shoppingListService.UpdateShoppingList(dto);
         }
     }
 }

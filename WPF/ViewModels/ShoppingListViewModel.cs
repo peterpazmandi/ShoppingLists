@@ -140,7 +140,7 @@ namespace WPF.ViewModels
                 Items.Add(_item);
             }
 
-            CreateEditShoppingListCommand = new CreateEditShoppingListCommand(this, navigator, memberService, shoppingListService, mapper);
+            //CreateEditShoppingListCommand = new EditShoppingListCommand(this, navigator, memberService, shoppingListService, mapper);
 
             ItemService = shoppingListViewModel.ItemService;
         }

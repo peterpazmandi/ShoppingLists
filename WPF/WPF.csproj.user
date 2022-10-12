@@ -8,6 +8,9 @@
     <Compile Update="Controls\Items\ItemListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\Members\FindMembersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,7 +20,7 @@
     <Compile Update="Controls\ShoppingListListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\CreateEditShoppingListView.xaml.cs">
+    <Compile Update="Views\EditShoppingListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\HomeView.xaml.cs">
@@ -41,6 +44,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Items\ItemListingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Members\FindMembersView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\NavigationBar.xaml">
@@ -79,7 +85,7 @@
     <Page Update="Styles\TextBoxBase.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\CreateEditShoppingListView.xaml">
+    <Page Update="Views\EditShoppingListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\HomeView.xaml">

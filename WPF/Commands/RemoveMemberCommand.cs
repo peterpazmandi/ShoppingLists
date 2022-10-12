@@ -11,9 +11,9 @@ namespace WPF.Commands
 {
     public sealed class RemoveMemberCommand : AsyncCommandBase
     {
-        public readonly CreateEditShoppingListViewModel _createEditShoppingListViewModel;
+        public readonly EditShoppingListViewModel _createEditShoppingListViewModel;
 
-        public RemoveMemberCommand(CreateEditShoppingListViewModel createEditShoppingListViewModel)
+        public RemoveMemberCommand(EditShoppingListViewModel createEditShoppingListViewModel)
         {
             _createEditShoppingListViewModel = createEditShoppingListViewModel;
         }
@@ -28,8 +28,7 @@ namespace WPF.Commands
 
         private void RemoveMember(string username)
         {
-            _createEditShoppingListViewModel.ShoppingListViewModel.Members.Remove(
-                    _createEditShoppingListViewModel.ShoppingListViewModel.Members.SingleOrDefault(x => x.Username.Equals(username)) ?? new UserViewModel());
+
         }
     }
 }

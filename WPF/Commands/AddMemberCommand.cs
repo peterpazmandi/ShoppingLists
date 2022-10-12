@@ -10,24 +10,16 @@ namespace WPF.Commands
 {
     public sealed class AddMemberCommand : AsyncCommandBase
     {
-        public readonly CreateEditShoppingListViewModel _createEditShoppingListViewModel;
+        public readonly EditShoppingListViewModel _createEditShoppingListViewModel;
 
-        public AddMemberCommand(CreateEditShoppingListViewModel createEditShoppingListViewModel)
+        public AddMemberCommand(EditShoppingListViewModel createEditShoppingListViewModel)
         {
             _createEditShoppingListViewModel = createEditShoppingListViewModel;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            if (_createEditShoppingListViewModel.ShoppingListViewModel.Members.FirstOrDefault(
-                x => x.Username.ToLower().Equals(_createEditShoppingListViewModel.FindMembers.SelectedMember.ToLower())) is null)
-            {
-                _createEditShoppingListViewModel.ShoppingListViewModel.Members.Add(
-                    new UserViewModel() 
-                    { 
-                        Username = _createEditShoppingListViewModel.FindMembers.SelectedMember 
-                    });
-            }
+
         }
     }
 }

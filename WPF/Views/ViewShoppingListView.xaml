@@ -26,7 +26,8 @@
         
         <Button Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Right" 
-                Style="{StaticResource EditButton}"/>
+                Style="{StaticResource EditButton}"
+                Command="{Binding EditShoppingListCommand}"/>
 
 
         <Grid Grid.Row="1" Grid.Column="0">

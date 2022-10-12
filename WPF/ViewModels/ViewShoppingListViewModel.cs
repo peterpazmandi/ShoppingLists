@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands;
 using WPF.State.Navigators;
 using WPF.ViewModels.Items;
 
@@ -43,6 +45,9 @@ namespace WPF.ViewModels
             }
         }
 
+        public ICommand EditShoppingListCommand { get; set; }
+
+
         public ViewShoppingListViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IUnitOfWork unitOfWork)
         {
             _navigator = navigator;
@@ -50,6 +55,8 @@ namespace WPF.ViewModels
             ShoppingList = shoppingListStore.SelectedShoppingList;
 
             ItemListingViewModel = new ItemListingViewModel(shoppingListStore, unitOfWork);
+
+            EditShoppingListCommand = new EditShoppingListCommand(shoppingListStore, navigator, unitOfWork);
         }
     }
 }

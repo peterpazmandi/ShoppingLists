@@ -36,6 +36,9 @@
             <DataTemplate DataType="{x:Type viewmodels:ViewShoppingListViewModel}">
                 <views:ViewShoppingListView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:EditShoppingListViewModel}">
+                <views:EditShoppingListView />
+            </DataTemplate>
         </ResourceDictionary>
          
     </Application.Resources>
