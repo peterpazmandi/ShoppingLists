@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF.Views"
              xmlns:members="clr-namespace:WPF.Controls.Members"
+             xmlns:items="clr-namespace:WPF.Controls.Items"
              mc:Ignorable="d" 
              Background="{StaticResource BrushLightGray}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -22,7 +23,7 @@
             <RowDefinition Height="auto" /> <!--3-->
             <RowDefinition Height="auto" /> <!--4-->
             <RowDefinition Height="auto" /> <!--5-->
-            <RowDefinition Height="auto" /> <!--5-->
+            <RowDefinition Height="auto" /> <!--6-->
         </Grid.RowDefinitions>
 
         <Button Grid.Row="0" Grid.Column="1" 
@@ -71,7 +72,29 @@
                                            DataContext="{Binding EditMemberListingViewModel}" />
 
         </Grid>
-        <Rectangle Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+        <Rectangle Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource BrushLightGray}" 
+                   Height="2"
+                   Margin="0 16 0 16"/>
+
+
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Items"
+                       Margin="10 0 0 0" />
+            <items:EditItemListingView Grid.Row="1" Grid.Column="0"
+                                       DataContext="{Binding EditItemListingViewModel}" />
+
+        </Grid>
+        <Rectangle Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
                    HorizontalAlignment="Stretch" 
                    Fill="{StaticResource BrushLightGray}" 
                    Height="2"

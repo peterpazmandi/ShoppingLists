@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using WPF.Commands;
 using WPF.State.Navigators;
+using WPF.ViewModels.Items;
 using WPF.ViewModels.Members;
 
 namespace WPF.ViewModels
@@ -41,6 +42,7 @@ namespace WPF.ViewModels
 
         public FindMembersViewModel FindMembersViewModel { get; set; }
         public EditMemberListingViewModel EditMemberListingViewModel { get; set; }
+        public EditItemListingViewModel EditItemListingViewModel { get; set; }
 
 
         private readonly ShoppingListStore _shoppingListStore;
@@ -75,6 +77,8 @@ namespace WPF.ViewModels
 
             AddMember += EditMemberListingViewModel.AddMember;
             FindMembersViewModel = new FindMembersViewModel(_unitOfWork, AddMember);
+
+            EditItemListingViewModel = new EditItemListingViewModel(_shoppingListStore.SelectedShoppingList.Items);
         }
     }
 }
