@@ -11,24 +11,21 @@ namespace WPF.Commands
 {
     public sealed class RemoveMemberCommand : AsyncCommandBase
     {
-        public readonly EditShoppingListViewModel _createEditShoppingListViewModel;
+        private readonly RemoveMemberDelegate _removeMember;
 
-        public RemoveMemberCommand(EditShoppingListViewModel createEditShoppingListViewModel)
+        public RemoveMemberCommand(RemoveMemberDelegate removeMember)
         {
-            _createEditShoppingListViewModel = createEditShoppingListViewModel;
+            _removeMember = removeMember;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            if (parameter is string)
+            var member = new UsernameDto()
             {
-                this.RemoveMember(parameter as string);
-            }
-        }
+                Username = (string)parameter
+            };
 
-        private void RemoveMember(string username)
-        {
-
+            _removeMember?.Invoke(member);
         }
     }
 }

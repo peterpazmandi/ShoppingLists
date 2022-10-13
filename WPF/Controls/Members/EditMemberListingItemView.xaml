@@ -19,7 +19,8 @@
                Content="{Binding Username}" />
         <Button Grid.Column="1"
                 Style="{StaticResource DeleteButton}"
-                />
+                Command="{Binding RemoveMemberCommmand}"
+                CommandParameter="{Binding Username}"/>
 
     </Grid>
 </UserControl>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands;
 
 namespace WPF.ViewModels.Members
 {
@@ -15,5 +17,15 @@ namespace WPF.ViewModels.Members
             set { _username = value; }
         }
 
+
+
+        public ICommand RemoveMemberCommmand { get; set; }
+
+
+
+        public EditMemberListingItemViewModel(RemoveMemberDelegate removeMember)
+        {
+            RemoveMemberCommmand = new RemoveMemberCommand(removeMember);
+        }
     }
 }

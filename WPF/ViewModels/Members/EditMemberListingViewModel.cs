@@ -10,12 +10,19 @@ namespace WPF.ViewModels.Members
 {
     public class EditMemberListingViewModel: ViewModelBase
     {
-        private readonly AsyncObservableCollection<EditMemberListingItemViewModel> _editMemberListingItemViews;
-        public IEnumerable<EditMemberListingItemViewModel> EditMemberListingItemViewModels => _editMemberListingItemViews;
+        public event RemoveMemberDelegate _removeMember;
+
+
+
+        private readonly AsyncObservableCollection<EditMemberListingItemViewModel> _editMemberListingItemViewModels;
+        public IEnumerable<EditMemberListingItemViewModel> EditMemberListingItemViewModels => _editMemberListingItemViewModels;
+
+
 
         public EditMemberListingViewModel(ICollection<UsernameDto> Members)
         {
-            _editMemberListingItemViews = new();
+            _editMemberListingItemViewModels = new();
+            _removeMember += RemoveMember;
 
             foreach (var member in Members)
             {
@@ -25,15 +32,23 @@ namespace WPF.ViewModels.Members
 
         public void AddMember(UsernameDto member)
         {
-            var editMemberListingItemViewModel = new EditMemberListingItemViewModel()
+            var editMemberListingItemViewModel = new EditMemberListingItemViewModel(_removeMember)
             {
                 Username = member.Username
             };
 
-            if (_editMemberListingItemViews.Where(x => x.Username.ToLower().Equals(member.Username.ToLower())).Count() == 0)
+            if (_editMemberListingItemViewModels.Where(x => x.Username.ToLower().Equals(member.Username.ToLower())).Count() == 0)
             {
-                _editMemberListingItemViews.Add(editMemberListingItemViewModel);
+                _editMemberListingItemViewModels.Add(editMemberListingItemViewModel);
             }
+        }
+
+        public void RemoveMember(UsernameDto member)
+        {
+            var memberToRemove = _editMemberListingItemViewModels
+                                    .FirstOrDefault(x => x.Username.ToLower().Equals(member.Username.ToLower()));
+
+            _editMemberListingItemViewModels.Remove(memberToRemove);
         }
     }
 }

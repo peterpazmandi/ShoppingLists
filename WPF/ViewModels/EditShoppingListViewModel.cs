@@ -18,6 +18,7 @@ using WPF.ViewModels.Members;
 namespace WPF.ViewModels
 {
     public delegate void AddMemberDelegate(UsernameDto member);
+    public delegate void RemoveMemberDelegate(UsernameDto member);
 
     public class EditShoppingListViewModel : ViewModelBase
     {
@@ -39,17 +40,12 @@ namespace WPF.ViewModels
 
 
         public FindMembersViewModel FindMembersViewModel { get; set; }
-        public EditMemberListingViewModel EditMemberListingViewModel 
-        { 
-            get; 
-        }
+        public EditMemberListingViewModel EditMemberListingViewModel { get; set; }
 
 
         private readonly ShoppingListStore _shoppingListStore;
         private readonly INavigator _navigator;
         private readonly IUnitOfWork _unitOfWork;
-
-
 
 
 
@@ -59,14 +55,13 @@ namespace WPF.ViewModels
 
         #endregion commands
 
+
+
         public EditShoppingListViewModel(ShoppingListStore shoppingListStore, INavigator navigator, IUnitOfWork unitOfWork)
         {
             _shoppingListStore = shoppingListStore;
             _navigator = navigator;
             _unitOfWork = unitOfWork;
-
-            EditMemberListingViewModel = new EditMemberListingViewModel(_shoppingListStore.SelectedShoppingList.Members);
-            AddMember += EditMemberListingViewModel.AddMember;
 
             PopulateFormFields();
         }
@@ -76,7 +71,10 @@ namespace WPF.ViewModels
             Id = _shoppingListStore.SelectedShoppingList.Id;
             Title = _shoppingListStore.SelectedShoppingList.Title;
 
-            FindMembersViewModel = new(_unitOfWork, AddMember);
+            EditMemberListingViewModel = new EditMemberListingViewModel(_shoppingListStore.SelectedShoppingList.Members);
+
+            AddMember += EditMemberListingViewModel.AddMember;
+            FindMembersViewModel = new FindMembersViewModel(_unitOfWork, AddMember);
         }
     }
 }
