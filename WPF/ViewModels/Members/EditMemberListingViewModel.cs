@@ -10,20 +10,12 @@ namespace WPF.ViewModels.Members
 {
     public class EditMemberListingViewModel: ViewModelBase
     {
-        private AsyncObservableCollection<EditMemberListingItemViewModel> _membersList;
-
-        public AsyncObservableCollection<EditMemberListingItemViewModel> MembersList
-        {
-            get { return _membersList; }
-            set 
-            {
-                _membersList = value;
-            }
-        }
+        private readonly AsyncObservableCollection<EditMemberListingItemViewModel> _editMemberListingItemViews;
+        public IEnumerable<EditMemberListingItemViewModel> EditMemberListingItemViewModels => _editMemberListingItemViews;
 
         public EditMemberListingViewModel(ICollection<UsernameDto> Members)
         {
-            _membersList = new();
+            _editMemberListingItemViews = new();
 
             foreach (var member in Members)
             {
@@ -33,10 +25,15 @@ namespace WPF.ViewModels.Members
 
         public void AddMember(UsernameDto member)
         {
-            MembersList.Add(new EditMemberListingItemViewModel() 
-            { 
+            var editMemberListingItemViewModel = new EditMemberListingItemViewModel()
+            {
                 Username = member.Username
-            });
+            };
+
+            if (_editMemberListingItemViews.Where(x => x.Username.ToLower().Equals(member.Username.ToLower())).Count() == 0)
+            {
+                _editMemberListingItemViews.Add(editMemberListingItemViewModel);
+            }
         }
     }
 }

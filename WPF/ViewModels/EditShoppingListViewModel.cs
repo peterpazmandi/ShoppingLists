@@ -39,7 +39,10 @@ namespace WPF.ViewModels
 
 
         public FindMembersViewModel FindMembersViewModel { get; set; }
-        public EditMemberListingViewModel EditMemberListingViewModel { get; set; }
+        public EditMemberListingViewModel EditMemberListingViewModel 
+        { 
+            get; 
+        }
 
 
         private readonly ShoppingListStore _shoppingListStore;
@@ -62,6 +65,9 @@ namespace WPF.ViewModels
             _navigator = navigator;
             _unitOfWork = unitOfWork;
 
+            EditMemberListingViewModel = new EditMemberListingViewModel(_shoppingListStore.SelectedShoppingList.Members);
+            AddMember += EditMemberListingViewModel.AddMember;
+
             PopulateFormFields();
         }
 
@@ -69,9 +75,6 @@ namespace WPF.ViewModels
         {
             Id = _shoppingListStore.SelectedShoppingList.Id;
             Title = _shoppingListStore.SelectedShoppingList.Title;
-
-            EditMemberListingViewModel = new EditMemberListingViewModel(_shoppingListStore.SelectedShoppingList.Members);
-            AddMember += EditMemberListingViewModel.AddMember;
 
             FindMembersViewModel = new(_unitOfWork, AddMember);
         }

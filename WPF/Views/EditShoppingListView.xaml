@@ -64,8 +64,11 @@
             <TextBlock Grid.Row="0" Grid.Column="0"
                        Text="Members"
                        Margin="10 0 0 0" />
-            <members:FindMembersView Grid.Row="1"
-                DataContext="{Binding FindMembersViewModel}" />
+            <members:FindMembersView Grid.Row="1" Grid.Column="0"
+                                     DataContext="{Binding FindMembersViewModel}" />
+            <members:EditMemberListingView Grid.Row="2" Grid.Column="0"
+                                           Margin="20 0 20 0"
+                                           DataContext="{Binding EditMemberListingViewModel}" />
 
         </Grid>
         <Rectangle Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"

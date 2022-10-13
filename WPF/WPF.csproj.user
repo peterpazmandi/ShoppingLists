@@ -8,6 +8,12 @@
     <Compile Update="Controls\Items\ItemListingView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\Members\EditMemberListingItemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Members\EditMemberListingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Members\FindMembersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +50,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Items\ItemListingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Members\EditMemberListingItemView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Members\EditMemberListingView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Members\FindMembersView.xaml">
