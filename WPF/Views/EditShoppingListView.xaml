@@ -28,7 +28,7 @@
 
         <Button Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Right" 
-                Style="{StaticResource EditButton}"/>
+                Style="{StaticResource SaveButton}"/>
 
 
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">

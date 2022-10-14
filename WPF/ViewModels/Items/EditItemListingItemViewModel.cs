@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands.Items;
 
 namespace WPF.ViewModels.Items
 {
     public sealed class EditItemListingItemViewModel: ViewModelBase
     {
+        private int _id;
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+
         private string _name;
         public string Name
         {
@@ -36,6 +46,15 @@ namespace WPF.ViewModels.Items
             {
                 _unit = value;
             }
+        }
+
+
+        public ICommand RemoveItemCommand { get; set; }
+
+
+        public EditItemListingItemViewModel(RemoveItemdelegate removeItemEvent)
+        {
+            RemoveItemCommand = new RemoveItemCommand(removeItemEvent);
         }
     }
 }
