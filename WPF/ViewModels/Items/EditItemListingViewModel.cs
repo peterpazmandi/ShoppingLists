@@ -5,22 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using WPF.Commands.Items;
 
 namespace WPF.ViewModels.Items
 {
+    public delegate void AddItemDelegate(ItemDto item);
     public delegate void RemoveItemdelegate(EditItemListingItemViewModel item);
 
     public sealed class EditItemListingViewModel: ViewModelBase
     {
+        private event AddItemDelegate AddItemEvent;
         private event RemoveItemdelegate RemoveItemEvent;
 
         public AsyncObservableCollection<EditItemListingItemViewModel> _editItemListingItemViewModels;
         public IEnumerable<EditItemListingItemViewModel> EditItemListingItemViewModels => _editItemListingItemViewModels;
 
 
+
+
+        public ICommand AddItemCommand { get; }
+
+
+
         public EditItemListingViewModel(IEnumerable<ItemDto> items)
         {
+            AddItemEvent += AddItem;
             RemoveItemEvent += RemoveItem;
+
+            AddItemCommand = new AddItemCommand(AddItemEvent);
 
             _editItemListingItemViewModels = new AsyncObservableCollection<EditItemListingItemViewModel>();
 
@@ -29,6 +42,7 @@ namespace WPF.ViewModels.Items
                 AddItem(item);
             }
         }
+
 
         private void AddItem(ItemDto item)
         {
