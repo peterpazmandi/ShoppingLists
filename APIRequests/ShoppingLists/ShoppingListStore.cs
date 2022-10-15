@@ -55,14 +55,7 @@ namespace APIRequests.ShoppingLists
 
         public async Task<bool> UpdateItemBoughtState(int itemId, bool bought)
         {
-            var result = await _unitOfWork.ItemService.UpdateItemBoughtStateById<MemberDto>(itemId, bought);
-
-            var items = _shoppingLists
-                            .FirstOrDefault(s => s.Items
-                                                    .FirstOrDefault(i => i.Id == itemId) != null)
-                            .Items;
-
-            var item = items.FirstOrDefault(i => i.Id == itemId);
+            var result = await _unitOfWork.ItemService.UpdateItemBoughtStateById<MessageDto>(itemId, bought);
 
             return result != null;
         }

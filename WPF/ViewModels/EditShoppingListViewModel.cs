@@ -80,5 +80,16 @@ namespace WPF.ViewModels
 
             EditItemListingViewModel = new EditItemListingViewModel(_shoppingListStore.SelectedShoppingList.Items);
         }
+
+        public UpdateShoppingListDto ShoppingListDtoFactory()
+        {
+            return new UpdateShoppingListDto()
+            {
+                Id = this.Id,
+                Title = this.Title,
+                Members = this.EditMemberListingViewModel.ToUsernameDtoList(),
+                Items = this.EditItemListingViewModel.ToItemDtoList()
+            };
+        }
     }
 }

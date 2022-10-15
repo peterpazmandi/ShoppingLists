@@ -1,6 +1,8 @@
 ﻿using APIRequests.DTOs;
+using APIRequests.Services;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
+using APIRequests.ShoppingLists;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -15,26 +17,20 @@ namespace WPF.Commands
 {
     public class SaveShoppingListCommand : AsyncCommandBase
     {
-        private readonly EditShoppingListViewModel _createEditShoppingListViewModel;
-        private readonly INavigator _navigator;
-        private readonly IShoppingListService _shoppingListService;
-        private readonly IMapper _mapper;
+        private readonly EditShoppingListViewModel _editShoppingListViewModel;
+        private readonly ShoppingListStore _shoppingListStore;
+        private readonly IUnitOfWork _unitOfWork;
 
-
-        public SaveShoppingListCommand(EditShoppingListViewModel createEditShoppingListViewModel, INavigator navigator, IShoppingListService shoppingListService, IMapper mapper)
+        public SaveShoppingListCommand(EditShoppingListViewModel editShoppingListViewModel, ShoppingListStore shoppingListStore, IUnitOfWork unitOfWork)
         {
-            _navigator = navigator;
-            _shoppingListService = shoppingListService;
-            _createEditShoppingListViewModel = createEditShoppingListViewModel;
-            _mapper = mapper;
+            _editShoppingListViewModel = editShoppingListViewModel;
+            _shoppingListStore = shoppingListStore;
+            _unitOfWork = unitOfWork;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
-            _navigator.CurrentViewModel = _createEditShoppingListViewModel;
-
-            //var dto = _mapper.Map<UpdateShoppingListDto>(_createEditShoppingListViewModel.ShoppingListViewModel);
-            //await _shoppingListService.UpdateShoppingList(dto);
+            var shoppingList = _editShoppingListViewModel.ShoppingListDtoFactory();
         }
     }
 }

@@ -50,5 +50,17 @@ namespace WPF.ViewModels.Members
 
             _editMemberListingItemViewModels.Remove(memberToRemove);
         }
+
+        public IEnumerable<UsernameDto> ToUsernameDtoList()
+        {
+            List<UsernameDto> members = new List<UsernameDto>();
+
+            foreach (var member in _editMemberListingItemViewModels)
+            {
+                members.Add(new UsernameDto(member.Username));
+            }
+
+            return members;
+        }
     }
 }

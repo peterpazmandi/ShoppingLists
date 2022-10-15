@@ -59,5 +59,24 @@ namespace WPF.ViewModels.Items
         {
             _editItemListingItemViewModels.Remove(item);
         }
+
+        public IEnumerable<ItemDto> ToItemDtoList()
+        {
+            List<ItemDto> items = new List<ItemDto>();
+
+            foreach (var item in _editItemListingItemViewModels)
+            {
+                items.Add(new ItemDto()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Qty = item.Qty,
+                    Unit = item.Unit,
+                    Bought = false
+                });
+            }
+
+            return items;
+        }
     }
 }
