@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,9 +28,10 @@ namespace WPF
         {
             return Host.CreateDefaultBuilder(args)
                 .AddConfiguration()
-                .AddApi()
-                .AddServices()
                 .AddStores()
+                .AddApi()
+                .AddHub()
+                .AddServices()
                 .AddViewModels()
                 .AddViews();
         }

@@ -41,16 +41,15 @@ namespace APIRequests
                         uri,
                         data);
 
-                if (response.StatusCode != HttpStatusCode.NoContent && response.StatusCode != HttpStatusCode.OK)
-                {
-                    throw new HttpRequestException(response.Content.ReadAsStringAsync().Result);
-                }
-
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     string responseBody = response.Content.ReadAsStringAsync().Result;
                     T responseObject = JsonConvert.DeserializeObject<T>(responseBody);
                     return responseObject;
+                }
+                else
+                {
+                    throw new HttpRequestException(response.Content.ReadAsStringAsync().Result);
                 }
             }
             catch (Exception exception)

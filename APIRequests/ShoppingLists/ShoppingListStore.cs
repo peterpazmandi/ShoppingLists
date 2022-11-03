@@ -41,6 +41,8 @@ namespace APIRequests.ShoppingLists
             _unitOfWork = unitOfWork;
 
             _shoppingLists = new();
+
+            var numbers = new List<int>();
         }
 
         public async Task GetShoppingLists()
@@ -57,7 +59,12 @@ namespace APIRequests.ShoppingLists
         {
             var result = await _unitOfWork.ItemService.UpdateItemBoughtStateById<MessageDto>(itemId, bought);
 
-            return result != null;
+            if (result.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            {
+
+            }
+
+            return result.HttpStatusCode == System.Net.HttpStatusCode.OK;
         }
     }
 }

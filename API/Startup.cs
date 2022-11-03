@@ -1,4 +1,6 @@
 ﻿using API.Extensions;
+using API.SignalR;
+using API.SignalR.Tracker;
 using Microsoft.OpenApi.Models;
 
 namespace API
@@ -17,10 +19,14 @@ namespace API
         {
             services.AddApplicationServices(_config);
 
+            services.AddSingleton<ShoppingListOpeningTracker>();
+
             services.AddControllers();
             services.AddCors();
 
             services.AddIdentityServices(_config);
+
+            services.AddSignalR();
 
             services.AddSwaggerGen(c =>
             {
@@ -48,9 +54,11 @@ namespace API
 
             app.UseDefaultFiles();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ShoppingListHub>("hubs/shoppinglist");
             });
         }
     }

@@ -51,7 +51,8 @@ namespace WPF.ViewModels.Items
                 Id = item.Id,
                 Name = item.Name,
                 Qty = item.Qty,
-                Unit = item.Unit
+                Unit = item.Unit,
+                Bought = item.Bought
             });
         }
 
@@ -72,7 +73,7 @@ namespace WPF.ViewModels.Items
                     Name = item.Name,
                     Qty = item.Qty,
                     Unit = item.Unit,
-                    Bought = false
+                    Bought = item.Bought
                 });
             }
 

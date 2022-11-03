@@ -30,7 +30,13 @@ namespace WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
+            _editShoppingListViewModel.IsEnabled = false;
+
             var shoppingList = _editShoppingListViewModel.ShoppingListDtoFactory();
+
+            var result = await _unitOfWork.ShoppingListService.UpdateShoppingList(shoppingList);
+
+            _editShoppingListViewModel.IsEnabled = true;
         }
     }
 }

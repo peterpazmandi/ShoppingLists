@@ -79,6 +79,8 @@ namespace WPF.ViewModels
             FindMembersViewModel = new FindMembersViewModel(_unitOfWork, AddMember);
 
             EditItemListingViewModel = new EditItemListingViewModel(_shoppingListStore.SelectedShoppingList.Items);
+
+            SaveShoppingListCommand = new SaveShoppingListCommand(this, _shoppingListStore, _unitOfWork);
         }
 
         public UpdateShoppingListDto ShoppingListDtoFactory()

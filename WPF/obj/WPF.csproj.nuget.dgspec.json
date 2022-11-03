@@ -47,6 +47,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22476.2, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -92,15 +96,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows10.0.17763"
+          "net6.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows10.0.17763": {
-            "targetAlias": "net6.0-windows10.0.17763.0",
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows7.0",
             "projectReferences": {
               "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
                 "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj"
@@ -115,8 +119,8 @@
         }
       },
       "frameworks": {
-        "net6.0-windows10.0.17763": {
-          "targetAlias": "net6.0-windows10.0.17763.0",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows7.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -125,6 +129,14 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22476.2, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Common": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22476.2, )"
             },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
@@ -157,17 +169,8 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.17763.27, 10.0.17763.27]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.Windows.SDK.NET.Ref": {
               "privateAssets": "all"
             },
             "Microsoft.WindowsDesktop.App.WPF": {

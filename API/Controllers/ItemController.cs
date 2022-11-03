@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
@@ -31,10 +32,18 @@ namespace API.Controllers
 
             if (await _unitOfWork.CompleteAsync())
             {
-                return Ok(new { Message = "Item updated successfully!" });
+                return Ok(new 
+                { 
+                    HttpStatusCode = HttpStatusCode.OK,
+                    Message = "Item updated successfully!"
+                });
             }
 
-            return BadRequest(new { Message = "Operation failed!"});
+            return BadRequest(new 
+            { 
+                HttpStatusCode = HttpStatusCode.BadRequest,
+                Message = "Operation failed!"
+            });
         }
     }
 }

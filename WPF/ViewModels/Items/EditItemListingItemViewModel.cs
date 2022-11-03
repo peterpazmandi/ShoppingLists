@@ -48,6 +48,14 @@ namespace WPF.ViewModels.Items
             }
         }
 
+        private bool _bought;
+        public bool Bought
+        {
+            get { return _bought; }
+            set { _bought = value; }
+        }
+
+
 
         public ICommand RemoveItemCommand { get; set; }
 
