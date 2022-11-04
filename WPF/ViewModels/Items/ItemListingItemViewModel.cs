@@ -1,6 +1,7 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Services;
 using APIRequests.ShoppingLists;
+using APIRequests.SignalR.Models;
 using APIRequests.SignalR.ShoppingList;
 using System;
 using System.Collections.Generic;
@@ -62,7 +63,7 @@ namespace WPF.ViewModels.Items
                         _bought = !value;
                     }
 
-                    ReorderItemsOrderByBoughtDelegate?.Invoke();
+                    //ReorderItemsOrderByBoughtDelegate?.Invoke();
                 });
                 OnPropertyChanged(nameof(Bought));
             }
@@ -76,6 +77,18 @@ namespace WPF.ViewModels.Items
         {
             _shoppingListStore = shoppingListStore;
             _unitOfWork = unitOfWork;
+
+            _unitOfWork.ShoppingListHubService.OnItemBoughtStateChanged += OnItemBoughtStateChanged;
+        }
+
+        private void OnItemBoughtStateChanged(UpdateItemBoughtDto updateItemBoughtDto)
+        {
+            if (Id == updateItemBoughtDto.ItemId)
+            {
+                _bought = updateItemBoughtDto.Bought;
+                ReorderItemsOrderByBoughtDelegate?.Invoke();
+                OnPropertyChanged(nameof(Bought));
+            }
         }
     }
 }

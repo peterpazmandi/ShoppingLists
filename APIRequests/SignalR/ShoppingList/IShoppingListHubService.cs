@@ -15,6 +15,6 @@ namespace APIRequests.SignalR.ShoppingList
         Task SendUpdateItemBoughtChanged(int itemId, bool bought);
 
 
-        event Action<ShoppingListOpenedDto> OnShoppingListOpened;
+        event Action<UpdateItemBoughtDto> OnItemBoughtStateChanged;
     }
 }

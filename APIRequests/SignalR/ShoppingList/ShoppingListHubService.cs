@@ -12,7 +12,7 @@ namespace APIRequests.SignalR.ShoppingList
 {
     public sealed class ShoppingListHubService : IShoppingListHubService
     {
-        public event Action<ShoppingListOpenedDto> OnShoppingListOpened;
+        public event Action<UpdateItemBoughtDto> OnItemBoughtStateChanged;
 
         private readonly string _shoppingListHub;
         private readonly IAccountStore _account;
@@ -36,7 +36,7 @@ namespace APIRequests.SignalR.ShoppingList
 
                 connection.On<UpdateItemBoughtDto>("OnItemBoughtStateChanged", updateItemBoughtDto =>
                 {
-
+                    OnItemBoughtStateChanged?.Invoke(updateItemBoughtDto);
                 });
 
                 await connection.StartAsync();
