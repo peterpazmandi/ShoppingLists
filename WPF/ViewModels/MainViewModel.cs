@@ -1,4 +1,5 @@
-﻿using APIRequests.Services.ShoppingList;
+﻿using APIRequests.Accounts;
+using APIRequests.Services.ShoppingList;
 using SimpleTrader.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace WPF.ViewModels
             HomeCommand = new HomeCommand(homeRenavigator);
 
             _authenticator = authenticator;
+
             _authenticator.StateChanged += Authenticator_StateChanged;
         }
 
@@ -52,6 +54,10 @@ namespace WPF.ViewModels
 
         private void Authenticator_StateChanged()
         {
+            if (_authenticator.CurrentUser is not null)
+            {
+                Title += $" (Logged in: {_authenticator.CurrentUser.Username})";
+            }
             OnPropertyChanged(nameof(IsLoggedIn));
         }
         private void Navigator_StateChanged()

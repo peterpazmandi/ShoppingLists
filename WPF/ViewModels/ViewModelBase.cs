@@ -17,6 +17,18 @@ namespace WPF.ViewModels
         public event SizeChangedEventHandler SizeChanged;
 
 
+
+        private string _title = "ShoppingList App";
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
+
         public bool IsEnabled { get; set; } = true;
 
 
