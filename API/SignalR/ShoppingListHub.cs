@@ -24,6 +24,13 @@ namespace API.SignalR
             _tracker = tracker;
         }
 
+        public override async Task OnConnectedAsync()
+        {
+            var httpContext = Context.GetHttpContext();
+            var username = httpContext.Request.Query["user"].ToString();
+            System.Console.WriteLine(username);
+        }
+
 
         public Task ShoppingListOpened(string username, int shoppingListId)
         {
@@ -31,7 +38,7 @@ namespace API.SignalR
         }
         public Task UpdateItemBoughtStateById(UpdateItemBoughtDto updateItemBoughtDto)
         {
-            return Clients.All.SendAsync("OnItemBoughtStateChanged", updateItemBoughtDto);
+            return Clients.Group("").SendAsync("OnItemBoughtStateChanged", updateItemBoughtDto);
         }
     }
 }

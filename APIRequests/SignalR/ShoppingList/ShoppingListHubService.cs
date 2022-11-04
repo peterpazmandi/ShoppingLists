@@ -30,7 +30,7 @@ namespace APIRequests.SignalR.ShoppingList
             try
             {
                 connection = new HubConnectionBuilder()
-                    .WithUrl(_shoppingListHub)
+                    .WithUrl(_shoppingListHub + $"?user={_account.CurrentAccount.Username}")
                     .WithAutomaticReconnect()
                     .Build();
 
