@@ -14,58 +14,62 @@ namespace APIRequests.SignalR.ShoppingList
     {
         public event Action<ShoppingListOpenedDto> OnShoppingListOpened;
 
+        private readonly string _shoppingListHub;
         private readonly IAccountStore _account;
-        private readonly ILogger _logger;
 
-        private readonly HubConnection connection;
+        private HubConnection connection;
 
-        public ShoppingListHubService(string shoppingListHub, IAccountStore account, ILogger logger)
+        public ShoppingListHubService(string shoppingListHub, IAccountStore account)
         {
+            _shoppingListHub = shoppingListHub;
             _account = account;
-            _logger = logger;
-
-            connection = new HubConnectionBuilder()
-                .WithUrl(shoppingListHub)
-                .WithAutomaticReconnect()
-                .Build();
-
-            connection.Reconnecting += (sender) =>
-            {
-                return Task.CompletedTask;
-            };
-
-            connection.Reconnected += (sender) =>
-            {
-                return Task.CompletedTask;
-            };
-
-            connection.Closed += (sender) =>
-            {
-                return Task.CompletedTask;
-            };
-
-            connection.On<string, string>("OpenedShoppingList", (message, openedShoppingList) =>
-            {
-                _logger.LogInformation(message);
-            });
-
-            Task.Run(async () =>
-            {
-                await connection.StartAsync();
-                await ConnectAsync();
-            });
         }
 
         public async Task ConnectAsync()
         {
             try
             {
-                await connection.InvokeAsync("ShoppingListOpened", _account.CurrentAccount.Username, 2);
+                connection = new HubConnectionBuilder()
+                    .WithUrl(_shoppingListHub)
+                    .WithAutomaticReconnect()
+                    .Build();
+
+                connection.On<UpdateItemBoughtDto>("OnItemBoughtStateChanged", updateItemBoughtDto =>
+                {
+
+                });
+
+                await connection.StartAsync();
             }
             catch (Exception ex)
             {
-                _logger.LogInformation(ex.Message);
+
             }
+        }
+
+        public async Task DisconnectAsync()
+        {
+            await connection.StopAsync();
+        }
+
+        public async Task SendUpdateItemBoughtChanged(int itemId, bool bought)
+        {
+            try
+            {
+                await connection.InvokeAsync("UpdateItemBoughtStateById", new UpdateItemBoughtDto() { ItemId = itemId, Bought = bought });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public async Task ListenToItemBoughtStateChanges()
+        {
+            connection.On<UpdateItemBoughtDto>("ReceiveMessage", updateItemBoughtDto =>
+            {
+
+            });
         }
     }
 }

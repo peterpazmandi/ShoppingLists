@@ -2,6 +2,7 @@
 using APIRequests.Services.Item;
 using APIRequests.Services.Member;
 using APIRequests.Services.ShoppingList;
+using APIRequests.SignalR.ShoppingList;
 
 namespace APIRequests.Services
 {
@@ -9,6 +10,7 @@ namespace APIRequests.Services
     {
         IAccountService AccountService { get; }
         IShoppingListService ShoppingListService { get; }
+        IShoppingListHubService ShoppingListHubService { get; }
         IItemService ItemService { get; }
         IMemberService MemberService { get; }
     }

@@ -21,7 +21,7 @@ namespace WPF.HostBuilders
             {
                 var shoppingListHub = context.Configuration.GetValue<string>("ShoppingListHub");
                 services.AddSingleton<IShoppingListHubService, ShoppingListHubService>(c => 
-                    new ShoppingListHubService(shoppingListHub, c.GetRequiredService<IAccountStore>() , c.GetRequiredService<ILogger<ShoppingListHubService>>()));
+                    new ShoppingListHubService(shoppingListHub, c.GetRequiredService<IAccountStore>()));
             });
 
             return host;

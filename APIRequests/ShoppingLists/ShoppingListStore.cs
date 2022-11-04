@@ -61,7 +61,7 @@ namespace APIRequests.ShoppingLists
 
             if (result.HttpStatusCode == System.Net.HttpStatusCode.OK)
             {
-
+                await _unitOfWork.ShoppingListHubService.SendUpdateItemBoughtChanged(itemId, bought);
             }
 
             return result.HttpStatusCode == System.Net.HttpStatusCode.OK;

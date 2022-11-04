@@ -10,6 +10,10 @@ namespace APIRequests.SignalR.ShoppingList
     public interface IShoppingListHubService
     {
         Task ConnectAsync();
+        Task DisconnectAsync();
+
+        Task SendUpdateItemBoughtChanged(int itemId, bool bought);
+
 
         event Action<ShoppingListOpenedDto> OnShoppingListOpened;
     }

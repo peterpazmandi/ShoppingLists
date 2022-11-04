@@ -1,6 +1,7 @@
 ﻿using APIRequests.DTOs;
 using APIRequests.Services;
 using APIRequests.ShoppingLists;
+using APIRequests.SignalR.ShoppingList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace WPF.ViewModels.Items
 
                 Task.Run(async () =>
                 {
-                    bool result = await shoppingListStore.UpdateItemBoughtState(Id, value);
+                    bool result = await _shoppingListStore.UpdateItemBoughtState(Id, value);
                     if (!result)
                     {
                         // Notify the user about the successfull save
@@ -68,12 +69,12 @@ namespace WPF.ViewModels.Items
         }
 
 
-        private readonly ShoppingListStore shoppingListStore;
+        private readonly ShoppingListStore _shoppingListStore;
         private readonly IUnitOfWork _unitOfWork;
 
         public ItemListingItemViewModel(ShoppingListStore shoppingListStore, IUnitOfWork unitOfWork)
         {
-            this.shoppingListStore = shoppingListStore;
+            _shoppingListStore = shoppingListStore;
             _unitOfWork = unitOfWork;
         }
     }

@@ -32,7 +32,6 @@ namespace WPF.ViewModels
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IShoppingListHubService _shoppingListHubService;
         private readonly ShoppingListStore _shoppingListStore;
         private readonly ILogger<ShoppingListListingViewModel> _logger;
 
@@ -76,7 +75,6 @@ namespace WPF.ViewModels
             IViewModelFactory viewModelFactory,
             IMapper mapper,
             IUnitOfWork unitOfWork,
-            IShoppingListHubService shoppingListHubService,
             ShoppingListStore shoppingListStore,
             ILogger<ShoppingListListingViewModel> logger)
         {
@@ -86,7 +84,6 @@ namespace WPF.ViewModels
             _viewModelFactory = viewModelFactory;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            _shoppingListHubService = shoppingListHubService;
             _shoppingListStore = shoppingListStore;
             _logger = logger;
 

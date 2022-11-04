@@ -3,6 +3,7 @@ using APIRequests.Helpers;
 using APIRequests.Services;
 using APIRequests.Services.Item;
 using APIRequests.ShoppingLists;
+using APIRequests.SignalR.ShoppingList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,5 +56,7 @@ namespace WPF.ViewModels.Items
                 _itemListingItemViewModels.Add(item);
             }
         }
+
+
     }
 }
