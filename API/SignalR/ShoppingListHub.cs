@@ -38,7 +38,8 @@ namespace API.SignalR
         }
         public Task UpdateItemBoughtStateById(UpdateItemBoughtDto updateItemBoughtDto)
         {
-            return Clients.Group("").SendAsync("OnItemBoughtStateChanged", updateItemBoughtDto);
+            System.Console.WriteLine(updateItemBoughtDto.ItemId);
+            return Clients.All.SendAsync("OnItemBoughtStateChanged", updateItemBoughtDto);
         }
     }
 }
