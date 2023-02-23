@@ -1,28 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj": {}
+    "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\WPF\\WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
+    "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj",
+        "projectUniqueName": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\APIRequests.csproj",
         "projectName": "APIRequests",
-        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj",
-        "packagesPath": "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\obj\\",
+        "projectPath": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\APIRequests.csproj",
+        "packagesPath": "C:\\Users\\Peter Pazmandi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Pazmandi Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Peter Pazmandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -62,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,29 +65,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj": {
+    "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\WPF\\WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
+        "projectUniqueName": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\WPF\\WPF.csproj",
         "projectName": "WPF",
-        "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\WPF.csproj",
-        "packagesPath": "C:\\Users\\Pazmandi Peter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\WPF\\obj\\",
+        "projectPath": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\WPF\\WPF.csproj",
+        "packagesPath": "C:\\Users\\Peter Pazmandi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\WPF\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Pazmandi Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Peter Pazmandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows7.0"
@@ -106,8 +93,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows7.0",
             "projectReferences": {
-              "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
-                "projectPath": "C:\\Users\\Pazmandi Peter\\Desktop\\Trash\\PlayGround\\Projects\\ShoppingLists\\APIRequests\\APIRequests.csproj"
+              "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\APIRequests.csproj": {
+                "projectPath": "C:\\Users\\Peter Pazmandi\\Desktop\\Trash\\CSharp_React\\ShoppingLists\\APIRequests\\APIRequests.csproj"
               }
             }
           }
@@ -165,7 +152,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -177,7 +165,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
