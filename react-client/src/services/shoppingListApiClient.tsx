@@ -16,7 +16,6 @@ export const apiClient = axios.create({
 })
 
 apiClient.interceptors.response.use((response) => {
-    successToast("Registration was successfull!");
     return response.data;
 }, (error) => {
     errorToast(error.response.data);
