@@ -1,17 +1,12 @@
+import { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom'
-import { USER } from '../utils/globalConsts'
+import { UserContext } from '../pages/auth/authContext';
+import { UserContextType } from '../pages/auth/types/user.type';
 
 const useAuth = () => {
-    let user: any;
+    const { currentUser } = useContext(UserContext) as UserContextType;
 
-    const _user = localStorage.getItem(USER);
-
-    if (_user) {
-        user = JSON.parse(_user);
-        console.log(user);
-    }
-
-    if(user) {
+    if(currentUser) {
         return {
             auth: true,
             role: null

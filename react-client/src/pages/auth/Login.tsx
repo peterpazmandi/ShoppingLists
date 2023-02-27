@@ -1,9 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { login } from '../services/shoppingListService'
-import { USER } from '../utils/globalConsts';
+import { login } from '../../services/shoppingListService'
+import { USER } from '../../utils/globalConsts';
+import { useContext, useState } from 'react';
+import { UserContextType } from './types/user.type';
+import { UserContext } from './authContext';
+import { User } from './entities/user.entity';
 
 interface LoginFormData {
     username: string;
@@ -11,6 +15,8 @@ interface LoginFormData {
 }
 
 const Login = () => {
+    const { updateCurrentUser } = useContext(UserContext) as UserContextType;
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const formSchema = yup.object().shape({
@@ -27,20 +33,22 @@ const Login = () => {
     })
 
     const onSubmit = async (data: LoginFormData) => {
-        login(data).then(response => {
-            localStorage.setItem(USER, JSON.stringify(response));
-            navigate('/');
+        setIsLoading(true);
+        login(data).then(user => {
+            setIsLoading(false);
+            updateCurrentUser(user);
+            navigate('/shoppinglists');
         });
     }
     
     return (
-        <div className='mt-5 mb-5'>
+        <div className='border border-4 border-primary rounded-3 shadow-lg m-5 pt-5 pb-2'>
             <h1>Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex-column mt-5 mb-2">
                     <div className="d-flex justify-content-center">
                         <input
-                            className='form-control w-50'
+                            className='form-control w-75'
                             type="text" 
                             placeholder="Username"
                             {...register('username')} />
@@ -52,7 +60,7 @@ const Login = () => {
                 <div className="flex-column mb-5">
                     <div className="d-flex justify-content-center">
                         <input 
-                            className='form-control w-50'
+                            className='form-control w-75'
                             type="password" 
                             placeholder="Password" 
                             {...register('password')} />
@@ -62,9 +70,12 @@ const Login = () => {
                     </div>
                 </div>
                 <button
-                    disabled={Object.keys(errors).length > 0}
+                    disabled={ isLoading || Object.keys(errors).length > 0}
                     className='btn btn-primary'
-                    type="submit">Submit</button>
+                    type="submit">{ !isLoading ? "Submit" : "Loading..." }</button>
+                <div className="flex-column mt-4 mb-3">
+                    <Link to="/register">Register</Link>
+                </div>
             </form>
         </div>
     )
