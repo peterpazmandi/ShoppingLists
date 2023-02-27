@@ -2,21 +2,13 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { login } from '../../services/shoppingListService'
-import { USER } from '../../utils/globalConsts';
 import { useContext, useState } from 'react';
-import { UserContextType } from './types/user.type';
+import { UserContextType } from './types/userContext.type';
 import { UserContext } from './authContext';
-import { User } from './entities/user.entity';
-
-interface LoginFormData {
-    username: string;
-    password: string;
-}
+import { LoginRequest } from './entities/loginRequest.entity';
 
 const Login = () => {
-    const { updateCurrentUser } = useContext(UserContext) as UserContextType;
-    const [isLoading, setIsLoading] = useState(false);
+    const { isLoading, login } = useContext(UserContext) as UserContextType;
     const navigate = useNavigate();
 
     const formSchema = yup.object().shape({
@@ -28,16 +20,15 @@ const Login = () => {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm<LoginFormData>({
+    } = useForm<LoginRequest>({
         resolver: yupResolver(formSchema)
     })
 
-    const onSubmit = async (data: LoginFormData) => {
-        setIsLoading(true);
-        login(data).then(user => {
-            setIsLoading(false);
-            updateCurrentUser(user);
-            navigate('/shoppinglists');
+    const onSubmit = async (data: LoginRequest) => {
+        login(data).then(result => {
+            if (result) {
+                navigate('/shoppinglists');
+            }
         });
     }
     
