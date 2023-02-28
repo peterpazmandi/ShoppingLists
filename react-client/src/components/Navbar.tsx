@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { UserContext } from "../pages/auth/authContext";
-import { UserContextType } from "../pages/auth/types/userContext.type";
+import { UserContext } from "../features/auth/context/authContext";
+import { UserContextType } from "../features/auth/context/types/userContext.type";
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
 
@@ -32,11 +32,11 @@ const Navbar = () => {
                         </a>
                     </span>
                     <span className="ms-2 me-2">|</span>
-                    <span
-                        className="navbar-text"
+                    <button
+                        className="navbar-text btn btn-light"
                         onClick={logOutUser}>
                         <AiOutlineLogout />
-                    </span>
+                    </button>
                 </div>
             </div>
         </nav>

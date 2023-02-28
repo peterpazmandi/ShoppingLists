@@ -65,7 +65,7 @@ namespace API.Controllers
                 return BadRequest("Invalid username!");
             }
 
-            var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+            var result = await _signInManager  .CheckPasswordSignInAsync(user, loginDto.Password, false);
 
             if (!result.Succeeded)
             {

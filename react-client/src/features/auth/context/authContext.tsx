@@ -1,7 +1,7 @@
 import { createContext, FC, useState } from "react";
-import { USER } from "../../utils/globalConsts";
+import { USER } from "../../../utils/globalConsts";
 import { User } from "./entities/user.entity";
-import { login as loginUser } from '../../services/shoppingListService'
+import { login as loginUser } from '../../../services/shoppingListService'
 import { LoginRequest } from "./entities/loginRequest.entity";
 
 type UserContextProps = {

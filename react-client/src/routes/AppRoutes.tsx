@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Login from '../pages/auth/Login'
-import Register from '../pages/auth/Register'
-import Profile from '../pages/Profile'
-import ShoppingLists from '../pages/ShoppingLists'
+import Login from '../features/auth/pages/Login'
+import Register from '../features/auth/pages/Register'
+import Profile from '../features/profile/pages/Profile'
+import ShoppingLists from '../features/shoppinglists/pages/ShoppingLists'
 import ProtectedRoutes from './ProtectedRoutes'
 import PublicRoutes from './PublicRoutes'
 

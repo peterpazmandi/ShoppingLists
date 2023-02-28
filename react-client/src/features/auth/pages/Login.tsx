@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useContext, useState } from 'react';
-import { UserContextType } from './types/userContext.type';
-import { UserContext } from './authContext';
-import { LoginRequest } from './entities/loginRequest.entity';
+import { UserContextType } from '../context/types/userContext.type';
+import { UserContext } from '../context/authContext';
+import { LoginRequest } from '../context/entities/loginRequest.entity';
 
 const Login = () => {
     const { isLoading, login } = useContext(UserContext) as UserContextType;
@@ -33,7 +33,7 @@ const Login = () => {
     }
     
     return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center">
             <div className='border border-4 border-primary rounded-3 shadow-lg m-5 pt-5 pb-2 w-50'>
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

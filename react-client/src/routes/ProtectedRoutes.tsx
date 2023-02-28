@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom'
-import { UserContext } from '../pages/auth/authContext';
-import { UserContextType } from '../pages/auth/types/userContext.type';
+import { UserContext } from '../features/auth/context/authContext';
+import { UserContextType } from '../features/auth/context/types/userContext.type';
 
 const useAuth = () => {
     const { currentUser } = useContext(UserContext) as UserContextType;
