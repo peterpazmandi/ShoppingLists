@@ -31,7 +31,6 @@ const Navbar = () => {
                             {currentUser.username}
                         </a>
                     </span>
-                    <span className="ms-2 me-2">|</span>
                     <button
                         className="navbar-text btn btn-light"
                         onClick={logOutUser}>

@@ -20,7 +20,6 @@ export const ShoppingListProvider: FC<ShoppingListContextProps> = (children: Sho
         getMyShoppingLists(currentUser.token).then(shoppingLists => {
             setIsLoading(false);
             setShoppingLists(shoppingLists);
-            console.log(shoppingLists);
         }, (error) => {
             setIsLoading(false);
         })

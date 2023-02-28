@@ -1,0 +1,17 @@
+.edit-icon {
+    color: gray;
+    cursor: pointer;
+}
+
+.edit-icon:hover {
+    color: #1976D2;
+}
+
+.delete-icon {
+    color: gray;
+    cursor: pointer;
+}
+
+.delete-icon:hover {
+    color: red;
+}
