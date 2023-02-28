@@ -14,7 +14,7 @@ export const UserContext = createContext({});
 export const UserProvider: FC<UserContextProps> = ( children: UserContextProps) => {
     const [isLoading, setIsLoading] = useState(false);
 
-    const [currentUser, setCurrentUser] = useState<User>(
+    const [currentUser, setCurrentUser] = useState<User | null>(
         localStorage.getItem(USER) 
             ? JSON.parse(localStorage.getItem(USER)!) 
             : null);
@@ -28,7 +28,12 @@ export const UserProvider: FC<UserContextProps> = ( children: UserContextProps) 
         }, (error) => {
             return false;
         });
-    }    
+    }
+    
+    const logOut = () => {
+        localStorage.removeItem(USER);
+        setCurrentUser(null);
+    }
 
     const updateCurrentUser = (user: User) => {
         localStorage.setItem(USER, JSON.stringify(user));
@@ -37,8 +42,8 @@ export const UserProvider: FC<UserContextProps> = ( children: UserContextProps) 
 
     return <UserContext.Provider value={{
                 isLoading,
-                login,
-                currentUser, updateCurrentUser }}>
+                login, logOut,
+                currentUser }}>
             {children.children}
         </UserContext.Provider>
 }

@@ -33,41 +33,43 @@ const Login = () => {
     }
     
     return (
-        <div className='border border-4 border-primary rounded-3 shadow-lg m-5 pt-5 pb-2'>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex-column mt-5 mb-2">
-                    <div className="d-flex justify-content-center">
-                        <input
-                            className='form-control w-75'
-                            type="text" 
-                            placeholder="Username"
-                            {...register('username')} />
+        <div className="d-flex justify-content-center">
+            <div className='border border-4 border-primary rounded-3 shadow-lg m-5 pt-5 pb-2 w-50'>
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex-column mt-5 mb-2">
+                        <div className="d-flex justify-content-center">
+                            <input
+                                className='form-control w-75'
+                                type="text" 
+                                placeholder="Username"
+                                {...register('username')} />
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <p className="text-danger">{errors.username?.message}</p>
+                        </div>
                     </div>
-                    <div className="d-flex justify-content-center">
-                        <p className="text-danger">{errors.username?.message}</p>
+                    <div className="flex-column mb-5">
+                        <div className="d-flex justify-content-center">
+                            <input 
+                                className='form-control w-75'
+                                type="password" 
+                                placeholder="Password" 
+                                {...register('password')} />
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <p className="text-danger">{errors.password?.message}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="flex-column mb-5">
-                    <div className="d-flex justify-content-center">
-                        <input 
-                            className='form-control w-75'
-                            type="password" 
-                            placeholder="Password" 
-                            {...register('password')} />
+                    <button
+                        disabled={ isLoading || Object.keys(errors).length > 0}
+                        className='btn btn-primary'
+                        type="submit">{ !isLoading ? "Submit" : "Loading..." }</button>
+                    <div className="flex-column mt-4 mb-3">
+                        <Link to="/register">Register</Link>
                     </div>
-                    <div className="d-flex justify-content-center">
-                        <p className="text-danger">{errors.password?.message}</p>
-                    </div>
-                </div>
-                <button
-                    disabled={ isLoading || Object.keys(errors).length > 0}
-                    className='btn btn-primary'
-                    type="submit">{ !isLoading ? "Submit" : "Loading..." }</button>
-                <div className="flex-column mt-4 mb-3">
-                    <Link to="/register">Register</Link>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

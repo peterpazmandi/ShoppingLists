@@ -1,10 +1,17 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../pages/auth/authContext";
 import { UserContextType } from "../pages/auth/types/userContext.type";
+import { AiOutlineLogout } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const { currentUser } = useContext(UserContext) as UserContextType;
+    const navigate = useNavigate();
+    const { currentUser, logOut } = useContext(UserContext) as UserContextType;
+
+    const logOutUser = () => {
+        logOut();
+        navigate('/login');
+    }
 
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -19,15 +26,17 @@ const Navbar = () => {
                             <a className="nav-link active" aria-current="page" href="/shoppinglists">Home</a>
                         </li>
                     </ul>
-                    <div className="d-flex">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link" href="/profile">
-                                    {currentUser.username}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    <span className="navbar-text">
+                        <a className="nav-link" href="/profile">
+                            {currentUser.username}
+                        </a>
+                    </span>
+                    <span className="ms-2 me-2">|</span>
+                    <span
+                        className="navbar-text"
+                        onClick={logOutUser}>
+                        <AiOutlineLogout />
+                    </span>
                 </div>
             </div>
         </nav>
