@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { sortBy } from "../../../utils/extensions/array.extension";
 import { ShoppingList as ShoppingListEntity } from "../context/entities/shoppinglist.entity";
 import { ShoppingListContext } from "../context/shoppingListContext";
 import { ShoppingListContextType } from "../context/types/shoppingList.type";
@@ -44,13 +45,6 @@ const ShoppingList = () => {
     }
 
     const sortItemByBoughtState = (list: ShoppingListEntity) => {
-        // const items = selectedShoppingList.items.sort((a, b) => {
-        //     if (a.bought === b.bought) {
-        //         return -1;
-        //     }
-        //     return 0;
-        // })
-        // selectedShoppingList.items = items;
         const sortedA = sortBy(selectedShoppingList.items, i => i.bought);
 
         console.log(sortedA);
@@ -78,15 +72,3 @@ const ShoppingList = () => {
 }
 
 export default ShoppingList;
-
-// Source: https://stackoverflow.com/a/73868043/9469090
-function sortBy<T, V>(
-    array: T[],
-    valueExtractor: (t: T) => V,
-    comparator?: (a: V, b: V) => number) {
-
-    // note: this is a flawed default, there should be a case for equality
-    // which should result in 0 for example
-    const c = comparator ?? ((a, b) => a > b ? 1 : -1) 
-    return array.sort((a, b) => c(valueExtractor(a), valueExtractor(b)))
-}
