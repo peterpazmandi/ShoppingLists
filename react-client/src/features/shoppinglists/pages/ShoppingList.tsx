@@ -1,47 +1,44 @@
-import './css/ShoppingList.css'
-import { ShoppingList as ShoppingListEntity} from "../context/entities/shoppinglist.entity";
-import { BsTrashFill, BsFillPencilFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { number } from "yup";
+import { ShoppingListContext } from "../context/shoppingListContext";
+import { ShoppingListContextType } from "../context/types/shoppingList.type";
+import Item from './Item'
 
-interface Props {
-    shoppingList: ShoppingListEntity;
-}
+const ShoppingList = () => {
+    const { id } = useParams();
+    const { shoppingLists, selectedShoppingList, updateSelectedShoppingListById } = useContext(ShoppingListContext) as ShoppingListContextType;
 
-export const ShoppingList = (props: Props) =>{
-    const { shoppingList } = props;
+    useEffect(() => {
+        console.log(shoppingLists);
+        console.log(selectedShoppingList);
+        if (selectedShoppingList === undefined && id !== undefined) {
+            updateSelectedShoppingListById(Number.parseInt(id));
+        }
+    }, [])
 
     return (
-        <div className="border border-1 rounded-3 shadow-lg mb-3 p-3">
-            <div className="row">
-                <div className="col">
-                    <div className="d-flex justify-content-start">
-                        <Link to="/">
-                            <h3>{shoppingList.title}</h3>
-                        </Link>
-                    </div>
-                    <div className="d-flex justify-content-start">
-                        <p>Items: {shoppingList.items.length} / {shoppingList.items.filter((item) => item.bought).length}</p>
-                    </div>
-                </div>
-                <div className="col d-flex align-items-center justify-content-end">
-                    <div className="row">
-                        <div className="col me-5">
-                            <div className="edit-icon">
-                                <span>
-                                    <h1><BsFillPencilFill /></h1>
-                                </span>
-                            </div>
-                        </div>
-                        <div className="col me-5">
-                            <div className="delete-icon">
-                                <span>
-                                    <h1><BsTrashFill/></h1>
-                                </span>
-                            </div>
+        <div>
+            { selectedShoppingList 
+                ? (
+                    <div>
+                        <h1>{selectedShoppingList.title}</h1>
+                        <div>
+                            {
+                                selectedShoppingList.items.map((item) => {
+                                    return <Item key={item.id} item={item}/>
+                                })
+                            }
                         </div>
                     </div>
-                </div>
-            </div>
+                )
+                : (
+                    <div></div>
+                )
+            }
+            
         </div>
     )
 }
+
+export default ShoppingList;

@@ -15,3 +15,11 @@
 .delete-icon:hover {
     color: red;
 }
+
+.title {
+    cursor: pointer;
+}
+.title:hover {
+    color: #1976D2;
+    text-decoration: underline;
+}

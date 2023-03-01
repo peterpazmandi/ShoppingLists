@@ -37,6 +37,20 @@ namespace API.Controllers
             return Ok(_lists);
         }
 
+        [Authorize]
+        [HttpGet("GetShoppingListById")]
+        public async Task<IActionResult> GetShoppingListById(int id)
+        {
+            var shoppingList = await _unitOfWork.ShoppingListRepository.GetByIdAsync(id);
+
+            if(shoppingList is null)
+            {
+                return BadRequest($"Shopping list with Id: {id} not found!");
+            }
+            
+            return Ok(shoppingList);
+        }
+
 
         [Authorize]
         [HttpPost("Create")]

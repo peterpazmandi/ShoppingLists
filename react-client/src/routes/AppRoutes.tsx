@@ -3,6 +3,7 @@ import Login from '../features/auth/pages/Login'
 import Register from '../features/auth/pages/Register'
 import Profile from '../features/profile/pages/Profile'
 import ShoppingLists from '../features/shoppinglists/pages/ShoppingLists'
+import ShoppingList from '../features/shoppinglists/pages/ShoppingList'
 import ProtectedRoutes from './ProtectedRoutes'
 import PublicRoutes from './PublicRoutes'
 
@@ -12,6 +13,7 @@ const AppRoutes = () => (
         <Route path='/' element={<ProtectedRoutes />}>
             <Route path='/' element={<Navigate replace to="shoppinglists" />} />
             <Route path='/shoppinglists' element={<ShoppingLists />} />
+            <Route path='/shoppinglists/:id' element={<ShoppingList />} />
             <Route path='/profile' element={<Profile />} />
         </Route>
 
