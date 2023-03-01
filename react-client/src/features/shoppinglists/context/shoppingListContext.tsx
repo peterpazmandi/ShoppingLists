@@ -29,7 +29,6 @@ export const ShoppingListProvider: FC<ShoppingListContextProps> = (children: Sho
 
     const getSelectedShoppingList = (id: number) => {
         return getShoppingListById(id, currentUser.token).then(shoppingList => {
-            console.log(shoppingList);
             setSelectedShoppingList(shoppingList);
             return true;
         }, error => {

@@ -10,12 +10,11 @@ interface Props {
 }
 
 export const ShoppingListItem = (props: Props) => {
-    const { shoppingLists, setSelectedShoppingList } = useContext(ShoppingListContext) as ShoppingListContextType;
+    const { setSelectedShoppingList } = useContext(ShoppingListContext) as ShoppingListContextType;
     const { shoppingList } = props;
     const navigate = useNavigate();
 
     const openShoppingList = () => {
-        console.log(shoppingList);
         setSelectedShoppingList(shoppingList);
         navigate(`/shoppinglists/${shoppingList.id}`);
     }
