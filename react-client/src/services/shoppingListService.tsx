@@ -5,7 +5,7 @@ import { LoginRequest } from './types/auth/loginRequest';
 import { RegisterRequest } from './types/auth/registerRequest';
 
 const tokenConfig = {
-    headers:{
+    headers: {
         Authorization: ''
     }
   };
@@ -20,5 +20,10 @@ export const login = async (loginRequest: LoginRequest) => {
 
 export const getMyShoppingLists = async(token: string) => {
     tokenConfig.headers.Authorization = `Bearer ${token}`;
-    return (await apiClient.get(`/shoppinglist/getmyshoppinglists`, tokenConfig)).data as ShoppingList[]
+    return (await apiClient.get(`/shoppinglist/getmyshoppinglists`, tokenConfig)).data as ShoppingList[];
+}
+
+export const getShoppingListById = async (id: number, token: string) => {
+    tokenConfig.headers.Authorization = `Bearer ${token}`;
+    return (await apiClient.get(`/shoppinglist/getshoppinglistbyid?id=${id}`, tokenConfig)).data as ShoppingList;
 }

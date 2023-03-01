@@ -6,5 +6,5 @@ export type ShoppingListContextType = {
     selectedShoppingList: ShoppingList;
     getShoppingLists: () => void;
     setSelectedShoppingList: React.Dispatch<React.SetStateAction<ShoppingList | undefined>>;
-    updateSelectedShoppingListById: (id: number) => void;
+    getSelectedShoppingList: (id: number) => Promise<boolean>;
 }

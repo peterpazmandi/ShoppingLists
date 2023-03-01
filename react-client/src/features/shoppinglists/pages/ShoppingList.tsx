@@ -1,26 +1,34 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { number } from "yup";
+import { useContext, useEffect, useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { ShoppingListContext } from "../context/shoppingListContext";
 import { ShoppingListContextType } from "../context/types/shoppingList.type";
 import Item from './Item'
 
 const ShoppingList = () => {
+    const initialized = useRef(false);
     const { id } = useParams();
-    const { shoppingLists, selectedShoppingList, updateSelectedShoppingListById } = useContext(ShoppingListContext) as ShoppingListContextType;
+    const navigate = useNavigate();
+    const { selectedShoppingList, getSelectedShoppingList } = useContext(ShoppingListContext) as ShoppingListContextType;
 
     useEffect(() => {
-        console.log(shoppingLists);
-        console.log(selectedShoppingList);
-        if (selectedShoppingList === undefined && id !== undefined) {
-            updateSelectedShoppingListById(Number.parseInt(id));
+        if(!initialized.current) {
+            initialized.current = true;
+
+            if (selectedShoppingList === undefined && id !== undefined && Number.isInteger(Number(id))) {
+                console.log(id);
+                getSelectedShoppingList(Number.parseInt(id)).then(result => {
+                    if (!result) {
+                        navigate("/");
+                    }
+                });
+            }
         }
     }, [])
 
     return (
         <div>
-            { selectedShoppingList 
-                ? (
+            { selectedShoppingList &&
+                (
                     <div>
                         <h1>{selectedShoppingList.title}</h1>
                         <div>
@@ -31,9 +39,6 @@ const ShoppingList = () => {
                             }
                         </div>
                     </div>
-                )
-                : (
-                    <div></div>
                 )
             }
             

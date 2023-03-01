@@ -1,6 +1,6 @@
 import { createContext, FC, useContext, useState } from "react";
 import { ShoppingList } from "./entities/shoppinglist.entity";
-import { getMyShoppingLists } from '../../../services/shoppingListService'
+import { getMyShoppingLists, getShoppingListById } from '../../../services/shoppingListService'
 import { UserContext } from "../../auth/context/authContext";
 import { UserContextType } from "../../auth/context/types/userContext.type";
 import { ShoppingList as ShoppingListEntity } from "../context/entities/shoppinglist.entity";
@@ -27,18 +27,20 @@ export const ShoppingListProvider: FC<ShoppingListContextProps> = (children: Sho
         })
     }
 
-    const updateSelectedShoppingListById = (id: number) => {
-        console.log(shoppingLists);
-        console.log(shoppingLists.filter((item) => {
-            return item.id !== id
-        }))
-        // setSelectedShoppingList(shoppingLists.find((item) => item.id === id));
+    const getSelectedShoppingList = (id: number) => {
+        return getShoppingListById(id, currentUser.token).then(shoppingList => {
+            console.log(shoppingList);
+            setSelectedShoppingList(shoppingList);
+            return true;
+        }, error => {
+            return false;
+        })
     }
 
     return <ShoppingListContext.Provider value={{
         isLoading,
         shoppingLists, selectedShoppingList,
-        getShoppingLists, setSelectedShoppingList, updateSelectedShoppingListById
+        getShoppingLists, setSelectedShoppingList, getSelectedShoppingList
     }}>
         {children.children}
     </ShoppingListContext.Provider>
