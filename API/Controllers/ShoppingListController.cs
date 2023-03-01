@@ -47,8 +47,14 @@ namespace API.Controllers
             {
                 return BadRequest($"Shopping list with Id: {id} not found!");
             }
-            
-            return Ok(shoppingList);
+
+            var loggedInUser = User.GetUsername();
+            if (shoppingList.Members.Where(m => m.UserName == loggedInUser).Count() == 0)
+            {
+                return BadRequest("You are not member of this shopping list!");
+            }
+
+            return Ok(_mapper.Map<ShoppingListDto>(shoppingList));
         }
 
 
