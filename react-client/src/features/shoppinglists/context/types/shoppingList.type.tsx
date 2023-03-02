@@ -1,3 +1,4 @@
+import { UpdateItemBoughtStateRequest } from "../../../../services/types/item/updateItemBoughtStateRequest";
 import { ShoppingList } from "../entities/shoppinglist.entity";
 
 export type ShoppingListContextType = {
@@ -7,4 +8,5 @@ export type ShoppingListContextType = {
     getShoppingLists: () => void;
     setSelectedShoppingList: React.Dispatch<React.SetStateAction<ShoppingList | undefined>>;
     getSelectedShoppingList: (id: number) => Promise<boolean>;
+    updateBoughtState: (request: UpdateItemBoughtStateRequest) => Promise<boolean>;
 }

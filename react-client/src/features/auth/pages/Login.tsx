@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useContext, useState } from 'react';
 import { UserContextType } from '../context/types/userContext.type';
 import { UserContext } from '../context/authContext';
-import { LoginRequest } from '../context/entities/loginRequest.entity';
+import { LoginEntity } from '../context/entities/login.entity';
 
 const Login = () => {
     const { isLoading, login } = useContext(UserContext) as UserContextType;
@@ -20,11 +20,11 @@ const Login = () => {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm<LoginRequest>({
+    } = useForm<LoginEntity>({
         resolver: yupResolver(formSchema)
     })
 
-    const onSubmit = async (data: LoginRequest) => {
+    const onSubmit = async (data: LoginEntity) => {
         login(data).then(result => {
             if (result) {
                 navigate('/shoppinglists');

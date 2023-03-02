@@ -1,9 +1,11 @@
 import { createContext, FC, useContext, useState } from "react";
 import { ShoppingList } from "./entities/shoppinglist.entity";
-import { getMyShoppingLists, getShoppingListById } from '../../../services/shoppingListService'
+import { getMyShoppingLists, getShoppingListById, updateItemBoughtStateById } from '../../../services/shoppingListService'
 import { UserContext } from "../../auth/context/authContext";
 import { UserContextType } from "../../auth/context/types/userContext.type";
 import { ShoppingList as ShoppingListEntity } from "../context/entities/shoppinglist.entity";
+import { UpdateItemBoughtStateRequest } from "../../../services/types/item/updateItemBoughtStateRequest";
+import { UpdateItemBoughtStateResponse } from "../../../services/types/item/UpdateItemBoughtStateResponse";
 
 type ShoppingListContextProps = {
     children: React.ReactNode;
@@ -36,10 +38,22 @@ export const ShoppingListProvider: FC<ShoppingListContextProps> = (children: Sho
         })
     }
 
+    const updateBoughtState = (request: UpdateItemBoughtStateRequest) => {
+        return updateItemBoughtStateById(request, currentUser.token).then((response: UpdateItemBoughtStateResponse) => {
+            if (response.httpStatusCode === 200) {
+                return true;
+            } else {
+                return false;
+            }
+        }, error => {
+            return false;
+        });
+    }
+
     return <ShoppingListContext.Provider value={{
         isLoading,
         shoppingLists, selectedShoppingList,
-        getShoppingLists, setSelectedShoppingList, getSelectedShoppingList
+        getShoppingLists, setSelectedShoppingList, getSelectedShoppingList, updateBoughtState
     }}>
         {children.children}
     </ShoppingListContext.Provider>

@@ -2,7 +2,7 @@ import { createContext, FC, useState } from "react";
 import { USER } from "../../../utils/globalConsts";
 import { User } from "./entities/user.entity";
 import { login as loginUser } from '../../../services/shoppingListService'
-import { LoginRequest } from "./entities/loginRequest.entity";
+import { LoginRequest } from "../../../services/types/auth/loginRequest";
 
 type UserContextProps = {
     children: React.ReactNode; //👈 children prop typr

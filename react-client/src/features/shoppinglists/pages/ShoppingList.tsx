@@ -5,12 +5,16 @@ import { ShoppingList as ShoppingListEntity } from "../context/entities/shopping
 import { ShoppingListContext } from "../context/shoppingListContext";
 import { ShoppingListContextType } from "../context/types/shoppingList.type";
 import Item from './Item'
+import { toast } from 'react-toastify';
+
+const successToast = (message: string) => toast.success(message);
+const errorToast = (message: string) => toast.error(message);
 
 const ShoppingList = () => {
     const initialized = useRef(false);
     const { id } = useParams();
     const navigate = useNavigate();
-    const { selectedShoppingList, setSelectedShoppingList, getSelectedShoppingList } = useContext(ShoppingListContext) as ShoppingListContextType;
+    const { selectedShoppingList, setSelectedShoppingList, getSelectedShoppingList, updateBoughtState } = useContext(ShoppingListContext) as ShoppingListContextType;
 
     useEffect(() => {
         if(!initialized.current) {
@@ -31,17 +35,26 @@ const ShoppingList = () => {
     }, [selectedShoppingList])
     
     const setItemBoughtState = (id: number, bought: boolean) => {
-        const item = selectedShoppingList.items.find(i => i.id === id);
-        item!.bought = bought;
-        const newList = {
-            id: selectedShoppingList.id,
-            title: selectedShoppingList.title,
-            items: selectedShoppingList.items,
-            modified: selectedShoppingList.modified,
-            members: selectedShoppingList.members
-        } as ShoppingListEntity;
-        sortItemByBoughtState(newList);
-        setSelectedShoppingList(newList);
+        updateBoughtState( { itemId: id, bought: bought }).then(response => {
+            if (response) {
+                const item = selectedShoppingList.items.find(i => i.id === id);
+                const message = `${item!.name}: Updated succefully!`;
+                successToast(message);
+
+                item!.bought = bought;
+                const newList = {
+                    id: selectedShoppingList.id,
+                    title: selectedShoppingList.title,
+                    items: selectedShoppingList.items,
+                    modified: selectedShoppingList.modified,
+                    members: selectedShoppingList.members
+                } as ShoppingListEntity;
+                sortItemByBoughtState(newList);
+                setSelectedShoppingList(newList);
+            } else {
+                errorToast('Failed to update item!');
+            }
+        });
     }
 
     const sortItemByBoughtState = (list: ShoppingListEntity) => {
