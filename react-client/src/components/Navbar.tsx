@@ -2,15 +2,21 @@ import { useContext } from "react";
 import { UserContext } from "../features/auth/context/authContext";
 import { UserContextType } from "../features/auth/context/types/userContext.type";
 import { AiOutlineLogout } from 'react-icons/ai';
-import { useNavigate } from "react-router-dom";
+import { FaPlusCircle } from 'react-icons/fa';
+import { useNavigate, useLocation } from "react-router-dom";
 import { ShoppingListContext } from "../features/shoppinglists/context/shoppingListContext";
 import { BsFillPencilFill, BsTrashFill } from 'react-icons/bs'
 import { ShoppingListContextType } from "../features/shoppinglists/context/types/shoppingList.type";
+import { ModalContext } from "./modal/context/modalContext";
+import { ModalContextType } from "./modal/type/modelContext.type";
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    
     const { currentUser, logOut } = useContext(UserContext) as UserContextType;
     const { selectedShoppingList } = useContext(ShoppingListContext) as ShoppingListContextType;
+    const { createShoppingList } = useContext(ModalContext) as ModalContextType;
 
     const logOutUser = () => {
         logOut();
@@ -37,6 +43,17 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" href="/shoppinglists"><BsTrashFill /> Delete</a>
+                            </li>
+                        </ul>
+                    }
+                    { location.pathname === "/shoppinglists" &&
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <button 
+                                    className="nav-link btn btn-light"
+                                    onClick={createShoppingList}>
+                                    <FaPlusCircle /> Create
+                                </button>
                             </li>
                         </ul>
                     }

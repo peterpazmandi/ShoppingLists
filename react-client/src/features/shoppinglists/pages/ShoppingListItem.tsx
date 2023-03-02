@@ -20,6 +20,10 @@ export const ShoppingListItem = (props: Props) => {
         navigate(`/shoppinglists/${shoppingList.id}`);
     }
 
+    const isShoppingListDone = () => {
+        return shoppingList.items.filter(i => i.bought).length === shoppingList.items.length
+    }
+
     return (
         <div className="border border-1 rounded-3 shadow-lg mb-3 p-3">
             <div className="row">
@@ -35,13 +39,13 @@ export const ShoppingListItem = (props: Props) => {
                     <div>
                     </div>
                 </div>
-                { shoppingList.items.filter(i => i.bought).length === shoppingList.items.length &&
+                { isShoppingListDone() &&
                     <div className="col d-flex justify-content-end">
-                    <div className="done-icon">
-                        <span>
-                            <TiInputChecked size={68} color="lightgreen" />
-                        </span>
-                    </div>
+                        <div className="done-icon">
+                            <span>
+                                <TiInputChecked size={68} color="lightgreen" />
+                            </span>
+                        </div>
                     </div>
                 }
             </div>
